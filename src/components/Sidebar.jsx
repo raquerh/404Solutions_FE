@@ -13,12 +13,12 @@ function Sidebar() {
   const isActive = (path) => location.pathname === path;
 
   const menuItems = [
-    { path: '/', icon: '🏠', label: 'Dashboard' },
-    { path: '/bitacora', icon: '📋', label: 'Bitácora' },
-    { path: '/json-explorer', icon: '🔍', label: 'Explorador JSON' },
-    { path: '/api-data', icon: '🎵', label: 'Música' },
-    { path: '/gallery', icon: '🖼️', label: 'Galería' },
-    { path: '/component-tree', icon: '🌳', label: 'Árbol de Componentes' },
+    { path: '/', icon: '⚡', label: 'Dashboard' },
+    { path: '/bitacora', icon: '📌', label: 'Bitácora' },
+    { path: '/json-explorer', icon: '🗃️', label: 'Explorador JSON' },
+    { path: '/api-data', icon: '🎧', label: 'Música' },
+    { path: '/gallery', icon: '📸', label: 'Galería' },
+    { path: '/component-tree', icon: '🧩', label: 'Árbol de Componentes' },
   ];
 
   const teamMembers = [
