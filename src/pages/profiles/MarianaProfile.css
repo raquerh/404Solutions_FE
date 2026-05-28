@@ -172,6 +172,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-bottom: 2rem;
 }
 
 .texto-corto {
@@ -326,16 +327,16 @@
 }
 
 /* Discos */
-.discos-favoritos {
+.mariana-secciones .discos-favoritos {
   display: grid;
   grid-template-columns: 1fr;
   gap: 15px;
   margin-top: 30px;
 }
 
-.disco-item {
-  display: grid;
-  grid-template-rows: auto 1fr;
+.mariana-secciones .disco-item {
+  display: flex;
+  flex-direction: column;
   background: rgba(16, 16, 28, 0.4);
   border: 1px solid rgba(0, 255, 65, 0.15);
   border-radius: 8px;
@@ -344,13 +345,13 @@
   min-width: 0;
 }
 
-.disco-item:hover {
+.mariana-secciones .disco-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 255, 65, 0.15);
   border-color: rgba(0, 255, 65, 0.4);
 }
 
-.disco-info {
+.mariana-secciones .disco-info {
   padding: 12px;
   display: flex;
   flex-direction: column;
@@ -358,35 +359,35 @@
   text-align: center;
 }
 
-.disco-album {
+.mariana-secciones .disco-album {
   color: var(--text-accent);
   font-size: 1rem;
   font-weight: bold;
   margin: 0 0 5px 0;
 }
 
-.disco-meta {
+.mariana-secciones .disco-meta {
   display: flex;
   justify-content: center;
   gap: 6px;
   margin-bottom: 12px;
 }
 
-.disco-autor,
-.disco-year {
+.mariana-secciones .disco-autor,
+.mariana-secciones .disco-year {
   color: var(--terminal-green);
   font-size: 0.8rem;
   font-weight: bold;
 }
 
-.disco-desc {
+.mariana-secciones .disco-desc {
   color: var(--color-texto-mutado);
   font-size: 0.75rem;
   line-height: 1.4;
   margin: 0;
 }
 
-.disco-img-container {
+.mariana-secciones .disco-img-container {
   position: relative;
   display: block;
   width: 100%;
@@ -395,7 +396,7 @@
   border-top: 1px solid rgba(0, 255, 65, 0.2);
 }
 
-.disco-img-container img {
+.mariana-secciones .disco-img-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -403,11 +404,11 @@
   transition: transform 300ms ease-in-out;
 }
 
-.disco-item:hover .disco-img-container img {
+.mariana-secciones .disco-item:hover .disco-img-container img {
   transform: scale(1.05);
 }
 
-.reproducir-texto {
+.mariana-secciones .reproducir-texto {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -423,7 +424,7 @@
   transition: all 250ms ease-in-out;
 }
 
-.disco-item:hover .reproducir-texto {
+.mariana-secciones .disco-item:hover .reproducir-texto {
   visibility: visible;
   opacity: 1;
 }
@@ -456,20 +457,15 @@
     gap: 15px 40px;
   }
 
-  .discos-favoritos {
+  .mariana-secciones .discos-favoritos {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 15px;
   }
 }
 
 @media (min-width: 768px) {
   .mariana-secciones {
     padding: 50px 60px !important;
-  }
-
-  .discos-favoritos {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
   }
 
   .skills-terminal {
@@ -520,22 +516,22 @@
     justify-content: flex-start;
   }
 
-  .discos-favoritos {
+  .mariana-secciones .discos-favoritos {
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
   }
 
-  .disco-info {
+  .mariana-secciones .disco-info {
     text-align: left;
   }
 
-  .disco-meta {
+  .mariana-secciones .disco-meta {
     justify-content: flex-start;
   }
 }
 
 @media (min-width: 1200px) {
-  .discos-favoritos {
+  .mariana-secciones .discos-favoritos {
     gap: 20px;
   }
 }
@@ -543,10 +539,6 @@
 /* ===== SKILLS BARS ===== */
 .skills-bars {
   margin-top: 1.5rem;
-}
-
-.skills-category {
-  margin-bottom: 2rem;
 }
 
 /* ===== TECH ICONS SECTION ===== */
@@ -566,7 +558,7 @@
 
 .tech-icons {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   justify-items: center;
 }
@@ -689,7 +681,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .tech-icons {
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
   }
 

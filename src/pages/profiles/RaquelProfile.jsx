@@ -45,21 +45,24 @@ function RaquelProfile() {
       year: "1984 · SCI-FI / ACCIÓN",
       description: "La película que definió el género de ciencia ficción oscura de los 80. James Cameron creó una visión aterradora del futuro donde las máquinas dominan. Explora el miedo a la tecnología descontrolada y el poder de la resistencia humana. Pura tensión y atmósfera cyberpunk.",
       director: "Dir. James Cameron",
-      trailer: "https://www.youtube.com/watch?v=k64P4l2Wmeg"
+      trailer: "https://www.youtube.com/watch?v=k64P4l2Wmeg",
+      poster: "/img/peliculas-raquel/terminator.jpg"
     },
     {
       title: "Ghost in the Shell",
       year: "1995 · ANIME / SCI-FI",
       description: "Un clásico del anime cyberpunk que explora la fusión entre humano y máquina. Mamoru Oshii crea una narrativa filosófica sobre consciencia y tecnología que sigue siendo relevante décadas después. Influenció toda una generación de ciencia ficción.",
       director: "Dir. Mamoru Oshii",
-      trailer: "https://www.youtube.com/watch?v=SvBVDibOrgs"
+      trailer: "https://www.youtube.com/watch?v=SvBVDibOrgs",
+      poster: "/img/peliculas-raquel/ghost_in_the_shell.jpg"
     },
     {
       title: "The Matrix",
       year: "1999 · SCI-FI / ACCIÓN",
       description: "Revolucionó el cine de ciencia ficción con su propuesta visual y filosófica. La pregunta sobre qué es real y qué es simulación nunca fue tan relevante como ahora. Un film que cambió la forma de hacer y pensar el cine de acción.",
       director: "Dir. Lana y Lilly Wachowski",
-      trailer: "https://www.youtube.com/watch?v=vKQi3bBA1y8"
+      trailer: "https://www.youtube.com/watch?v=vKQi3bBA1y8",
+      poster: "/img/peliculas-raquel/matrix.jpg"
     }
   ];
 
@@ -223,6 +226,9 @@ function RaquelProfile() {
             <div className="movies-grid">
               {movies.map((movie, index) => (
                 <article key={index} className="movie-card">
+                  <div className="movie-poster">
+                    <img src={movie.poster} alt={`Poster de ${movie.title}`} />
+                  </div>
                   <span className="movie-rank">{String(index + 1).padStart(2, '0')}</span>
                   <div className="movie-info">
                     <span className="movie-year">{movie.year}</span>

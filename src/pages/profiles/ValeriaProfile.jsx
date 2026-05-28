@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import SkillBar from '../../components/SkillBar';
+import { useState, useEffect, useRef } from 'react';
 import './ProfileCommon.css';
 import './ValeriaProfile.css';
 
@@ -15,6 +14,8 @@ function ValeriaProfile() {
   const [expandedMovies, setExpandedMovies] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(() => getItemsPerView());
+  const [containerWidth, setContainerWidth] = useState(0);
+  const carruselRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -25,6 +26,15 @@ function ValeriaProfile() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    if (!carruselRef.current) return;
+    const observer = new ResizeObserver(entries => {
+      setContainerWidth(entries[0].contentRect.width);
+    });
+    observer.observe(carruselRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const toggleMovie = (index) => {
     setExpandedMovies(prev => ({
       ...prev,
@@ -33,16 +43,18 @@ function ValeriaProfile() {
   };
 
   const nextSlide = () => {
-    if (currentIndex < albums.length - itemsPerView) {
-      setCurrentIndex(currentIndex + 1);
-    }
+    setCurrentIndex(prev =>
+      prev >= albums.length - itemsPerView ? 0 : prev + 1
+    );
   };
 
   const prevSlide = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
+    setCurrentIndex(prev =>
+      prev <= 0 ? albums.length - itemsPerView : prev - 1
+    );
   };
+
+  const slideOffset = currentIndex * (containerWidth / itemsPerView);
 
   const movies = [
     {
@@ -86,7 +98,7 @@ function ValeriaProfile() {
           <span className="title">user_profile.sh</span>
         </div>
 
-        <div className="profile-content">
+        <div className="profile-content valeria-content">
           <div className="profile-header-flex">
             <div className="profile-image">
               <img src="/img/img-valeria/avatar_vale.png" alt="avatar estilo steam punk retro" title="avatar de mujer estilo steampunk retro" className="avatar-img" />
@@ -109,61 +121,22 @@ function ValeriaProfile() {
               construyo soluciones que tengan un impacto real y atractivo.
             </p>
 
-            <div className="social-links-valeria">
-              <a href="https://github.com/usuario-valeria" target="_blank" rel="noopener noreferrer" className="nav-button">GitHub</a>
-              <a href="https://www.linkedin.com/in/usuario-valeria" target="_blank" rel="noopener noreferrer" className="nav-button">LinkedIn</a>
-            </div>
-
-            <h2>Tech Stack_</h2>
-            <div className="tech-icons-valeria">
-              <div className="tech-icon-valeria" title="HTML5">
-                <i className="devicon-html5-plain colored"></i>
-                <span>HTML5</span>
-              </div>
-              <div className="tech-icon-valeria" title="CSS3">
-                <i className="devicon-css3-plain colored"></i>
-                <span>CSS3</span>
-              </div>
-              <div className="tech-icon-valeria" title="JavaScript">
-                <i className="devicon-javascript-plain colored"></i>
-                <span>JavaScript</span>
-              </div>
-              <div className="tech-icon-valeria" title="React">
-                <i className="devicon-react-original colored"></i>
-                <span>React</span>
-              </div>
-              <div className="tech-icon-valeria" title="Node.js">
-                <i className="devicon-nodejs-plain colored"></i>
-                <span>Node.js</span>
-              </div>
-              <div className="tech-icon-valeria" title="Java">
-                <i className="devicon-java-plain colored"></i>
-                <span>Java</span>
-              </div>
-              <div className="tech-icon-valeria" title="Git">
-                <i className="devicon-git-plain colored"></i>
-                <span>Git</span>
-              </div>
-            </div>
-
             <h2>Habilidades_</h2>
-            <div className="skills-bars-valeria">
-              <SkillBar skill="HTML / CSS3" level={80} delay={100} />
-              <SkillBar skill="JavaScript" level={70} delay={200} />
-              <SkillBar skill="React / Node.js" level={65} delay={300} />
-              <SkillBar skill="Java / Kotlin" level={55} delay={400} />
-              <SkillBar skill="SQL & Bases de Datos" level={60} delay={500} />
-              <SkillBar skill="Git & Workflows" level={75} delay={600} />
-            </div>
+            <ul className="skills">
+              <li>HTML / CSS3 / JS</li>
+              <li>REACT / NODEJS</li>
+              <li>JAVA / KOTLIN</li>
+              <li>SQL &amp; Databases</li>
+              <li>Git &amp; Workflows</li>
+            </ul>
 
             <section className="media-section">
               <h2>Películas Favoritas_</h2>
               {movies.map((movie, index) => (
                 <div key={index} className="contenedor-peliculas">
-                  <iframe 
+                  <iframe
                     src={`https://www.youtube.com/embed/${movie.videoId}`}
                     title="YouTube video player"
-                    style={{ border: 'none' }}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
@@ -187,21 +160,20 @@ function ValeriaProfile() {
 
             <section className="media-section">
               <h2>Discos Favoritos_</h2>
-              <div className="carrusel-container">
-                <button 
-                  className="carrusel-btn prev" 
+              <div ref={carruselRef} className="carrusel-container">
+                <button
+                  className="carrusel-btn prev"
                   aria-label="Anterior"
                   onClick={prevSlide}
-                  disabled={currentIndex === 0}
                 >
                   &lt;
                 </button>
-                <div className="discos-favoritos" style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView + 1.5)}%)` }}>
+                <div className="discos-favoritos" style={{ transform: `translateX(-${slideOffset}px)` }}>
                   {albums.map((album, index) => (
                     <figure key={index} className="disco-item">
                       <img src={album.img} alt={`Portada disco ${album.title} - ${album.artist}`} />
                       <figcaption>
-                        {album.title}
+                        <span>{album.title}</span>
                         <a href={album.url} target="_blank" rel="noopener noreferrer" aria-label={`Escuchar ${album.title} en YouTube`}>▶</a>
                       </figcaption>
                     </figure>
@@ -211,7 +183,6 @@ function ValeriaProfile() {
                   className="carrusel-btn next" 
                   aria-label="Siguiente"
                   onClick={nextSlide}
-                  disabled={currentIndex >= albums.length - itemsPerView}
                 >
                   &gt;
                 </button>

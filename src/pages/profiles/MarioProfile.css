@@ -4,9 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   justify-content: center;
-  align-items: center;
+  padding: 20px;
 }
 
 .contenedor-nav ul {
@@ -198,13 +197,13 @@
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
 }
 
-figcaption {
+.mario-content figcaption {
   margin-top: 1rem;
   font-size: 0.85rem;
   color: var(--text-accent);
 }
 
-figcaption a {
+.mario-content figcaption a {
   color: var(--text-accent);
   text-decoration: none;
   margin-left: 0.4rem;
@@ -215,7 +214,7 @@ figcaption a {
   vertical-align: top;
 }
 
-figcaption a:hover {
+.mario-content figcaption a:hover {
   background: var(--text-accent);
   color: var(--bg-color);
 }
@@ -229,11 +228,11 @@ figcaption a:hover {
   }
 }
 
-.tarjeta {
+.mario-content .tarjeta {
   margin: 20px;
 }
 
-.tarjeta p {
+.mario-content .tarjeta p {
   text-indent: 20px;
   margin-top: 20px;
   text-align: justify;
@@ -267,9 +266,9 @@ figcaption a:hover {
   filter: grayscale(100%);
 }
 
-.contenedor-peliculas {
+.mario-content .contenedor-peliculas {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 40% 60%;
   border-radius: 10px;
   border: solid 1px whitesmoke;
   margin: 20px;
@@ -277,17 +276,18 @@ figcaption a:hover {
   overflow: hidden;
 }
 
-.contenedor-peliculas:hover {
+.mario-content .contenedor-peliculas:hover {
   background-color: rgb(19, 19, 19);
   border-radius: 10px;
 }
 
-.description-peliculas {
+.mario-content .description-peliculas {
   color: var(--text-accent);
-  font-size: small;
+  font-size: 0.75rem;
+  line-height: 1.5;
 }
 
-iframe {
+.mario-content iframe {
   display: flex;
   flex-wrap: wrap;
   width: 85%;
@@ -296,35 +296,7 @@ iframe {
   margin: 20px;
 }
 
-.discos-favoritos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 15px;
-}
-
-.discos-favoritos img {
-  width: 200px;
-  height: 200px;
-}
-
-.parrafo-resumido {
-  max-height: 60px;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.parrafo-completo {
-  max-height: 1000px;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.contenedor {
-  max-width: 600px;
-}
-
-.btn-leer {
+.mario-content .btn-leer {
   background-color: transparent;
   height: 40px;
   width: 100%;
@@ -335,13 +307,44 @@ iframe {
   border: solid 1px red;
   border-radius: 5px;
   cursor: pointer;
+  font-family: inherit;
 }
 
-.btn-leer:hover {
+.mario-content .btn-leer:hover {
   background: var(--text-accent);
   color: var(--terminal-red);
   font-weight: bold;
 }
+
+.mario-content .contenedor {
+  max-width: 600px;
+}
+
+.mario-content .discos-favoritos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 15px;
+  width: 100%;
+}
+
+.mario-content .discos-favoritos img {
+  width: 200px;
+  height: 200px;
+}
+
+.mario-content .parrafo-resumido {
+  max-height: 60px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.mario-content .parrafo-completo {
+  max-height: 1000px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
 
 .skills-bars-mario {
   width: 100%;
@@ -434,11 +437,11 @@ iframe {
     height: 50px;
   }
 
-  .contenedor-peliculas {
+  .mario-content .contenedor-peliculas {
     grid-template-columns: 1fr;
   }
 
-  .contenedor-peliculas iframe {
+  .mario-content .contenedor-peliculas iframe {
     order: -1;
   }
 

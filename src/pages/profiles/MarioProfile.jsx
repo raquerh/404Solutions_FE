@@ -90,7 +90,7 @@ function MarioProfile() {
           <span className="title">user_profile.sh</span>
         </div>
 
-        <div className="profile-content">
+        <div className="profile-content mario-content">
           <h2 id="sobre-mi">Sobre Mí_</h2>
           <div className="dos-columnas">
             <div className="profile-image-mario">

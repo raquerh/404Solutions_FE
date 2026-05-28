@@ -74,13 +74,6 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.profile-content {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 30px;
-  gap: 30px;
-}
-
 .profile-image img {
   width: 200px;
   height: 200px;
@@ -105,10 +98,23 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin: 1rem 0;
 }
 
 .skills li::before {
   content: "> ";
+}
+
+.parrafo-resumido {
+  max-height: calc(1.6em * 3);
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.parrafo-completo {
+  max-height: 62.5rem;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
 }
 
 /* Ajuste Responsivo para la Tarjeta */

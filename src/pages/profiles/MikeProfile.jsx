@@ -70,7 +70,7 @@ function MikeProfile() {
           <span className="title">user_profile.sh</span>
         </div>
 
-        <div className="profile-content">
+        <div className="profile-content mike-content">
           <div className="profile-header-flex">
             <div className="profile-image">
               <img src="/img/avatar_mike.png" alt="avatar 3D de Miguel Ángel de las Tortugas Ninja haciendo un gesto de pulgar arriba y guiñando un ojo." />
