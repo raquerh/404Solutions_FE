@@ -22,7 +22,7 @@ function Footer() {
       </div>
       <div className="footer-redes">
         <a
-          href="https://github.com/IFTS29/404_Solutions_TP1_FrontEnd"
+          href="https://github.com/IFTS29/404_Solutions_TP2_FrontEnd"
           target="_blank"
           rel="noopener noreferrer"
           className="enlace-repo"
