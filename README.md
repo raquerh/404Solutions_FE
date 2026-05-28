@@ -73,13 +73,14 @@ tp2/
 │   │   ├── discos-raquel/
 │   │   ├── img-valeria/
 │   │   ├── peliculas-mariana/
+│   │   ├── peliculas-raquel/
 │   │   └── ...
 │   └── logo404solution.ico
 ├── src/
 │   ├── components/             # Componentes reutilizables
-│   │   ├── Sidebar.jsx        # ⭐ Navegación Dashboard (NUEVO)
+│   │   ├── Sidebar.jsx        # Navegación Dashboard
 │   │   ├── Sidebar.css
-│   │   ├── Header.jsx         # Header original (legacy)
+│   │   ├── Header.jsx
 │   │   ├── Header.css
 │   │   ├── Footer.jsx         # Pie de página
 │   │   ├── Footer.css
@@ -87,6 +88,8 @@ tp2/
 │   │   ├── HeroSection.css
 │   │   ├── TeamList.jsx       # Grilla de integrantes
 │   │   ├── TeamList.css
+│   │   ├── SkillBar.jsx       # Barra de progreso animada reutilizable
+│   │   ├── SkillBar.css
 │   │   └── ScrollToTop.jsx    # Scroll automático en navegación
 │   ├── pages/                  # Páginas/Vistas
 │   │   ├── Home.jsx           # Dashboard principal
@@ -116,13 +119,11 @@ tp2/
 │   │   └── global.css         # Estilos globales y variables CSS
 │   ├── App.jsx                # Componente raíz con Router
 │   └── main.jsx               # Punto de entrada de la aplicación
-├── original/                   # Código HTML/CSS/JS del TP1 (respaldo)
 ├── .gitignore
 ├── eslint.config.js           # Configuración de ESLint
 ├── index.html                 # HTML base
 ├── package.json               # Dependencias y scripts
 ├── vite.config.js             # Configuración de Vite
-├── ANALISIS_TP2.md           # Análisis detallado del proyecto
 └── README.md                  # Este archivo
 ```
 
@@ -134,11 +135,10 @@ tp2/
 | Color | Hexadecimal | Uso |
 |-------|-------------|-----|
 | **Verde Terminal** | `#00ff41` | Texto principal, acentos, bordes activos |
-| **Verde Oscuro** | `#003b00` | Fondos hover, estados activos |
 | **Negro Profundo** | `#0a0a0a` | Fondo principal de la aplicación |
 | **Gris Oscuro** | `#1a1a1a` | Fondos de tarjetas y contenedores |
 | **Blanco** | `#ffffff` | Texto secundario, títulos |
-| **Rojo** | `#ff5555` | Indicadores de error, badges |
+| **Rojo** | `#ff0000` | Acentos del perfil de Mario, bordes |
 | **Amarillo** | `#ffff00` | Alertas, estados en progreso |
 | **Cyan** | `#4ecdc4` | Badges de layout, acentos secundarios |
 
@@ -698,7 +698,7 @@ const [menuOpen, setMenuOpen] = useState(false);
 - **Proveedor:** GitHub (powered by OpenAI)
 - **Uso principal:** Autocompletado de código, sugerencias de funciones
 
-#### 3. **Claude (Sonnet 4.5)**
+#### 3. **Claude (Sonnet 4.6)**
 - **Proveedor:** Anthropic
 - **Uso principal:** Análisis de código, refactoring, documentación
 
@@ -1013,10 +1013,10 @@ Buscador con filtrado instantáneo sobre 20 proyectos. Muestra contador de resul
 Consumo de iTunes Search API con buscador de música, portadas de álbum, preview de audio de 30 segundos, spinner de carga, manejo de error con botón reintentar, y paginación de 8 canciones por página con indicador "Página X de Y".
 
 ### Galería con Lightbox
-Grid responsivo de 18+ imágenes. Click en cualquiera abre un modal fullscreen con navegación mediante flechas del teclado y cierre con ESC.
+Grid responsivo de 10 imágenes. Click en cualquiera abre un modal fullscreen con navegación mediante flechas del teclado y cierre con ESC.
 
 ### Perfil Individual
-Cada perfil muestra: datos personales, barras de progreso animadas de habilidades, iconos de tech stack con efectos hover, carrusel de películas interactivo y sección de discos favoritos.
+Cada perfil muestra: datos personales, habilidades técnicas, películas y discos favoritos con interactividad propia de cada integrante. Mario y Mariana incluyen barras de progreso animadas (SkillBar); Mike y Raquel usan barras XP con CSS animations propias; Valeria presenta lista de habilidades, películas con expand/collapse y carrusel circular de discos.
 
 ---
 
