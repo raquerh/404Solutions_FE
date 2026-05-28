@@ -1,18 +1,47 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SkillBar from '../../components/SkillBar';
 import './ProfileCommon.css';
 import './ValeriaProfile.css';
 
+function getItemsPerView() {
+  if (window.innerWidth < 600) return 1;
+  if (window.innerWidth < 900) return 2;
+  if (window.innerWidth < 1200) return 3;
+  return 5;
+}
+
 function ValeriaProfile() {
   const [expandedMovies, setExpandedMovies] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsPerView, setItemsPerView] = useState(() => getItemsPerView());
+
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerView(getItemsPerView());
+      setCurrentIndex(0);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const toggleMovie = (index) => {
     setExpandedMovies(prev => ({
       ...prev,
       [index]: !prev[index]
     }));
+  };
+
+  const nextSlide = () => {
+    if (currentIndex < albums.length - itemsPerView) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  const prevSlide = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
   };
 
   const movies = [
@@ -46,28 +75,6 @@ function ValeriaProfile() {
     { title: "OK Computer", artist: "RadioHead", img: "/img/img-valeria/Ok-Computer-768x432.jpg", url: "https://www.youtube.com/watch?v=BxDciewLqAU&list=OLAK5uy_mJxHiRiLtU_LZlY8fY9vqkuQytX6wFY6Y" },
     { title: "Press Start", artist: "8bit Big Band", img: "/img/img-valeria/8bitBand.jpg", url: "https://www.youtube.com/watch?v=dNB0XgQaSNM" }
   ];
-
-  const getItemsPerView = () => {
-    if (typeof window === 'undefined') return 2;
-    if (window.innerWidth < 600) return 1;
-    if (window.innerWidth < 900) return 2;
-    if (window.innerWidth < 1200) return 3;
-    return 5;
-  };
-
-  const itemsPerView = getItemsPerView();
-
-  const nextSlide = () => {
-    if (currentIndex < albums.length - itemsPerView) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
-  const prevSlide = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
 
   return (
     <main className="profile-main">
@@ -156,7 +163,7 @@ function ValeriaProfile() {
                   <iframe 
                     src={`https://www.youtube.com/embed/${movie.videoId}`}
                     title="YouTube video player"
-                    frameBorder="0"
+                    style={{ border: 'none' }}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen

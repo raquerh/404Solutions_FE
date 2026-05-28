@@ -3,7 +3,7 @@
 ## 🎉 Resumen Ejecutivo
 
 **Estado del Proyecto:** ✅ **COMPLETADO AL 100%**  
-**Fecha de finalización:** 27 de Mayo de 2026  
+**Fecha de finalización:** 28 de Mayo de 2026  
 **Tiempo restante para entrega:** 5 días
 
 ---
@@ -103,18 +103,23 @@
 - `src/pages/ApiData.jsx`
 - `src/pages/ApiData.css`
 
+**API utilizada:** iTunes Search API (gratuita, sin API key)
+
 **Funcionalidades implementadas:**
-- ✅ Consumo asíncrono de API pública (JSONPlaceholder)
+- ✅ Consumo asíncrono de iTunes Search API
+- ✅ Buscador de música en tiempo real (artista, canción, álbum)
+- ✅ Portadas de álbum 300x300px en cada tarjeta
+- ✅ Preview de audio 30 segundos (botón ▶/⏹, una canción a la vez)
+- ✅ Cleanup de audio al navegar a otra página
 - ✅ **Manejo de estados:** loading, error, success
-- ✅ **Sistema de paginación** (6 items por página)
+- ✅ **Sistema de paginación** (8 items por página, grilla 4x2)
 - ✅ Botones Anterior/Siguiente
-- ✅ **Indicador de posición actual** ("Página 2 de 3")
-- ✅ Contador de items mostrados
+- ✅ **Indicador de posición actual** ("Página 2 de 7")
+- ✅ Contador de canciones mostradas
 - ✅ Números de página clickeables
 - ✅ Disable inteligente de botones
 - ✅ Spinner de carga
-- ✅ Pantalla de error con botón de reintentar
-- ✅ Diseño de tarjetas con información completa
+- ✅ Pantalla de error con botón de reintentar funcional (retryCount)
 
 ---
 
@@ -125,6 +130,11 @@
 - `src/pages/Gallery.jsx`
 - `src/pages/Gallery.css`
 
+**Contenido:** 10 imágenes del proyecto en 3 categorías:
+- Equipo (6): avatares de los 5 integrantes + mascota Mario 64
+- Películas (3): posters de películas favoritas
+- Arte (1): fondo artístico de Valeria
+
 **Funcionalidades implementadas:**
 - ✅ Visualizador tipo Grid (responsive)
 - ✅ **Lightbox integrado** (modal fullscreen)
@@ -133,7 +143,7 @@
 - ✅ **Cierre con tecla ESC**
 - ✅ Cierre con click fuera de la imagen
 - ✅ Navegación con flechas del teclado (← →)
-- ✅ Contador de posición ("5 / 18")
+- ✅ Contador de posición ("5 / 10")
 - ✅ Información de imagen (título, categoría)
 - ✅ Prevención de scroll del body
 - ✅ Animaciones de apertura/cierre (zoom, fade)
@@ -451,6 +461,6 @@ npm run dev
 
 ---
 
-**Fecha de finalización:** 27 de Mayo de 2026  
+**Fecha de finalización:** 28 de Mayo de 2026  
 **Desarrollado por:** Equipo 404 Solutions  
 **Asistido por:** Kiro AI (Claude Sonnet 4.5)

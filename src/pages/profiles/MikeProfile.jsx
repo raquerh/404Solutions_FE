@@ -273,7 +273,7 @@ function MikeProfile() {
                 <iframe 
                   src={`https://www.youtube.com/embed/${movie.videoId}`}
                   title={`${movie.title} Official Trailer`}
-                  frameBorder="0"
+                  style={{ border: 'none' }}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen

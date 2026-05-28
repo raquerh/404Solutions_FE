@@ -8,112 +8,64 @@ function Gallery() {
   const images = [
     {
       id: 1,
-      src: '/img/discos-mariana/GunsRoses.jpg',
-      title: "Guns N' Roses - Greatest Hits",
-      category: 'Música'
+      src: '/img/avatar_mariana3.jpg',
+      title: 'Mariana Aiello',
+      category: 'Equipo'
     },
     {
       id: 2,
-      src: '/img/discos-mariana/Queen.jpg',
-      title: 'Queen - Greatest Hits',
-      category: 'Música'
+      src: '/img/mario.png',
+      title: 'Mario González',
+      category: 'Equipo'
     },
     {
       id: 3,
-      src: '/img/discos-mariana/PinkFloyd.svg',
-      title: 'Pink Floyd - The Wall',
-      category: 'Música'
+      src: '/img/avatar_mike.png',
+      title: 'Mike Flores',
+      category: 'Equipo'
     },
     {
       id: 4,
-      src: '/img/discos-mario/californication.jpg',
-      title: 'Red Hot Chili Peppers - Californication',
-      category: 'Música'
+      src: '/img/perfil-raq.png',
+      title: 'Raquel Rodríguez',
+      category: 'Equipo'
     },
     {
       id: 5,
-      src: '/img/discos-mario/linkin_park_hybrid_theory.png',
-      title: 'Linkin Park - Hybrid Theory',
-      category: 'Música'
+      src: '/img/img-valeria/avatar_vale.png',
+      title: 'Valeria Thomas',
+      category: 'Equipo'
     },
     {
       id: 6,
-      src: '/img/discos-mario/daft_punk_discovery.jpg',
-      title: 'Daft Punk - Discovery',
-      category: 'Música'
+      src: '/img/super-mario64.png',
+      title: 'Mario - Mascota del equipo',
+      category: 'Equipo'
     },
     {
       id: 7,
-      src: '/img/discos-mike/alta_suciedad.jpg',
-      title: 'Andrés Calamaro - Alta Suciedad',
-      category: 'Música'
+      src: '/img/peliculas-mariana/pelicula1.jpg',
+      title: 'Oldboy (2003)',
+      category: 'Películas'
     },
     {
       id: 8,
-      src: '/img/discos-mike/cancion-animal-3-768x768.jpg',
-      title: 'Soda Stereo - Canción Animal',
-      category: 'Música'
+      src: '/img/peliculas-mariana/pelicula3.jpg',
+      title: 'The Matrix (1999)',
+      category: 'Películas'
     },
     {
       id: 9,
-      src: '/img/discos-raquel/ACDC_Back_in_Black.png',
-      title: 'AC/DC - Back in Black',
-      category: 'Música'
+      src: '/img/peliculas-mariana/pelicula2.jpeg',
+      title: 'Kill Bill: Vol. 1 (2003)',
+      category: 'Películas'
     },
     {
       id: 10,
-      src: '/img/discos-raquel/Metallica_-_Metallica_cover.jpg',
-      title: 'Metallica - Metallica (Black Album)',
-      category: 'Música'
+      src: '/img/img-valeria/background.webp',
+      title: 'Fondo artístico - Valeria',
+      category: 'Arte'
     },
-    {
-      id: 11,
-      src: '/img/discos-raquel/IronMaiden_NumberOfBeast.jpg',
-      title: 'Iron Maiden - The Number of the Beast',
-      category: 'Música'
-    },
-    {
-      id: 12,
-      src: '/img/img-valeria/Aenima.jpg',
-      title: 'Tool - Ænima',
-      category: 'Música'
-    },
-    {
-      id: 13,
-      src: '/img/img-valeria/Ok-Computer-768x432.jpg',
-      title: 'Radiohead - OK Computer',
-      category: 'Música'
-    },
-    {
-      id: 14,
-      src: '/img/img-valeria/Dummy.jpg',
-      title: 'Portishead - Dummy',
-      category: 'Música'
-    },
-    {
-      id: 15,
-      src: '/img/avatar_mariana3.jpg',
-      title: 'Mariana - Team Member',
-      category: 'Equipo'
-    },
-    {
-      id: 16,
-      src: '/img/mario.png',
-      title: 'Mario - Team Member',
-      category: 'Equipo'
-    },
-    {
-      id: 17,
-      src: '/img/avatar_mike.png',
-      title: 'Mike - Team Member',
-      category: 'Equipo'
-    },
-    {
-      id: 18,
-      src: '/img/perfil-raq.png',
-      title: 'Raquel - Team Member',
-      category: 'Equipo'
-    }
   ];
 
   const openLightbox = (index) => {
@@ -184,7 +136,7 @@ function Gallery() {
         </div>
         <h1>&gt; Galería Interactiva_</h1>
         <p className="subtitle">
-          {images.length} imágenes | Click para ampliar | Navegación con teclado (←/→/ESC)
+          {images.length} imágenes — Equipo · Películas · Arte | Click para ampliar | ←/→/ESC
         </p>
       </div>
 

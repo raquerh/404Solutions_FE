@@ -1,26 +1,41 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './ApiData.css';
 
+const DEFAULT_SEARCH = 'rock';
+const ITEMS_PER_PAGE = 8;
+
+function formatDuration(ms) {
+  if (!ms) return '--:--';
+  const minutes = Math.floor(ms / 60000);
+  const seconds = Math.floor((ms % 60000) / 1000);
+  return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+}
+
 function ApiData() {
-  const [users, setUsers] = useState([]);
+  const [tracks, setTracks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const [searchTerm, setSearchTerm] = useState(DEFAULT_SEARCH);
+  const [inputValue, setInputValue] = useState(DEFAULT_SEARCH);
+  const [playingId, setPlayingId] = useState(null);
+  const [retryCount, setRetryCount] = useState(0);
+  const audioRef = useRef(null);
 
-  // Fetch de la API
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchTracks = async () => {
       setLoading(true);
       setError(null);
+      setCurrentPage(1);
+      stopAudio();
 
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
-        if (!response.ok) {
-          throw new Error('Error al cargar los datos');
-        }
+        const response = await fetch(
+          `https://itunes.apple.com/search?term=${encodeURIComponent(searchTerm)}&media=music&limit=50&country=AR`
+        );
+        if (!response.ok) throw new Error('Error al cargar los datos');
         const data = await response.json();
-        setUsers(data);
+        setTracks(data.results || []);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -28,39 +43,62 @@ function ApiData() {
       }
     };
 
-    fetchUsers();
+    fetchTracks();
+  }, [searchTerm, retryCount]);
+
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
   }, []);
 
-  // Cálculos de paginación
-  const totalPages = Math.ceil(users.length / itemsPerPage);
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentUsers = users.slice(indexOfFirstItem, indexOfLastItem);
-
-  // Funciones de navegación
-  const goToNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
+  const stopAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
     }
+    setPlayingId(null);
   };
 
-  const goToPreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+  const togglePreview = (track) => {
+    if (!track.previewUrl) return;
+
+    if (playingId === track.trackId) {
+      stopAudio();
+      return;
     }
+
+    stopAudio();
+    const newAudio = new Audio(track.previewUrl);
+    newAudio.play();
+    newAudio.onended = () => setPlayingId(null);
+    audioRef.current = newAudio;
+    setPlayingId(track.trackId);
   };
 
-  const goToPage = (pageNumber) => {
-    setCurrentPage(pageNumber);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (inputValue.trim()) setSearchTerm(inputValue.trim());
   };
 
-  // Estado de carga
+  const totalPages = Math.ceil(tracks.length / ITEMS_PER_PAGE);
+  const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
+  const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
+  const currentTracks = tracks.slice(indexOfFirstItem, indexOfLastItem);
+
+  const goToNextPage = () => currentPage < totalPages && setCurrentPage(currentPage + 1);
+  const goToPreviousPage = () => currentPage > 1 && setCurrentPage(currentPage - 1);
+  const goToPage = (page) => setCurrentPage(page);
+
   if (loading) {
     return (
       <div className="api-data">
         <div className="loading-container">
           <div className="terminal-loader">
-            <span className="loading-text">&gt; Conectando con API</span>
+            <span className="loading-text">&gt; Conectando con iTunes API</span>
             <span className="loading-dots">...</span>
           </div>
           <div className="loading-spinner"></div>
@@ -69,7 +107,6 @@ function ApiData() {
     );
   }
 
-  // Estado de error
   if (error) {
     return (
       <div className="api-data">
@@ -85,10 +122,7 @@ function ApiData() {
             <p className="error-message">
               <span className="prompt">&gt;</span> {error}
             </p>
-            <button 
-              className="nav-button"
-              onClick={() => window.location.reload()}
-            >
+            <button className="nav-button" onClick={() => setRetryCount(c => c + 1)}>
               Reintentar
             </button>
           </div>
@@ -104,140 +138,126 @@ function ApiData() {
           <span className="dot red"></span>
           <span className="dot yellow"></span>
           <span className="dot green"></span>
-          <span className="title">api_consumer.exe</span>
+          <span className="title">music_explorer.exe</span>
         </div>
-        <h1>&gt; Consumo de API Externa_</h1>
+        <h1>&gt; Explorador de Música_</h1>
         <p className="subtitle">
-          <span className="api-badge">JSONPlaceholder API</span>
-          Datos en tiempo real | {users.length} usuarios cargados
+          <span className="api-badge">iTunes Search API</span>
+          {tracks.length} canciones encontradas para &quot;{searchTerm}&quot;
         </p>
       </div>
 
-      {/* Grid de usuarios */}
-      <div className="users-grid">
-        {currentUsers.map((user) => (
-          <article key={user.id} className="user-card">
-            <div className="user-header">
-              <div className="user-avatar">
-                {user.name.charAt(0)}
-              </div>
-              <div className="user-basic-info">
-                <h3 className="user-name">{user.name}</h3>
-                <p className="user-username">@{user.username}</p>
-              </div>
-            </div>
-
-            <div className="user-details">
-              <div className="detail-item">
-                <span className="detail-icon">📧</span>
-                <div className="detail-content">
-                  <span className="detail-label">Email:</span>
-                  <span className="detail-value">{user.email}</span>
-                </div>
-              </div>
-
-              <div className="detail-item">
-                <span className="detail-icon">📱</span>
-                <div className="detail-content">
-                  <span className="detail-label">Teléfono:</span>
-                  <span className="detail-value">{user.phone}</span>
-                </div>
-              </div>
-
-              <div className="detail-item">
-                <span className="detail-icon">🌐</span>
-                <div className="detail-content">
-                  <span className="detail-label">Website:</span>
-                  <a 
-                    href={`https://${user.website}`} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="detail-link"
-                  >
-                    {user.website}
-                  </a>
-                </div>
-              </div>
-
-              <div className="detail-item">
-                <span className="detail-icon">🏢</span>
-                <div className="detail-content">
-                  <span className="detail-label">Empresa:</span>
-                  <span className="detail-value">{user.company.name}</span>
-                </div>
-              </div>
-
-              <div className="detail-item">
-                <span className="detail-icon">📍</span>
-                <div className="detail-content">
-                  <span className="detail-label">Ciudad:</span>
-                  <span className="detail-value">{user.address.city}</span>
-                </div>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      {/* Paginación */}
-      <div className="pagination-container">
-        <div className="pagination-info">
-          <p>
-            <span className="prompt">&gt;</span> Página {currentPage} de {totalPages}
-          </p>
-          <p className="items-info">
-            Mostrando {indexOfFirstItem + 1}-{Math.min(indexOfLastItem, users.length)} de {users.length} usuarios
-          </p>
+      <form className="search-form" onSubmit={handleSearch}>
+        <div className="search-input-wrapper">
+          <span className="search-prompt">&gt;</span>
+          <input
+            type="text"
+            className="search-input"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Buscar artista, canción o álbum..."
+          />
         </div>
+        <button type="submit" className="search-btn">Buscar</button>
+      </form>
 
-        <div className="pagination-controls">
-          <button
-            className="pagination-btn"
-            onClick={goToPreviousPage}
-            disabled={currentPage === 1}
-            aria-label="Página anterior"
-          >
-            ← Anterior
-          </button>
+      {tracks.length === 0 ? (
+        <div className="no-results">
+          <p>&gt; No se encontraron resultados para &quot;{searchTerm}&quot;</p>
+        </div>
+      ) : (
+        <>
+          <div className="tracks-grid">
+            {currentTracks.map((track) => (
+              <article key={track.trackId} className="track-card">
+                <div className="track-artwork-wrapper">
+                  <img
+                    src={track.artworkUrl100.replace('100x100', '300x300')}
+                    alt={track.collectionName || track.trackName}
+                    className="track-artwork"
+                    loading="lazy"
+                  />
+                  {track.previewUrl && (
+                    <button
+                      className={`preview-btn ${playingId === track.trackId ? 'playing' : ''}`}
+                      onClick={() => togglePreview(track)}
+                      aria-label={playingId === track.trackId ? 'Detener preview' : 'Escuchar preview'}
+                    >
+                      {playingId === track.trackId ? '⏹' : '▶'}
+                    </button>
+                  )}
+                </div>
 
-          <div className="page-numbers">
-            {[...Array(totalPages)].map((_, index) => {
-              const pageNumber = index + 1;
-              // Mostrar solo algunas páginas para no saturar
-              if (
-                pageNumber === 1 ||
-                pageNumber === totalPages ||
-                (pageNumber >= currentPage - 1 && pageNumber <= currentPage + 1)
-              ) {
-                return (
-                  <button
-                    key={pageNumber}
-                    className={`page-number ${currentPage === pageNumber ? 'active' : ''}`}
-                    onClick={() => goToPage(pageNumber)}
-                  >
-                    {pageNumber}
-                  </button>
-                );
-              } else if (
-                pageNumber === currentPage - 2 ||
-                pageNumber === currentPage + 2
-              ) {
-                return <span key={pageNumber} className="page-ellipsis">...</span>;
-              }
-              return null;
-            })}
+                <div className="track-info">
+                  <h3 className="track-name">{track.trackName}</h3>
+                  <p className="track-artist">{track.artistName}</p>
+                  <p className="track-album">{track.collectionName || '—'}</p>
+
+                  <div className="track-meta">
+                    <span className="track-genre">{track.primaryGenreName}</span>
+                    <span className="track-duration">{formatDuration(track.trackTimeMillis)}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
 
-          <button
-            className="pagination-btn"
-            onClick={goToNextPage}
-            disabled={currentPage === totalPages}
-            aria-label="Página siguiente"
-          >
-            Siguiente →
-          </button>
-        </div>
-      </div>
+          <div className="pagination-container">
+            <div className="pagination-info">
+              <p>
+                <span className="prompt">&gt;</span> Página {currentPage} de {totalPages}
+              </p>
+              <p className="items-info">
+                Mostrando {indexOfFirstItem + 1}-{Math.min(indexOfLastItem, tracks.length)} de {tracks.length} canciones
+              </p>
+            </div>
+
+            <div className="pagination-controls">
+              <button
+                className="pagination-btn"
+                onClick={goToPreviousPage}
+                disabled={currentPage === 1}
+                aria-label="Página anterior"
+              >
+                ← Anterior
+              </button>
+
+              <div className="page-numbers">
+                {[...Array(totalPages)].map((_, index) => {
+                  const pageNumber = index + 1;
+                  if (
+                    pageNumber === 1 ||
+                    pageNumber === totalPages ||
+                    (pageNumber >= currentPage - 1 && pageNumber <= currentPage + 1)
+                  ) {
+                    return (
+                      <button
+                        key={pageNumber}
+                        className={`page-number ${currentPage === pageNumber ? 'active' : ''}`}
+                        onClick={() => goToPage(pageNumber)}
+                      >
+                        {pageNumber}
+                      </button>
+                    );
+                  } else if (pageNumber === currentPage - 2 || pageNumber === currentPage + 2) {
+                    return <span key={pageNumber} className="page-ellipsis">...</span>;
+                  }
+                  return null;
+                })}
+              </div>
+
+              <button
+                className="pagination-btn"
+                onClick={goToNextPage}
+                disabled={currentPage === totalPages}
+                aria-label="Página siguiente"
+              >
+                Siguiente →
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

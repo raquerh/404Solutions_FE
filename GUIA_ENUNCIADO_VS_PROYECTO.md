@@ -822,231 +822,128 @@ src/pages/ApiData.css
 #### Implementación Detallada:
 
 **1. API Pública Utilizada:**
-- **API:** JSONPlaceholder
-- **Endpoint:** `https://jsonplaceholder.typicode.com/users`
-- **Datos:** 10 usuarios con información completa
+- **API:** iTunes Search API (Apple)
+- **Endpoint:** `https://itunes.apple.com/search?term={búsqueda}&media=music&limit=50&country=AR`
+- **Características:** Gratuita, sin API key, soporta CORS desde el browser
+- **Datos por canción:** portada de álbum, nombre, artista, álbum, género, duración, preview URL (30s)
 
 **2. Consumo Asíncrono:**
-- **Ubicación:** `src/pages/ApiData.jsx` líneas 10-30
+- **Ubicación:** `src/pages/ApiData.jsx`
 - **Código:**
 ```jsx
-const [users, setUsers] = useState([]);
-const [loading, setLoading] = useState(true);
-const [error, setError] = useState(null);
+const [tracks, setTracks] = useState([]);
+const [searchTerm, setSearchTerm] = useState('rock');
+const [retryCount, setRetryCount] = useState(0);
+const audioRef = useRef(null);
 
 useEffect(() => {
-  const fetchUsers = async () => {
+  const fetchTracks = async () => {
     setLoading(true);
     setError(null);
-
+    setCurrentPage(1);
+    stopAudio();
     try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/users');
-      if (!response.ok) {
-        throw new Error('Error al cargar los datos');
-      }
+      const response = await fetch(
+        `https://itunes.apple.com/search?term=${encodeURIComponent(searchTerm)}&media=music&limit=50&country=AR`
+      );
+      if (!response.ok) throw new Error('Error al cargar los datos');
       const data = await response.json();
-      setUsers(data);
+      setTracks(data.results || []);
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
   };
+  fetchTracks();
+}, [searchTerm, retryCount]);
 
-  fetchUsers();
+// Cleanup de audio al desmontar el componente
+useEffect(() => {
+  return () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
+  };
 }, []);
 ```
 - **Características:**
-  - Uso de `async/await`
-  - Try-catch para manejo de errores
-  - Finally para actualizar estado de loading
+  - Búsqueda reactiva al submit del formulario
+  - `retryCount` para reintentar sin cambiar `searchTerm`
+  - Cleanup de audio al navegar (evita que siga sonando)
 
 **3. MANEJO DE ESTADOS (OBLIGATORIO):**
 
 **a) Estado de Carga:**
-- **Ubicación:** `src/pages/ApiData.jsx` líneas 50-65
-- **Código:**
 ```jsx
 if (loading) {
   return (
-    <div className="api-data">
-      <div className="loading-container">
-        <div className="terminal-loader">
-          <span className="loading-text">&gt; Conectando con API</span>
-          <span className="loading-dots">...</span>
-        </div>
-        <div className="loading-spinner"></div>
+    <div className="loading-container">
+      <div className="terminal-loader">
+        <span>&gt; Conectando con iTunes API</span>
+        <span className="loading-dots">...</span>
       </div>
+      <div className="loading-spinner"></div>
     </div>
   );
 }
 ```
-- **Características:**
-  - Spinner animado
-  - Texto de carga
-  - Puntos animados (blink)
 
 **b) Estado de Error:**
-- **Ubicación:** `src/pages/ApiData.jsx` líneas 70-90
-- **Código:**
 ```jsx
 if (error) {
   return (
-    <div className="api-data">
-      <div className="error-container">
-        <div className="terminal-header">
-          <span className="dot red"></span>
-          <span className="dot yellow"></span>
-          <span className="dot green"></span>
-          <span className="title">error.log</span>
-        </div>
-        <div className="error-content">
-          <h2>&gt; ERROR_</h2>
-          <p className="error-message">
-            <span className="prompt">&gt;</span> {error}
-          </p>
-          <button 
-            className="nav-button"
-            onClick={() => window.location.reload()}
-          >
-            Reintentar
-          </button>
-        </div>
-      </div>
+    <div className="error-container">
+      <h2>&gt; ERROR_</h2>
+      <p>{error}</p>
+      <button onClick={() => setRetryCount(c => c + 1)}>
+        Reintentar
+      </button>
     </div>
   );
 }
 ```
-- **Características:**
-  - Mensaje de error claro
-  - Botón para reintentar
-  - Estética de terminal
+- **Nota:** Reintentar usa `retryCount` incrementado, no `setSearchTerm(searchTerm)` que no dispararía el efecto
 
-**c) Estado de Éxito:**
-- **Ubicación:** `src/pages/ApiData.jsx` líneas 95-200
-- **Renderizado:** Grid de usuarios con toda la información
+**c) Estado de Éxito:** Grid de tarjetas de canciones con portada, datos y botón de preview
 
 **4. SISTEMA DE PAGINACIÓN (OBLIGATORIO):**
 
-**a) Cálculos de Paginación:**
-- **Ubicación:** `src/pages/ApiData.jsx` líneas 35-40
-- **Código:**
+**a) Cálculos:**
 ```jsx
-const [currentPage, setCurrentPage] = useState(1);
-const itemsPerPage = 6;
-
-const totalPages = Math.ceil(users.length / itemsPerPage);
-const indexOfLastItem = currentPage * itemsPerPage;
-const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-const currentUsers = users.slice(indexOfFirstItem, indexOfLastItem);
+const ITEMS_PER_PAGE = 8;
+const totalPages = Math.ceil(tracks.length / ITEMS_PER_PAGE);
+const currentTracks = tracks.slice(indexOfFirstItem, indexOfLastItem);
 ```
 
-**b) Botones Anterior/Siguiente:**
-- **Ubicación:** `src/pages/ApiData.jsx` líneas 220-240
-- **Código:**
+**b) Botones Anterior/Siguiente + Indicador de posición:**
 ```jsx
-<button
-  className="pagination-btn"
-  onClick={goToPreviousPage}
-  disabled={currentPage === 1}
->
-  ← Anterior
-</button>
+<p>Página {currentPage} de {totalPages}</p>
+<p>Mostrando {indexOfFirstItem + 1}-{Math.min(indexOfLastItem, tracks.length)} de {tracks.length} canciones</p>
 
-<button
-  className="pagination-btn"
-  onClick={goToNextPage}
-  disabled={currentPage === totalPages}
->
-  Siguiente →
-</button>
+<button onClick={goToPreviousPage} disabled={currentPage === 1}>← Anterior</button>
+<button onClick={goToNextPage} disabled={currentPage === totalPages}>Siguiente →</button>
 ```
-- **Características:**
-  - Disable inteligente (primer/última página)
-  - Iconos de dirección
-  - Efectos hover
 
-
-**c) INDICADOR DE POSICIÓN ACTUAL (OBLIGATORIO):**
-- **Ubicación:** `src/pages/ApiData.jsx` líneas 205-215
-- **Código:**
-```jsx
-<div className="pagination-info">
-  <p>
-    <span className="prompt">&gt;</span> 
-    Página {currentPage} de {totalPages}
-  </p>
-  <p className="items-info">
-    Mostrando {indexOfFirstItem + 1}-{Math.min(indexOfLastItem, users.length)} 
-    de {users.length} usuarios
-  </p>
-</div>
-```
-- **Información mostrada:**
-  - Página actual / Total de páginas
-  - Rango de items mostrados
-  - Total de items
-
-**d) Números de Página Clickeables:**
-- **Ubicación:** `src/pages/ApiData.jsx` líneas 245-270
-- **Código:**
-```jsx
-<div className="page-numbers">
-  {[...Array(totalPages)].map((_, index) => {
-    const pageNumber = index + 1;
-    if (
-      pageNumber === 1 ||
-      pageNumber === totalPages ||
-      (pageNumber >= currentPage - 1 && pageNumber <= currentPage + 1)
-    ) {
-      return (
-        <button
-          key={pageNumber}
-          className={`page-number ${currentPage === pageNumber ? 'active' : ''}`}
-          onClick={() => goToPage(pageNumber)}
-        >
-          {pageNumber}
-        </button>
-      );
-    } else if (
-      pageNumber === currentPage - 2 ||
-      pageNumber === currentPage + 2
-    ) {
-      return <span key={pageNumber} className="page-ellipsis">...</span>;
-    }
-    return null;
-  })}
-</div>
-```
-- **Características:**
-  - Muestra página actual y adyacentes
-  - Siempre muestra primera y última página
-  - Elipsis (...) para páginas ocultas
-  - Clase `active` para página actual
-
-**5. Visualización de Datos:**
-- **Ubicación:** `src/pages/ApiData.jsx` líneas 120-180
-- **Información mostrada por usuario:**
-  - Avatar con inicial del nombre
-  - Nombre completo
-  - Username
-  - Email
-  - Teléfono
-  - Website (link externo)
-  - Empresa
-  - Ciudad
+**5. Funcionalidades adicionales:**
+- **Buscador:** formulario con input controlado, búsqueda al submit
+- **Preview de audio:** botón ▶/⏹ por tarjeta, solo una canción a la vez, cleanup al desmontar
+- **Portada de álbum:** imagen 300x300px con efecto zoom en hover
 
 ### 🎯 CUMPLIMIENTO:
 
-✅ Consumo asíncrono de API pública  
+✅ Consumo asíncrono de API pública (iTunes Search API)  
 ✅ **Manejo de estado de carga** (spinner + texto)  
-✅ **Manejo de estado de error** (mensaje + reintentar)  
+✅ **Manejo de estado de error** (mensaje + reintentar funcional)  
 ✅ **Manejo de estado de éxito** (datos renderizados)  
-✅ **Sistema de paginación** (Anterior/Siguiente)  
+✅ **Sistema de paginación** (Anterior/Siguiente, 8 items/página)  
 ✅ **Indicador de posición actual** ("Página X de Y")  
 ✅ Números de página clickeables  
-✅ Contador de items mostrados  
+✅ Contador de canciones mostradas  
 ✅ Disable inteligente de botones  
+✅ Buscador en tiempo real  
+✅ Preview de audio (30s)  
 
 ---
 
@@ -1092,7 +989,7 @@ src/pages/Gallery.css
 ```
 - **Características:**
   - Grid responsive (CSS Grid)
-  - 18 imágenes en total
+  - 10 imágenes en total (Equipo, Películas, Arte)
   - Overlay con información en hover
   - Icono de zoom
   - Aspect ratio 1:1
@@ -1319,7 +1216,7 @@ useEffect(() => {
 ✅ Prevención de scroll  
 ✅ Instrucciones visibles  
 ✅ Animaciones de apertura/cierre  
-✅ 18 imágenes en la galería  
+✅ 10 imágenes en la galería (Equipo x6, Películas x3, Arte x1)  
 
 ---
 
@@ -1852,7 +1749,7 @@ Demostrar el dominio de React mediante la implementación de:
 - **Font Awesome** 6.5.1 - Iconos generales
 
 ### APIs Externas
-- **JSONPlaceholder** - API REST pública
+- **iTunes Search API** - API pública de Apple para música
 ```
 
 ### 5. ✅ Estructura de Archivos
@@ -2152,7 +2049,7 @@ const toggleSidebar = () => {
 - [x] Sidebar Dashboard fija con React Router
 - [x] Dashboard Home con animaciones de entrada escalonadas
 - [x] Explorador JSON con filtrado en tiempo real (20 objetos)
-- [x] API externa (JSONPlaceholder) con paginación y estados loading/error
+- [x] API externa (iTunes Search API) con buscador, paginación 8 items/página y estados loading/error
 - [x] Galería con Lightbox, ESC, flechas del teclado, cierre fuera del modal
 - [x] Árbol de Renderizado (ComponentTree con diagrama visual + tabla)
 - [x] Barras de progreso animadas en los 5 perfiles
@@ -2177,6 +2074,6 @@ const toggleSidebar = () => {
 
 ---
 
-**Última actualización:** 27 de Mayo de 2026  
+**Última actualización:** 28 de Mayo de 2026  
 **Estado general:** ~97% completo — toda la funcionalidad implementada, solo falta deploy en Vercel
 

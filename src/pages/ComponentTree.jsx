@@ -130,7 +130,7 @@ function ComponentTree() {
                           {/* API Data */}
                           <div className="tree-node page">
                             <div className="node-content">
-                              <span className="node-icon">🌐</span>
+                              <span className="node-icon">🎵</span>
                               <span className="node-name">ApiData</span>
                             </div>
                           </div>
@@ -276,8 +276,8 @@ function ComponentTree() {
                 <tr>
                   <td><strong>ApiData</strong></td>
                   <td><span className="badge page-badge">Page</span></td>
-                  <td>Consumo de API externa con paginación</td>
-                  <td>useState (data, loading, error, page), useEffect</td>
+                  <td>Explorador musical via iTunes API con búsqueda y paginación</td>
+                  <td>useState (tracks, loading, error, page, search), useEffect, useRef</td>
                 </tr>
                 <tr>
                   <td><strong>Gallery</strong></td>

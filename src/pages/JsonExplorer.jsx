@@ -7,16 +7,18 @@ function JsonExplorer() {
   const [selectedCategory, setSelectedCategory] = useState('Todas');
   const [selectedStatus, setSelectedStatus] = useState('Todos');
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   // Cargar datos del JSON
   useEffect(() => {
     const loadProjects = async () => {
       try {
         const response = await fetch('/data/projects.json');
+        if (!response.ok) throw new Error('No se pudo cargar el archivo de proyectos');
         const data = await response.json();
         setProjects(data);
-      } catch (error) {
-        console.error('Error cargando datos:', error);
+      } catch (err) {
+        setError(err.message);
       } finally {
         setLoading(false);
       }
@@ -52,6 +54,18 @@ function JsonExplorer() {
           <div className="terminal-loader">
             <span className="loading-text">&gt; Cargando datos</span>
             <span className="loading-dots">...</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="json-explorer">
+        <div className="loading-container">
+          <div className="terminal-loader">
+            <span className="loading-text" style={{ color: '#ff5555' }}>&gt; ERROR: {error}</span>
           </div>
         </div>
       </div>

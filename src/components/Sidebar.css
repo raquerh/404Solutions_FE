@@ -49,8 +49,8 @@
   gap: 0.75rem;
   text-decoration: none;
   color: var(--terminal-green);
-  font-family: 'Courier New', monospace;
-  font-weight: bold;
+  font-family: inherit;
+  font-weight: 700;
   font-size: 1.1rem;
   transition: all 0.3s ease;
   flex: 1;
@@ -112,12 +112,12 @@
 
 .nav-section-title {
   padding: 0.5rem 1rem;
-  font-size: 0.75rem;
-  color: rgba(0, 255, 0, 0.6);
-  font-weight: bold;
+  font-size: 0.85rem;
+  color: rgba(0, 255, 0, 0.7);
+  font-weight: 700;
   letter-spacing: 1px;
   margin-bottom: 0.5rem;
-  font-family: 'Courier New', monospace;
+  font-family: inherit;
 }
 
 .sidebar.collapsed .nav-section-title {
@@ -140,11 +140,12 @@
   align-items: center;
   gap: 1rem;
   padding: 0.875rem 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
   text-decoration: none;
   transition: all 0.3s ease;
-  font-family: 'Courier New', monospace;
+  font-family: inherit;
   font-size: 0.95rem;
+  font-weight: 500;
   border-left: 3px solid transparent;
   position: relative;
 }
@@ -264,9 +265,9 @@
 
 .status-text {
   color: var(--terminal-green);
-  font-family: 'Courier New', monospace;
-  font-size: 0.75rem;
-  font-weight: bold;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
   letter-spacing: 1px;
 }
 

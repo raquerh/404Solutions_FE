@@ -16,7 +16,7 @@ function Sidebar() {
     { path: '/', icon: '🏠', label: 'Dashboard' },
     { path: '/bitacora', icon: '📋', label: 'Bitácora' },
     { path: '/json-explorer', icon: '🔍', label: 'Explorador JSON' },
-    { path: '/api-data', icon: '🌐', label: 'API Externa' },
+    { path: '/api-data', icon: '🎵', label: 'Música' },
     { path: '/gallery', icon: '🖼️', label: 'Galería' },
     { path: '/component-tree', icon: '🌳', label: 'Árbol de Componentes' },
   ];

@@ -56,7 +56,7 @@ Demostrar el dominio de React mediante la implementación de:
 - **Font Awesome** 6.5.1 - Iconos generales para UI
 
 ### APIs Externas
-- **JSONPlaceholder** - API REST pública para datos de usuarios (https://jsonplaceholder.typicode.com)
+- **iTunes Search API** - API pública de Apple para búsqueda de música (https://itunes.apple.com/search)
 
 ---
 ## 📁 Estructura de Archivos
@@ -171,7 +171,7 @@ tp2/
 - **Implementación:** Clases CSS (`fa-solid`, `fa-brands`)
 
 #### Emojis Unicode
-- **Uso:** Iconos de navegación en Sidebar (🏠, 📋, 🔍, 🌐, 🖼️, 🌳)
+- **Uso:** Iconos de navegación en Sidebar (🏠, 📋, 🔍, 🎵, 🖼️, 🌳)
 - **Ventaja:** No requieren librería externa, universales
 
 ---
@@ -227,35 +227,48 @@ useEffect(() => {
 
 ---
 
-### 3. Consumo de API Externa con Paginación
+### 3. Explorador Musical via iTunes API con Paginación
 **Componente:** `ApiData.jsx`  
-**Hooks utilizados:** `useState`, `useEffect`  
-**API:** JSONPlaceholder (https://jsonplaceholder.typicode.com/users)
+**Hooks utilizados:** `useState`, `useEffect`, `useRef`  
+**API:** iTunes Search API (sin API key, gratuita)
 
 ```javascript
-const [users, setUsers] = useState([]);
+const [tracks, setTracks] = useState([]);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
-const [currentPage, setCurrentPage] = useState(1);
+const [searchTerm, setSearchTerm] = useState('rock');
+const [retryCount, setRetryCount] = useState(0);
+const audioRef = useRef(null);
 
 useEffect(() => {
-  fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
-    .then(data => {
-      setUsers(data);
+  const fetchTracks = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `https://itunes.apple.com/search?term=${encodeURIComponent(searchTerm)}&media=music&limit=50&country=AR`
+      );
+      const data = await response.json();
+      setTracks(data.results || []);
+    } catch (err) {
+      setError(err.message);
+    } finally {
       setLoading(false);
-    })
-    .catch(err => setError(err.message));
-}, []);
+    }
+  };
+  fetchTracks();
+}, [searchTerm, retryCount]);
 ```
 
 **Funcionalidades:**
-- Fetch asíncrono de API REST
+- Buscador de música en tiempo real (artista, canción, álbum)
+- Portada de álbum (300x300px) en cada tarjeta
+- Botón ▶ para preview de 30 segundos (solo una canción a la vez)
+- Cleanup de audio al navegar a otra página (useRef + useEffect)
 - Manejo de estados: loading, error, success
-- Sistema de paginación (6 items por página)
+- Sistema de paginación (8 items por página, 4x2)
 - Botones Anterior/Siguiente con disable inteligente
-- Indicador de página actual (ej: "Página 2 de 3")
-- Contador de items mostrados
+- Indicador de página actual (ej: "Página 2 de 7")
+- Botón Reintentar funcional con `retryCount`
 
 ---
 
@@ -996,8 +1009,8 @@ Navegación lateral colapsable con logo, menú jerarquizado en dos secciones (NA
 ### Explorador JSON
 Buscador con filtrado instantáneo sobre 20 proyectos. Muestra contador de resultados en tiempo real y filtros por categoría y estado.
 
-### API Externa con Paginación
-Consumo de JSONPlaceholder con spinner de carga, manejo de error con botón reintentar, y paginación con botones Anterior/Siguiente e indicador "Página X de Y".
+### Explorador Musical
+Consumo de iTunes Search API con buscador de música, portadas de álbum, preview de audio de 30 segundos, spinner de carga, manejo de error con botón reintentar, y paginación de 8 canciones por página con indicador "Página X de Y".
 
 ### Galería con Lightbox
 Grid responsivo de 18+ imágenes. Click en cualquiera abre un modal fullscreen con navegación mediante flechas del teclado y cierre con ESC.
@@ -1040,14 +1053,16 @@ Cada perfil muestra: datos personales, barras de progreso animadas de habilidade
 - [x] Actualización dinámica de vista
 
 #### ✅ 5. Módulo de Integración de API Externa
-- [x] Consumo asíncrono de API pública (JSONPlaceholder)
+- [x] Consumo asíncrono de iTunes Search API (sin API key)
+- [x] Buscador de música en tiempo real
+- [x] Portadas de álbum + preview de audio 30s
 - [x] Manejo de estados (loading, error, success)
-- [x] Sistema de paginación
+- [x] Sistema de paginación (8 items por página)
 - [x] Botones Anterior/Siguiente
 - [x] Indicador de posición actual
 
 #### ✅ 6. Galería de Imágenes Interactiva
-- [x] Visualizador tipo Grid
+- [x] Visualizador tipo Grid (10 imágenes — Equipo, Películas, Arte)
 - [x] Lightbox integrado
 - [x] Zoom de imagen
 - [x] Navegación interna (anterior/siguiente)
@@ -1188,7 +1203,7 @@ Para consultas sobre el proyecto:
 
 ---
 
-**Última actualización:** 27 de Mayo de 2026
+**Última actualización:** 28 de Mayo de 2026
 
 ---
 

@@ -1,6 +1,6 @@
 /* Estilos Raquel */
 
-:root {
+.profile-main {
   --bg-base: #050508;
   --bg-panel: #0c0c14;
   --bg-card: #10101c;
@@ -38,7 +38,7 @@
   gap: 2rem;
 }
 
-.nav-label {
+.nav-principal .nav-label {
   font-size: 0.7rem;
   color: var(--text-dim);
   white-space: nowrap;
