@@ -35,7 +35,7 @@
   color: var(--text-accent);
   text-decoration: none;
   font-size: 0.9rem;
-  border: solid 1px red;
+  border: solid 1px var(--terminal-red);
   border-radius: 5px;
   width: 150px;
   height: 50px;
@@ -63,7 +63,7 @@
   filter: brightness(0) invert(0);
 }
 
-.social-links {
+.mario-content .social-links {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -71,19 +71,19 @@
   gap: 20px;
 }
 
-.social-links a {
+.mario-content .social-links a {
   display: flex;
   color: var(--text-accent);
   text-decoration: none;
   font-size: 0.9rem;
-  border: solid 1px red;
+  border: solid 1px var(--terminal-red);
   border-radius: 5px;
   width: 150px;
   align-items: center;
   justify-content: center;
 }
 
-.social-links a:hover {
+.mario-content .social-links a:hover {
   background: var(--text-accent);
   color: black;
   font-weight: bold;
@@ -96,21 +96,15 @@
   filter: brightness(0) invert(1);
 }
 
-.social-links a:hover .icono-github {
-  width: 25px;
-  height: 25px;
-  margin: 5px;
+.mario-content .social-links a:hover .icono-github {
   filter: brightness(0) invert(0);
 }
 
-.social-links a:hover .icono-linkedin {
-  width: 25px;
-  height: 25px;
-  margin: 5px;
+.mario-content .social-links a:hover .icono-linkedin {
   filter: brightness(0) invert(0);
 }
 
-.titulo {
+.mario-content .titulo {
   margin-left: 30px;
   margin-top: 50px;
 }
@@ -154,19 +148,19 @@
   font-size: 1rem;
 }
 
-.role {
+.mario-content .role {
   font-size: 1.3rem;
   color: var(--text-accent);
   font-weight: bolder;
 }
 
-.dos-columnas {
+.mario-content .dos-columnas {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
 }
 
-.description {
+.mario-content .description {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -304,7 +298,7 @@
   text-decoration: none;
   text-transform: uppercase;
   font-size: 0.9rem;
-  border: solid 1px red;
+  border: solid 1px var(--terminal-red);
   border-radius: 5px;
   cursor: pointer;
   font-family: inherit;
@@ -361,7 +355,7 @@
 }
 
 @media (max-width: 600px) {
-  .social-links {
+  .mario-content .social-links {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -374,7 +368,7 @@
     color: var(--text-accent);
     text-decoration: none;
     font-size: 0.8rem;
-    border: solid 1px red;
+    border: solid 1px var(--terminal-red);
     border-radius: 5px;
     width: 80px;
     align-items: center;
@@ -383,15 +377,15 @@
 }
 
 @media (max-width: 480px) {
-  .titulo {
+  .mario-content .titulo {
     font-size: 1.2rem;
   }
 
-  .role {
+  .mario-content .role {
     font-size: 1rem;
   }
 
-  .dos-columnas {
+  .mario-content .dos-columnas {
     width: 100%;
     grid-template-columns: 1fr;
     justify-items: center;

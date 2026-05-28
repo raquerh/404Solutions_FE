@@ -155,7 +155,7 @@
   color: #00ff41;
 }
 
-.social-links {
+.profile-content-wrapper .social-links {
   display: flex;
   justify-content: center;
   gap: 1rem;
