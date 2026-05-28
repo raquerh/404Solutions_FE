@@ -1,0 +1,189 @@
+#bitacora {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#bitacora h1 {
+  margin-bottom: 10px;
+}
+
+#bitacora > p {
+  color: var(--text-accent);
+  margin-bottom: 40px;
+  font-size: 0.9rem;
+}
+
+.bitacora-entry {
+  background: #1a1a1a;
+  border: 1px solid var(--terminal-green);
+  border-radius: 5px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.bitacora-entry h2 {
+  color: var(--terminal-green);
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.bitacora-entry ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.bitacora-entry ul li {
+  color: var(--text-accent);
+  margin-bottom: 15px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.bitacora-entry ul li::before {
+  content: "> ";
+  color: var(--terminal-green);
+  position: absolute;
+  left: 0;
+}
+
+.bitacora-entry ul ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.bitacora-entry ul ul li {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.bitacora-entry strong {
+  color: var(--terminal-green);
+}
+
+.bitacora-entry code {
+  background: rgba(0, 255, 65, 0.1);
+  color: var(--terminal-green);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 0.88em;
+}
+
+.bitacora-sub {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.bitacora-sub h3 {
+  color: var(--terminal-green);
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+/* Tabla de roles */
+.roles-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 0.85rem;
+}
+
+.roles-table th {
+  text-align: left;
+  color: var(--terminal-green);
+  border-bottom: 1px solid var(--terminal-green);
+  padding: 8px 10px;
+}
+
+.roles-table td {
+  color: var(--text-accent);
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(0, 255, 65, 0.15);
+  vertical-align: top;
+}
+
+.roles-table tr:hover td {
+  background: rgba(0, 255, 65, 0.05);
+}
+
+/* Comparación antes/después */
+.comparacion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.comparacion-col {
+  padding: 14px;
+  border-radius: 4px;
+}
+
+.comparacion-col.before {
+  border: 1px solid rgba(255, 85, 85, 0.4);
+  background: rgba(255, 85, 85, 0.05);
+}
+
+.comparacion-col.after {
+  border: 1px solid rgba(0, 255, 65, 0.4);
+  background: rgba(0, 255, 65, 0.05);
+}
+
+.comparacion-col h4 {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+}
+
+.comparacion-col.before h4 { color: #ff5555; }
+.comparacion-col.after h4 { color: var(--terminal-green); }
+
+.comparacion-col ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+.comparacion-col ul li {
+  font-size: 0.82rem;
+  padding-left: 14px;
+}
+
+/* Mejoras */
+.mejora-item {
+  margin-bottom: 16px;
+  padding: 12px;
+  border-left: 3px solid var(--terminal-green);
+  background: rgba(0, 255, 65, 0.04);
+}
+
+.mejora-label {
+  display: block;
+  color: var(--terminal-green);
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.mejora-item p {
+  color: var(--text-accent);
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .comparacion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .roles-table {
+    font-size: 0.75rem;
+  }
+
+  .roles-table th,
+  .roles-table td {
+    padding: 6px 6px;
+  }
+}

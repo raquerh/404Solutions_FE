@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "title": "Sistema de Gestión de Biblioteca",
+    "category": "Backend",
+    "technology": "Python",
+    "description": "API REST para gestión de préstamos y catálogo de libros",
+    "year": 2024,
+    "status": "Completado"
+  },
+  {
+    "id": 2,
+    "title": "Dashboard de Analytics",
+    "category": "Frontend",
+    "technology": "React",
+    "description": "Panel de control con gráficos interactivos y métricas en tiempo real",
+    "year": 2024,
+    "status": "En Desarrollo"
+  },
+  {
+    "id": 3,
+    "title": "E-commerce Platform",
+    "category": "Full Stack",
+    "technology": "MERN",
+    "description": "Plataforma completa de comercio electrónico con carrito y pagos",
+    "year": 2023,
+    "status": "Completado"
+  },
+  {
+    "id": 4,
+    "title": "Chatbot con IA",
+    "category": "Machine Learning",
+    "technology": "Python",
+    "description": "Asistente virtual con procesamiento de lenguaje natural",
+    "year": 2024,
+    "status": "En Desarrollo"
+  },
+  {
+    "id": 5,
+    "title": "App de Gestión de Tareas",
+    "category": "Mobile",
+    "technology": "React Native",
+    "description": "Aplicación móvil para organización personal y productividad",
+    "year": 2023,
+    "status": "Completado"
+  },
+  {
+    "id": 6,
+    "title": "Sistema de Autenticación",
+    "category": "Backend",
+    "technology": "Node.js",
+    "description": "Servicio de autenticación con JWT y OAuth2",
+    "year": 2024,
+    "status": "Completado"
+  },
+  {
+    "id": 7,
+    "title": "Portfolio Interactivo",
+    "category": "Frontend",
+    "technology": "Vue.js",
+    "description": "Sitio web personal con animaciones y efectos 3D",
+    "year": 2023,
+    "status": "Completado"
+  },
+  {
+    "id": 8,
+    "title": "API de Clima",
+    "category": "Backend",
+    "technology": "Java",
+    "description": "Servicio REST para consulta de datos meteorológicos",
+    "year": 2024,
+    "status": "En Desarrollo"
+  },
+  {
+    "id": 9,
+    "title": "Red Social para Desarrolladores",
+    "category": "Full Stack",
+    "technology": "Django",
+    "description": "Plataforma social con foros, posts y sistema de mensajería",
+    "year": 2023,
+    "status": "Completado"
+  },
+  {
+    "id": 10,
+    "title": "Analizador de Sentimientos",
+    "category": "Machine Learning",
+    "technology": "Python",
+    "description": "Modelo de ML para análisis de opiniones en redes sociales",
+    "year": 2024,
+    "status": "En Desarrollo"
+  },
+  {
+    "id": 11,
+    "title": "Sistema de Reservas",
+    "category": "Full Stack",
+    "technology": "Angular",
+    "description": "Plataforma para reserva de turnos y gestión de citas",
+    "year": 2023,
+    "status": "Completado"
+  },
+  {
+    "id": 12,
+    "title": "Editor de Código Online",
+    "category": "Frontend",
+    "technology": "JavaScript",
+    "description": "IDE web con syntax highlighting y ejecución de código",
+    "year": 2024,
+    "status": "En Desarrollo"
+  },
+  {
+    "id": 13,
+    "title": "Sistema de Notificaciones",
+    "category": "Backend",
+    "technology": "Go",
+    "description": "Servicio de notificaciones push en tiempo real",
+    "year": 2024,
+    "status": "Completado"
+  },
+  {
+    "id": 14,
+    "title": "Juego de Trivia",
+    "category": "Frontend",
+    "technology": "React",
+    "description": "Juego interactivo de preguntas y respuestas con ranking",
+    "year": 2023,
+    "status": "Completado"
+  },
+  {
+    "id": 15,
+    "title": "API de Gestión de Usuarios",
+    "category": "Backend",
+    "technology": "C#",
+    "description": "Servicio RESTful para CRUD de usuarios con roles",
+    "year": 2024,
+    "status": "Completado"
+  },
+  {
+    "id": 16,
+    "title": "Dashboard de IoT",
+    "category": "Full Stack",
+    "technology": "Node.js",
+    "description": "Panel de control para dispositivos IoT con gráficos en tiempo real",
+    "year": 2024,
+    "status": "En Desarrollo"
+  },
+  {
+    "id": 17,
+    "title": "Generador de QR Codes",
+    "category": "Frontend",
+    "technology": "JavaScript",
+    "description": "Aplicación web para crear y personalizar códigos QR",
+    "year": 2023,
+    "status": "Completado"
+  },
+  {
+    "id": 18,
+    "title": "Sistema de Logs",
+    "category": "Backend",
+    "technology": "Python",
+    "description": "Servicio centralizado para recolección y análisis de logs",
+    "year": 2024,
+    "status": "En Desarrollo"
+  },
+  {
+    "id": 19,
+    "title": "Calculadora Científica",
+    "category": "Frontend",
+    "technology": "TypeScript",
+    "description": "Calculadora avanzada con funciones matemáticas complejas",
+    "year": 2023,
+    "status": "Completado"
+  },
+  {
+    "id": 20,
+    "title": "Sistema de Backup Automático",
+    "category": "Backend",
+    "technology": "Bash",
+    "description": "Scripts para respaldo automático de bases de datos",
+    "year": 2024,
+    "status": "Completado"
+  }
+]

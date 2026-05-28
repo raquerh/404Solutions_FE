@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 Solutions - Home</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="img/logo404solution.ico" type="image/x-icon" />
+</head>
+
+<body class="terminal-theme">
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">404_SOLUTIONS_</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="#team-list" class="active">Integrantes</a></li>
+                <li><a href="bitacora.html">Bitácora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- <<< ----------- * ----------- Header Celular ----------- * ----------- >>> -->
+
+    <!-- <<< ----------- Menu Hamburguesa ----------- >>> -->
+
+    <header class="dos-columnas">
+        <a href="index.html" class="oculto logo">404_SOLUTIONS_</a>
+        <div class="menu-hamburguesa">
+            <!-- <<< ----------- Boton Menu Hamburguesa ----------- >>> -->
+            <button id="abrir" class="abrir-menu"><img class="img-abrir" src="/img/iconos-mario/menu.png"
+                    alt="menu"></button>
+            <nav class="nav" id="nav">
+                <button id="cerrar" class="cerrar-menu"><img class="img-cerrar" src="/img/iconos-mario/cerrar.png"
+                        alt="cerrar"></button>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                </ul>
+                <ul class="nav-links">
+                    <li><a href="#team-list" class="active">Integrantes</a></li>
+                </ul>
+                <ul class="nav-links">
+                    <li><a href="bitacora.html" class="active">Bitácora</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <div class="terminal-prompt">
+                    <span class="prompt-symbol">$</span>
+                    <span class="prompt-text">whoami</span>
+                </div>
+                <h1 class="glitch-text" data-text="&gt; Error: Team Found_">
+                    &gt; Error: Team Found_
+                </h1>
+                <p class="hero-description">
+                    <span class="typing-effect">Enfoque: Depuración de problemas complejos y desarrollo de
+                        soluciones web escalables.</span>
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">05</span>
+                        <span class="stat-label">Desarrolladores</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Bugs Resueltos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Dedicación</span>
+                    </div>
+                </div>
+                <button id="btn-interact" class="nav-button pulse-button">
+                    <span class="button-icon">&gt;_</span> Ejecutar Diagnóstico
+                </button>
+            </div>
+            <div class="hero-decoration" id="diagnosticOutput">
+                <div class="terminal-window-header">
+                    <span class="term-dot red"></span>
+                    <span class="term-dot yellow"></span>
+                    <span class="term-dot green"></span>
+                    <span class="term-title">diagnostic.sh</span>
+                </div>
+                <div class="code-lines" id="codeLines">
+                    <span class="terminal-prompt">$</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="team-list">
+            <div class="section-header">
+                <h2 class="integrantes">&gt; Integrantes del Equipo_</h2>
+                <p class="section-subtitle">
+                    // Selecciona un perfil para ver más detalles
+                </p>
+            </div>
+            <div class="grid-container">
+                <a href="mike.html" class="team-card">
+                    <div class="card-header">
+                        <div class="card-avatar">
+                            <img src="img/avatar_mike.png" alt="Mike" class="avatar-img" />
+                        </div>
+                        <span class="card-status">● ONLINE</span>
+                    </div>
+                    <h3 class="card-name">Mike</h3>
+                    <p class="card-role">Full Stack Dev & Data Science Student</p>
+                    <div class="card-footer">
+                        <span class="card-arrow">→</span>
+                    </div>
+                </a>
+                <a href="raquel.html" class="team-card">
+                    <div class="card-header">
+                        <div class="card-avatar">
+                            <img src="img/perfil-raq.png" alt="Raquel" class="avatar-img" />
+                        </div>
+                        <span class="card-status">● ONLINE</span>
+                    </div>
+                    <h3 class="card-name">Raquel</h3>
+                    <p class="card-role">Frontend Developer</p>
+                    <div class="card-footer">
+                        <span class="card-arrow">→</span>
+                    </div>
+                </a>
+                <a href="mario.html" class="team-card">
+                    <div class="card-header">
+                        <div class="card-avatar">
+                            <img src="img/mario.png" alt="Mario" class="avatar-img" />
+                        </div>
+                        <span class="card-status">● ONLINE</span>
+                    </div>
+                    <h3 class="card-name">Mario</h3>
+                    <p class="card-role">Full Stack Developer</p>
+                    <div class="card-footer">
+                        <span class="card-arrow">→</span>
+                    </div>
+                </a>
+                <a href="mariana.html" class="team-card">
+                    <div class="card-header">
+                        <div class="card-avatar">
+                            <img src="img/avatar_mariana.jpg" alt="Mariana" class="avatar-img" />
+                        </div>
+                        <span class="card-status">● ONLINE</span>
+                    </div>
+                    <h3 class="card-name">Mariana</h3>
+                    <p class="card-role">Software Dev & Data Science Student</p>
+                    <div class="card-footer">
+                        <span class="card-arrow">→</span>
+                    </div>
+                </a>
+                <a href="valeriat.html" class="team-card">
+                    <div class="card-header">
+                        <div class="card-avatar">
+                            <div class="img/avatar_vale"><img src="img/img-valeria/avatar_vale.png" alt="Valeria"
+                                    class="avatar-img" />
+                            </div>
+                        </div>
+                        <span class="card-status">● ONLINE</span>
+                    </div>
+                    <h3 class="card-name">Valeria</h3>
+                    <p class="card-role">DevOps Engineer</p>
+                    <div class="card-footer">
+                        <span class="card-arrow">→</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-contenido">
+            <div class="footer-info">
+                <p class="footer-copy">
+                    &copy; <span id="year"></span> IFTS N°29 - Equipo 404 Solutions
+                </p>
+                <p class="licencia">
+                    <span class="verde-fuerte">// {</span>
+                    <span class="texto-opaco">Proyecto Académico</span>
+                    <span class="verde-fuerte">}</span>
+                <div class="texto-opaco">Desarrollo Web FrontEnd</div>
+                </p>
+            </div>
+
+            <div class="footer-redes">
+                <a href="https://github.com/IFTS29/404_Solutions_TP1_FrontEnd" target="_blank" class="enlace-repo"
+                    aria-label="Repositorio GitHub del Grupo">
+                    <i class="fa-brands fa-github"></i>
+                    <span class="verde-fuerte">&gt;&gt;</span>
+                    <span class="texto-opaco">Ver Repositorio</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="btn-subir-container">
+            <a href="#" aria-label="Volver arriba" class="btn-subir">
+                <i class="fa-solid fa-chevron-up"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import './ProfileCommon.css';
+import './RaquelProfile.css';
+
+function RaquelProfile() {
+  const [activeSection, setActiveSection] = useState('sobre-mi');
+  const [copySuccess, setCopySuccess] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['sobre-mi', 'habilidades', 'peliculas', 'discos'];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const { offsetTop, offsetHeight } = section;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const copyProfileUrl = async () => {
+    try {
+      const url = window.location.href.split('#')[0];
+      await navigator.clipboard.writeText(url);
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2200);
+    } catch (err) {
+      console.error('Error al copiar:', err);
+    }
+  };
+
+  const movies = [
+    {
+      title: "The Terminator",
+      year: "1984 · SCI-FI / ACCIÓN",
+      description: "La película que definió el género de ciencia ficción oscura de los 80. James Cameron creó una visión aterradora del futuro donde las máquinas dominan. Explora el miedo a la tecnología descontrolada y el poder de la resistencia humana. Pura tensión y atmósfera cyberpunk.",
+      director: "Dir. James Cameron",
+      trailer: "https://www.youtube.com/watch?v=k64P4l2Wmeg"
+    },
+    {
+      title: "Ghost in the Shell",
+      year: "1995 · ANIME / SCI-FI",
+      description: "Un clásico del anime cyberpunk que explora la fusión entre humano y máquina. Mamoru Oshii crea una narrativa filosófica sobre consciencia y tecnología que sigue siendo relevante décadas después. Influenció toda una generación de ciencia ficción.",
+      director: "Dir. Mamoru Oshii",
+      trailer: "https://www.youtube.com/watch?v=SvBVDibOrgs"
+    },
+    {
+      title: "The Matrix",
+      year: "1999 · SCI-FI / ACCIÓN",
+      description: "Revolucionó el cine de ciencia ficción con su propuesta visual y filosófica. La pregunta sobre qué es real y qué es simulación nunca fue tan relevante como ahora. Un film que cambió la forma de hacer y pensar el cine de acción.",
+      director: "Dir. Lana y Lilly Wachowski",
+      trailer: "https://www.youtube.com/watch?v=vKQi3bBA1y8"
+    }
+  ];
+
+  const albums = [
+    { title: "Metallica", artist: "Metallica", year: "1991", description: "El álbum negro que definió una era. Enter Sandman, Nothing Else Matters, Sad But True.", img: "/img/discos-raquel/Metallica_-_Metallica_cover.jpg", url: "https://www.youtube.com/watch?v=xnKhsTXoKCI&list=PLxzSZG7g8c8y8Q4figxpJE7JCxZnKFnxl" },
+    { title: "The Number of the Beast", artist: "Iron Maiden", year: "1982", description: "El debut de Bruce Dickinson. Run to the Hills, Hallowed Be Thy Name. Metal épico.", img: "/img/discos-raquel/IronMaiden_NumberOfBeast.jpg", url: "https://www.youtube.com/watch?v=WxnN05vOuSM&list=PLxzSZG7g8c8ynC2yHSm5S-SXjY_h5oXE8" },
+    { title: "Paranoid", artist: "Black Sabbath", year: "1970", description: "Los padres del heavy metal. War Pigs, Iron Man, Paranoid. Oscuro y pesado.", img: "/img/discos-raquel/Black_Sabbath_-_Paranoid.jpg", url: "https://www.youtube.com/watch?v=uk_wUT1CvWM&list=PLxzSZG7g8c8yCXF-6mv7Nn5pLMZmXVXVZ" },
+    { title: "Destroyer", artist: "KISS", year: "1976", description: "Rock teatral en su máxima expresión. Detroit Rock City, God of Thunder, Shout It Out Loud.", img: "/img/discos-raquel/Kiss-Destroyer.jpg", url: "https://www.youtube.com/watch?v=I2rV8GKhyKiS4&list=PLxzSZG7g8c8wvKl2e-BxQjBCCx8bT7Qqz" },
+    { title: "Appetite for Destruction", artist: "Guns N' Roses", year: "1987", description: "Welcome to the Jungle. Sweet Child O' Mine. Paradise City. El debut más explosivo del hard rock.", img: "/img/discos-raquel/appetite_for_destruction_GNR.jpg", url: "https://www.youtube.com/watch?v=Rbm6GXllBiw&list=PLxzSZG7g8c8x_SamWaLRWST-U8JLmqKHm" },
+    { title: "Back in Black", artist: "AC/DC", year: "1980", description: "El tributo perfecto a Bon Scott. Hard rock puro y directo. Uno de los álbumes más vendidos de la historia.", img: "/img/discos-raquel/ACDC_Back_in_Black.png", url: "https://www.youtube.com/watch?v=pAgnJDJN4VA&list=PLxzSZG7g8c8wvKl2e-BxQjBCCx8bT7Qqz" }
+  ];
+
+  const skills = [
+    { tech: "HTML5", level: "Avanzado", xp: 90 },
+    { tech: "CSS3", level: "Avanzado", xp: 85 },
+    { tech: "JavaScript", level: "Intermedio", xp: 70 },
+    { tech: "Python", level: "Intermedio", xp: 65 },
+    { tech: "Java", level: "Básico", xp: 40 }
+  ];
+
+  return (
+    <main className="profile-main">
+      <nav className="nav-principal" id="nav-principal">
+        <div className="nav-inner">
+          <span className="nav-label">// NAVEGAR</span>
+          <ul>
+            <li><a href="#sobre-mi" className={activeSection === 'sobre-mi' ? 'nav-section-active' : ''}><span className="nav-num">01.</span> sobre_mi</a></li>
+            <li><a href="#habilidades" className={activeSection === 'habilidades' ? 'nav-section-active' : ''}><span className="nav-num">02.</span> habilidades</a></li>
+            <li><a href="#peliculas" className={activeSection === 'peliculas' ? 'nav-section-active' : ''}><span className="nav-num">03.</span> peliculas</a></li>
+            <li><a href="#discos" className={activeSection === 'discos' ? 'nav-section-active' : ''}><span className="nav-num">04.</span> discos</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <article className="profile-card">
+        <div className="terminal-header">
+          <span className="dot red"></span>
+          <span className="dot yellow"></span>
+          <span className="dot green"></span>
+          <span className="title">user_profile.sh</span>
+        </div>
+
+        <div className="profile-content-wrapper">
+          <section id="sobre-mi">
+            <div className="section-header">
+              <span className="section-tag">// 01 — IDENTIFICACIÓN</span>
+              <h2>Sobre mí_</h2>
+            </div>
+            <div className="sobre-mi-grid">
+              <div className="sobre-mi-img-wrapper">
+                <div className="avatar-frame">
+                  <img src="/img/perfil-raq.png" alt="Avatar generado de Raquel" className="avatar-img" loading="lazy" width="300" height="300" />
+                  <div className="avatar-overlay"></div>
+                  <div className="avatar-border-anim"></div>
+                </div>
+              </div>
+              <div className="profile-data-box">
+                <p>&gt; ID: #0051_</p>
+                <p>&gt; Name: Raquel_</p>
+                <p>&gt; Age: 404 años (error no encontrado)_</p>
+                <p>&gt; Clase: Desarrolladora_</p>
+                <p>&gt; Location: La Plata, Buenos Aires, AR_</p>
+              </div>
+            </div>
+            <div className="sobre-mi-texto">
+              <p className="typed-intro">
+                Hola. Soy <strong>Raquel</strong>, estudiante de la Tecnicatura Superior en Desarrollo de Software.
+                Llegué al código desde otro lado, lo que me da una mirada diferente: sé que los sistemas
+                no son neutrales, que el diseño tiene consecuencias, y que construir software es también
+                tomar decisiones sobre el mundo.
+              </p>
+              <p>
+                Fuera de las pantallas académicas, paso tiempo en mundos distópicos —tanto en videojuegos
+                como en películas de ciencia ficción. Hay algo en esos universos rotos y reconstruidos
+                que me recuerda por qué me interesa hacer tecnología con intención.
+              </p>
+              <p>
+                Estoy aprendiendo a programar y, más importante, estoy aprendiendo a pensar como
+                desarrolladora. Este portfolio es un log en tiempo real de ese proceso.
+              </p>
+              <div className="social-links">
+                <a href="https://github.com/raquerh" target="_blank" rel="noopener noreferrer" className="nav-button">GitHub</a>
+                <a href="https://www.linkedin.com/in/raquel-rodriguez-herlein/" target="_blank" rel="noopener noreferrer" className="nav-button">LinkedIn</a>
+              </div>
+              <div className="profile-actions">
+                <button 
+                  type="button" 
+                  id="copy-profile-url" 
+                  className={`nav-button copy-profile-btn ${copySuccess ? 'is-copied' : ''}`}
+                  onClick={copyProfileUrl}
+                >
+                  <span className="copy-profile-text">
+                    {copySuccess ? '¡Enlace copiado!' : 'Copiar enlace al perfil'}
+                  </span>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section id="habilidades">
+            <div className="section-header">
+              <span className="section-tag">// 02 — STATS</span>
+              <h2>Habilidades_</h2>
+            </div>
+            <div className="tech-icons-raquel">
+              <div className="tech-icon-raquel" title="HTML5">
+                <i className="devicon-html5-plain colored"></i>
+                <span>HTML5</span>
+              </div>
+              <div className="tech-icon-raquel" title="CSS3">
+                <i className="devicon-css3-plain colored"></i>
+                <span>CSS3</span>
+              </div>
+              <div className="tech-icon-raquel" title="JavaScript">
+                <i className="devicon-javascript-plain colored"></i>
+                <span>JavaScript</span>
+              </div>
+              <div className="tech-icon-raquel" title="Python">
+                <i className="devicon-python-plain colored"></i>
+                <span>Python</span>
+              </div>
+              <div className="tech-icon-raquel" title="Java">
+                <i className="devicon-java-plain colored"></i>
+                <span>Java</span>
+              </div>
+              <div className="tech-icon-raquel" title="Git">
+                <i className="devicon-git-plain colored"></i>
+                <span>Git</span>
+              </div>
+            </div>
+            <div className="habilidades-layout">
+              <div className="habilidades-col">
+                <div className="skills-grid">
+                  <div className="skills-header">
+                    <span>Tecnología</span>
+                    <span>Nivel</span>
+                    <span>XP</span>
+                  </div>
+                  {skills.map((skill, index) => (
+                    <div key={index} className="skill-item">
+                      <span className="skill-tech">{skill.tech}</span>
+                      <span className="skill-level">{skill.level}</span>
+                      <span className="skill-xp">
+                        <div className="xp-bar">
+                          <div className="xp-fill" style={{ '--pct': `${skill.xp}%` }}></div>
+                        </div>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="peliculas">
+            <div className="section-header">
+              <span className="section-tag">// 03 — WATCHLIST</span>
+              <h2>Películas Favoritas_</h2>
+            </div>
+            <p className="section-subtitle">Las tres películas que más me gustaron y marcaron una diferencia.</p>
+            <div className="movies-grid">
+              {movies.map((movie, index) => (
+                <article key={index} className="movie-card">
+                  <span className="movie-rank">{String(index + 1).padStart(2, '0')}</span>
+                  <div className="movie-info">
+                    <span className="movie-year">{movie.year}</span>
+                    <h3 className="movie-title">{movie.title}</h3>
+                    <p className="movie-desc">{movie.description}</p>
+                    <span className="movie-tag">{movie.director}</span>
+                    <a href={movie.trailer} target="_blank" rel="noopener noreferrer" className="card-link">Ver Trailer</a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section id="discos">
+            <div className="section-header">
+              <span className="section-tag">// 04 — SOUNDTRACK</span>
+              <h2>Álbumes Favoritos_</h2>
+            </div>
+            <p className="section-subtitle">Heavy metal y rock clásico: la banda sonora de mi vida.</p>
+            <div className="discos-grid">
+              {albums.map((album, index) => (
+                <article key={index} className="disco-card">
+                  <div className="disco-cover">
+                    <img src={album.img} alt={`${album.artist} - ${album.title}`} className="disco-img" loading="lazy" />
+                    <div className="disco-overlay">
+                      <span className="play-icon">▶</span>
+                    </div>
+                  </div>
+                  <div className="disco-info">
+                    <h3 className="disco-title">{album.title}</h3>
+                    <p className="disco-artist">{album.artist}</p>
+                    <p className="disco-year">{album.year}</p>
+                    <p className="disco-desc">{album.description}</p>
+                    <a href={album.url} target="_blank" rel="noopener noreferrer" className="card-link">Escuchar</a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        </div>
+      </article>
+
+      <div className="back-navigation">
+        <Link to="/" className="nav-button">_VOLVER_AL_INICIO</Link>
+      </div>
+    </main>
+  );
+}
+
+export default RaquelProfile;

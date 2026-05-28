@@ -1,0 +1,101 @@
+.main-footer {
+  border-top: 1px solid var(--terminal-green);
+  padding: 40px 20px;
+  margin-top: 60px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-copy {
+  color: var(--terminal-green);
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
+  .footer-copy,
+  .footer-copy p {
+    font-size: 0.7rem;
+  }
+}
+
+.licencia {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.verde-fuerte {
+  color: var(--terminal-green);
+  font-weight: bold;
+}
+
+.texto-opaco {
+  color: #8da392;
+  transition: color 0.3s ease;
+}
+
+.footer-redes {
+  margin-top: 10px;
+}
+
+.enlace-repo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.enlace-repo i {
+  font-size: 1.2rem;
+  color: #8da392;
+  transition: color 0.3s ease;
+}
+
+.enlace-repo:hover .texto-opaco,
+.enlace-repo:hover i {
+  color: var(--terminal-green);
+  text-shadow: 0 0 5px var(--terminal-green);
+}
+
+.btn-subir-container {
+  position: relative;
+  margin-top: 20px;
+}
+
+.btn-subir {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border: 2px solid var(--terminal-green);
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--terminal-green);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-subir:hover {
+  background-color: #8da392;
+  border-color: #8da392;
+  color: var(--bg-color);
+  box-shadow: none;
+}
+
+@media (min-width: 900px) {
+  .btn-subir-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2%;
+    margin-top: 0;
+  }
+}

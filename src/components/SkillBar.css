@@ -1,0 +1,109 @@
+/* ===== SKILL BAR ===== */
+.skill-bar-container {
+  margin-bottom: 1.5rem;
+  animation: fadeInLeft 0.6s ease forwards;
+}
+
+.skill-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  color: var(--terminal-green);
+  font-weight: bold;
+  font-size: 0.95rem;
+  font-family: 'Courier New', monospace;
+}
+
+.skill-level {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  font-family: 'Courier New', monospace;
+}
+
+.skill-bar-track {
+  width: 100%;
+  height: 24px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(0, 255, 0, 0.3) 0%, 
+    rgba(0, 255, 0, 0.6) 50%, 
+    rgba(0, 255, 0, 0.3) 100%
+  );
+  border-right: 2px solid var(--terminal-green);
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.skill-bar-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+/* Animación de brillo */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Animación de entrada */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Delays escalonados */
+.skill-bar-container:nth-child(1) { animation-delay: 0.1s; }
+.skill-bar-container:nth-child(2) { animation-delay: 0.2s; }
+.skill-bar-container:nth-child(3) { animation-delay: 0.3s; }
+.skill-bar-container:nth-child(4) { animation-delay: 0.4s; }
+.skill-bar-container:nth-child(5) { animation-delay: 0.5s; }
+.skill-bar-container:nth-child(6) { animation-delay: 0.6s; }
+.skill-bar-container:nth-child(7) { animation-delay: 0.7s; }
+.skill-bar-container:nth-child(8) { animation-delay: 0.8s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skill-bar-track {
+    height: 20px;
+  }
+
+  .skill-name {
+    font-size: 0.85rem;
+  }
+
+  .skill-level {
+    font-size: 0.75rem;
+  }
+}
