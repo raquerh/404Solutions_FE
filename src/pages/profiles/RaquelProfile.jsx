@@ -148,9 +148,9 @@ function RaquelProfile() {
                 <a href="https://www.linkedin.com/in/raquel-rodriguez-herlein/" target="_blank" rel="noopener noreferrer" className="nav-button">LinkedIn</a>
               </div>
               <div className="profile-actions">
-                <button 
-                  type="button" 
-                  id="copy-profile-url" 
+                <button
+                  type="button"
+                  id="copy-profile-url"
                   className={`nav-button copy-profile-btn ${copySuccess ? 'is-copied' : ''}`}
                   onClick={copyProfileUrl}
                 >
