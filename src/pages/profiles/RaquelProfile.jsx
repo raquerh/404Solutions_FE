@@ -6,10 +6,63 @@ import './RaquelProfile.css';
 function RaquelProfile() {
   const [activeSection, setActiveSection] = useState('sobre-mi');
   const [copySuccess, setCopySuccess] = useState(false);
+  const [currentProject, setCurrentProject] = useState(0);
+
+  const projects = [
+    {
+      title: "Portfolio Personal",
+      description: "Landing page de portfolio personal desarrollada como PFO1 del curso de Front End en el IFTS N°29. Estética terminal/cyberpunk con animaciones glitch, cursor parpadeante, barras de progreso estilo RPG y diseño responsivo.",
+      technologies: ["HTML5", "CSS3", "Google Fonts", "Vercel"],
+      language: "HTML",
+      image: "/img/proyectos-raquel/portfolio.JPG",
+      github: "https://github.com/raquerh/IFTS29-FRONT-END-PFO1",
+      demo: "https://ifts-29-front-end-pfo-1.vercel.app/"
+    },
+    {
+      title: "RRH Motoparts",
+      description: "Proyecto final integrador del curso Talento Tech Front-End. Tienda online de repuestos y accesorios para motos con carrito de compras persistente via localStorage, búsqueda y filtrado de productos, y formulario de contacto via Formspree.",
+      technologies: ["HTML5", "CSS3", "JavaScript", "localStorage", "Formspree"],
+      language: "CSS / JS",
+      image: "/img/proyectos-raquel/rrh-motoparts.JPG",
+      github: "https://github.com/raquerh/Proyecto-Final-FrontEnd-Talento-Tech",
+      demo: null
+    },
+    {
+      title: "CAC Movies",
+      description: "Aplicación web de películas desarrollada para el bootcamp Codo a Codo Full Stack Java. Integra la TMDB API para obtener datos en tiempo real, incluye autenticación con validación de formularios y gestión dinámica de contenido con JavaScript.",
+      technologies: ["HTML5", "CSS3", "JavaScript", "TMDB API"],
+      language: "JS / CSS",
+      image: "/img/proyectos-raquel/CAC-movies.JPG",
+      github: "https://github.com/raquerh/CAC-Movies",
+      demo: null
+    },
+    {
+      title: "Conversor de Monedas",
+      description: "Aplicación de escritorio con GUI para conversión de monedas en tiempo real. Consume la ExchangeRate-API con procesamiento JSON via Gson. Soporta USD, ARS, BRL, COP, MXN y JPY con formato numérico español y manejo robusto de errores.",
+      technologies: ["Java 22", "Swing", "Gson", "ExchangeRate-API"],
+      language: "Java",
+      image: "/img/proyectos-raquel/conversor-monedas.JPG",
+      github: "https://github.com/raquerh/Challenge-ONE-G8-Conversor-de-Monedas",
+      demo: null
+    },
+    {
+      title: "Gestión de Inventario",
+      description: "Sistema de gestión de inventario para motopartes desarrollado como PFI del curso Python de Talento Tech. Interfaz de menú en consola con Colorama. Permite agregar, ver, actualizar y eliminar productos, búsqueda multi-campo y reportes de stock bajo por umbral.",
+      technologies: ["Python", "SQLite", "Colorama"],
+      language: "Python",
+      image: "/img/proyectos-raquel/pfi-talentotech-python.JPG",
+      github: "https://github.com/raquerh/PFI-Talento-Tech",
+      demo: null
+    }
+  ];
+
+  const nextProject = () => setCurrentProject((prev) => (prev + 1) % projects.length);
+  const prevProject = () => setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
+  const goToProject = (index) => setCurrentProject(index);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['sobre-mi', 'habilidades', 'peliculas', 'discos'];
+      const sections = ['sobre-mi', 'habilidades', 'proyectos', 'peliculas', 'discos'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -91,8 +144,9 @@ function RaquelProfile() {
           <ul>
             <li><a href="#sobre-mi" className={activeSection === 'sobre-mi' ? 'nav-section-active' : ''}><span className="nav-num">01.</span> sobre_mi</a></li>
             <li><a href="#habilidades" className={activeSection === 'habilidades' ? 'nav-section-active' : ''}><span className="nav-num">02.</span> habilidades</a></li>
-            <li><a href="#peliculas" className={activeSection === 'peliculas' ? 'nav-section-active' : ''}><span className="nav-num">03.</span> peliculas</a></li>
-            <li><a href="#discos" className={activeSection === 'discos' ? 'nav-section-active' : ''}><span className="nav-num">04.</span> discos</a></li>
+            <li><a href="#proyectos" className={activeSection === 'proyectos' ? 'nav-section-active' : ''}><span className="nav-num">03.</span> proyectos</a></li>
+            <li><a href="#peliculas" className={activeSection === 'peliculas' ? 'nav-section-active' : ''}><span className="nav-num">04.</span> peliculas</a></li>
+            <li><a href="#discos" className={activeSection === 'discos' ? 'nav-section-active' : ''}><span className="nav-num">05.</span> discos</a></li>
           </ul>
         </div>
       </nav>
@@ -217,9 +271,65 @@ function RaquelProfile() {
             </div>
           </section>
 
+          <section id="proyectos">
+            <div className="section-header">
+              <span className="section-tag">// 03 — REPOSITORIOS</span>
+              <h2>Proyectos Destacados_</h2>
+            </div>
+            <p className="section-subtitle">Proyectos que muestran mi progreso como desarrolladora.</p>
+
+            <div className="raq-carrusel">
+              <button className="raq-carrusel-btn raq-prev-btn" onClick={prevProject} aria-label="Proyecto anterior">‹</button>
+
+              <div className="raq-carrusel-contenedor">
+                <div className="raq-proyecto-card" key={currentProject}>
+                  <div className="raq-proyecto-imagen">
+                    <img
+                      src={projects[currentProject].image}
+                      alt={`Captura de ${projects[currentProject].title}`}
+                    />
+                  </div>
+
+                  <div className="raq-proyecto-info">
+                    <h3 className="raq-proyecto-title">{projects[currentProject].title}</h3>
+                    <p className="raq-proyecto-desc">{projects[currentProject].description}</p>
+                    <div className="raq-proyecto-techs">
+                      {projects[currentProject].technologies.map((tech, idx) => (
+                        <span key={idx} className="raq-tech-badge">{tech}</span>
+                      ))}
+                    </div>
+                    <div className="raq-proyecto-links">
+                      <a href={projects[currentProject].github} target="_blank" rel="noopener noreferrer" className="card-link">
+                        Ver código
+                      </a>
+                      {projects[currentProject].demo && (
+                        <a href={projects[currentProject].demo} target="_blank" rel="noopener noreferrer" className="card-link">
+                          Demo live
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button className="raq-carrusel-btn raq-next-btn" onClick={nextProject} aria-label="Proyecto siguiente">›</button>
+            </div>
+
+            <div className="raq-carrusel-indicadores">
+              {projects.map((_, idx) => (
+                <button
+                  key={idx}
+                  className={`raq-indicador ${currentProject === idx ? 'raq-indicador-activo' : ''}`}
+                  onClick={() => goToProject(idx)}
+                  aria-label={`Ir al proyecto ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </section>
+
           <section id="peliculas">
             <div className="section-header">
-              <span className="section-tag">// 03 — WATCHLIST</span>
+              <span className="section-tag">// 04 — WATCHLIST</span>
               <h2>Películas Favoritas_</h2>
             </div>
             <p className="section-subtitle">Las tres películas que más me gustaron y marcaron una diferencia.</p>
@@ -244,7 +354,7 @@ function RaquelProfile() {
 
           <section id="discos">
             <div className="section-header">
-              <span className="section-tag">// 04 — SOUNDTRACK</span>
+              <span className="section-tag">// 05 — SOUNDTRACK</span>
               <h2>Álbumes Favoritos_</h2>
             </div>
             <p className="section-subtitle">Heavy metal y rock clásico: la banda sonora de mi vida.</p>
