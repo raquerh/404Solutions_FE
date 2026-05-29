@@ -1,11 +1,27 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './ProfileCommon.css';
 import './MikeProfile.css';
 
 function MikeProfile() {
+  const [activeSection, setActiveSection] = useState('inicio');
   const [expandedMovies, setExpandedMovies] = useState({});
   const [dsExecuted, setDsExecuted] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['sobre-mi', 'habilidades', 'peliculas', 'discos'];
+      const scrollY = window.scrollY + 150;
+      let current = 'inicio';
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && scrollY >= el.offsetTop) current = id;
+      }
+      setActiveSection(current);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMovie = (index) => {
     setExpandedMovies(prev => ({
@@ -49,17 +65,18 @@ function MikeProfile() {
 
   return (
     <main className="profile-main">
-      <nav className="profile-local-nav">
-        <div className="nav-path">
-          <span className="nav-root"><a href="#inicio"> ~/mike/</a></span>
-          <a href="#sobre-mi">sobre_mi_</a>
-          <span className="nav-sep">·</span>
-          <a href="#habilidades">skills_</a>
-          <span className="nav-sep">·</span>
-          <a href="#peliculas">pelis_</a>
-          <span className="nav-sep">·</span>
-          <a href="#discos">discos_</a>
-        </div>
+      <nav className="mike-nav-breadcrumb" aria-label="Navegación del perfil">
+        <a href="#inicio" className={activeSection === 'inicio' ? 'mike-nav-active' : ''}>
+          ~/mike/
+        </a>
+        <span className="mike-nav-sep">·</span>
+        <a href="#sobre-mi" className={activeSection === 'sobre-mi' ? 'mike-nav-active' : ''}>sobre_mi</a>
+        <span className="mike-nav-sep">·</span>
+        <a href="#habilidades" className={activeSection === 'habilidades' ? 'mike-nav-active' : ''}>skills</a>
+        <span className="mike-nav-sep">·</span>
+        <a href="#peliculas" className={activeSection === 'peliculas' ? 'mike-nav-active' : ''}>pelis</a>
+        <span className="mike-nav-sep">·</span>
+        <a href="#discos" className={activeSection === 'discos' ? 'mike-nav-active' : ''}>discos</a>
       </nav>
 
       <article className="profile-card" id="inicio">
@@ -98,8 +115,8 @@ function MikeProfile() {
 
             <div className="formacion-stack">
               <div className="formacion-card">
-                <h3 className="formacion-label"><span>//</span> Tecnicaturas en cursada</h3>
-                
+                <h3 className="formacion-label"><span>//</span>Cursando Tecnicaturas</h3>
+
                 <div className="tec-item">
                   <div className="tec-header">
                     <h4 className="tec-nombre">Desarrollo de Software</h4>
@@ -131,7 +148,7 @@ function MikeProfile() {
 
               <div className="formacion-card">
                 <h3 className="formacion-label"><span>//</span> Cursos &amp; Certificaciones</h3>
-                <dl className="cert-grid">
+                <div className="cert-grid">
                   <div className="cert-item">
                     <div className="cert-body">
                       <dt className="cert-name">Data Science - Codo A Codo</dt>
@@ -163,7 +180,7 @@ function MikeProfile() {
                     </div>
                     <span className="cert-status status-wip">▶ en curso</span>
                   </div>
-                </dl>
+                </div>
               </div>
             </div>
           </section>
@@ -270,7 +287,7 @@ function MikeProfile() {
             <h2>Películas Favoritas_</h2>
             {movies.map((movie, index) => (
               <div key={index} className="contenedor-peliculas">
-                <iframe 
+                <iframe
                   src={`https://www.youtube.com/embed/${movie.videoId}`}
                   title={`${movie.title} Official Trailer`}
                   style={{ border: 'none' }}
@@ -284,8 +301,8 @@ function MikeProfile() {
                     <p className={`description-peliculas parrafo-expandible ${expandedMovies[index] ? 'parrafo-completo' : 'parrafo-resumido'}`}>
                       {movie.description}
                     </p>
-                    <button 
-                      className="btn-leer" 
+                    <button
+                      className="btn-leer"
                       aria-expanded={expandedMovies[index] || false}
                       onClick={() => toggleMovie(index)}
                     >

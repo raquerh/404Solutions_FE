@@ -38,45 +38,68 @@
 }
 
 /* Barra de navegación */
-.mike-content .profile-local-nav {
+/* Breadcrumb nav — opción B */
+.mike-nav-breadcrumb {
     position: sticky;
     top: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-bottom: 0.0625rem solid var(--terminal-green);
-    padding: 0.75rem 0;
-    margin-bottom: 2rem;
-    overflow-x: auto;
-}
-
-.mike-content .nav-path {
+    z-index: 10;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
     gap: 0.5rem;
-    white-space: nowrap;
-    padding: 0 0.5rem;
+    padding: 0.6rem 1.5rem;
+    background-color: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.mike-content .nav-root {
+.mike-nav-breadcrumb a.mike-nav-active {
+    opacity: 1;
+    text-shadow: 0 0 0.5rem var(--terminal-green);
+    border-bottom: 1px solid var(--terminal-green);
+}
+
+.mike-nav-root {
     color: var(--terminal-green);
-    opacity: 0.5;
+    opacity: 0.45;
     font-size: 0.85rem;
+    margin-right: 0.25rem;
 }
 
-.mike-content .nav-sep {
+.mike-nav-sep {
     color: var(--terminal-green);
-    opacity: 0.3;
+    opacity: 0.25;
 }
 
-.mike-content .profile-local-nav a {
+.mike-nav-breadcrumb a {
     color: var(--terminal-green);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
 }
 
-.mike-content .profile-local-nav a:hover {
+.mike-nav-breadcrumb a:hover {
+    opacity: 1;
     text-shadow: 0 0 0.5rem var(--terminal-green);
+}
+
+/* Para que los títulos no queden tapados al hacer click */
+.mike-content section[id] {
+    scroll-margin-top: 2.5rem;
+}
+
+@media (max-width: 480px) {
+    .mike-nav-breadcrumb {
+        gap: 0.4rem;
+        padding: 0.5rem 1rem;
+    }
+
+    /* .mike-content section[id] {
+        scroll-margin-top: 1rem;
+    } */
 }
 
 /* Formación & Certificaciones */
@@ -483,6 +506,6 @@
 
     .mike-content section[id],
     .mike-content h2[id] {
-        scroll-margin-top: 8.5rem;
+        scroll-margin-top: 3rem;
     }
 }
