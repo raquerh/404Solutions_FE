@@ -140,15 +140,15 @@ tp2/
 
 ### Paleta de Colores
 
-| Color | Hexadecimal | Uso |
-| ------- | ------------- | ----- |
-| **Verde Terminal** | `#00ff41` | Texto principal, acentos, bordes activos |
-| **Negro Profundo** | `#0a0a0a` | Fondo principal de la aplicación |
-| **Gris Oscuro** | `#1a1a1a` | Fondos de tarjetas y contenedores |
-| **Blanco** | `#ffffff` | Texto secundario, títulos |
-| **Rojo** | `#ff0000` | Acentos del perfil de Mario, bordes |
-| **Amarillo** | `#ffff00` | Alertas, estados en progreso |
-| **Cyan** | `#4ecdc4` | Badges de layout, acentos secundarios |
+| Color | Muestra | Hexadecimal | Uso |
+| ----- | --------- | ------------- | ----- |
+| **Verde Terminal** | ![#00ff41](https://placehold.co/15x15/00ff41/00ff41.png) | `#00ff41` | Texto principal, acentos, bordes activos |
+| **Negro Profundo** | ![#0a0a0a](https://placehold.co/15x15/0a0a0a/0a0a0a.png) | `#0a0a0a` | Fondo principal de la aplicación |
+| **Gris Oscuro** | ![#1a1a1a](https://placehold.co/15x15/1a1a1a/1a1a1a.png) | `#1a1a1a` | Fondos de tarjetas y contenedores |
+| **Blanco** | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) | `#ffffff` | Texto secundario, títulos |
+| **Rojo** | ![#ff0000](https://placehold.co/15x15/ff0000/ff0000.png) | `#ff0000` | Acentos del perfil de Mario, bordes |
+| **Amarillo** | ![#ffff00](https://placehold.co/15x15/ffff00/ffff00.png) | `#ffff00` | Alertas, estados en progreso |
+| **Cyan** | ![#4ecdc4](https://placehold.co/15x15/4ecdc4/4ecdc4.png) | `#4ecdc4` | Badges de layout, acentos secundarios |
 
 ### Tipografías
 
