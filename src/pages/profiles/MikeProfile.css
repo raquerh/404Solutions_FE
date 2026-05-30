@@ -358,6 +358,38 @@ h2 {
 }
 
 /* Proyectos — carrusel */
+.raq-carrusel-btn {
+    position: absolute;
+    top: 30% !important;
+    transform: translateY(-50%) !important;
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.8) !important;
+    border: 1px solid var(--terminal-green) !important;
+    border-radius: 50%;
+    color: var(--terminal-green) !important;
+    font-size: 1.8rem !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.raq-carrusel-btn:hover {
+    background: var(--terminal-green) !important;
+    color: #000 !important;
+}
+
+.raq-prev-btn {
+    left: -22px;
+}
+
+.raq-next-btn {
+    right: -22px;
+}
+
 .raq-proyecto-imagen {
     position: relative;
     width: 100%;
@@ -438,6 +470,48 @@ h2 {
     justify-content: center;
     gap: 0.75rem;
 }
+
+.mike-content .social-links .nav-button {
+    transition: transform 0.3s ease, box-shadow 0.5s ease;
+}
+
+.mike-content .social-links .nav-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgba(0, 255, 65, 0.5);
+}
+
+.social-icon-btn {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    padding: 0;
+    border: 1px solid var(--terminal-green);
+    border-radius: 50%;
+}
+
+.mike-content .social-links .social-icon-btn {
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+}
+
+.mike-content .social-links .social-icon-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 12px rgba(0, 255, 65, 0.5);
+}
+
+.mike-content .social-links .social-icon-btn i {
+    transition: transform 0.3s ease;
+}
+
+.mike-content .social-links .social-icon-btn:hover i {
+    transform: rotate(10deg);
+}
+
+
+
 
 /* Discos */
 .mike-content .discos-favoritos {
@@ -523,4 +597,40 @@ h2 {
         gap: 0.4rem;
         padding: 0.5rem 1rem;
     }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mike-content section {
+    animation: fadeInUp 0.5s ease both;
+}
+
+.mike-content section:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.mike-content section:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.mike-content section:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+.mike-content section:nth-child(4) {
+    animation-delay: 0.35s;
+}
+
+.mike-content section:nth-child(5) {
+    animation-delay: 0.45s;
 }

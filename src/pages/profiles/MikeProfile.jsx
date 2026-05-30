@@ -27,13 +27,6 @@ function MikeProfile() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Restaura scroll después de cambiar proyecto
-  useEffect(() => {
-    if (scrollYRef.current !== null) {
-      window.scrollTo({ top: scrollYRef.current, behavior: 'instant' });
-      scrollYRef.current = null;
-    }
-  }, [currentProject]);
 
   const toggleProject = (index) => {
     setExpandedProjects(prev => ({ ...prev, [index]: !prev[index] }));
@@ -326,8 +319,7 @@ function MikeProfile() {
             <h2>Proyectos Destacados_</h2>
 
             <div className="raq-carrusel" style={{ position: 'relative', width: '100%' }}>
-              <button type="button" className="raq-carrusel-btn raq-prev-btn" onClick={prevProject} aria-label="Proyecto anterior"
-                style={{ position: 'absolute', left: '-1.5rem', top: '40%', transform: 'translateY(-50%)', zIndex: 2, background: 'none', border: 'none', color: 'white', fontSize: '2rem', cursor: 'pointer' }}>
+              <button type="button" className="raq-carrusel-btn raq-prev-btn" onClick={prevProject} aria-label="Proyecto anterior">
                 ‹
               </button>
 
@@ -340,7 +332,7 @@ function MikeProfile() {
                         title={projects[currentProject].title}
                         style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
                         allowFullScreen
-                        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
+                        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
                       />
                     </div>
                   ) : projects[currentProject].preview ? (
@@ -389,8 +381,7 @@ function MikeProfile() {
                 </div>
               </div>
 
-              <button type="button" className="raq-carrusel-btn raq-next-btn" onClick={nextProject} aria-label="Proyecto siguiente"
-                style={{ position: 'absolute', right: '-1.5rem', top: '40%', transform: 'translateY(-50%)', zIndex: 2, background: 'none', border: 'none', color: 'white', fontSize: '2rem', cursor: 'pointer' }}>
+              <button type="button" className="raq-carrusel-btn raq-next-btn" onClick={nextProject} aria-label="Proyecto siguiente">
                 ›
               </button>
             </div>
@@ -452,8 +443,15 @@ function MikeProfile() {
           </section>
 
           <div className="social-links">
-            <a href="https://github.com/mikefink22" target="_blank" rel="noopener noreferrer" className="nav-button">GitHub</a>
-            <a href="https://www.linkedin.com/in/miguel-flores-3211b398" target="_blank" rel="noopener noreferrer" className="nav-button">LinkedIn</a>
+            <a href="https://github.com/mikefink22" target="_blank" rel="noopener noreferrer" className="nav-button social-icon-btn" aria-label="GitHub">
+              <i className="devicon-github-plain" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/miguel-flores-3211b398" target="_blank" rel="noopener noreferrer" className="nav-button social-icon-btn" aria-label="LinkedIn">
+              <i className="devicon-linkedin-plain colored" aria-hidden="true"></i>
+            </a>
+            <a href="https://x.com/tu_usuario" target="_blank" rel="noopener noreferrer" className="nav-button social-icon-btn" aria-label="X (Twitter)">
+              <i className="fa-brands fa-x-twitter" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </article>
