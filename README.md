@@ -31,7 +31,7 @@ Demostrar el dominio de React mediante la implementación de:
 | **Mario González** | Full Stack Developer | [github.com/elavincho](https://github.com/elavincho) |
 | **Miguel Ángel Flores** | Full Stack Developer | [github.com/mikefink22](https://github.com/mikefink22) |
 | **Raquel Rodríguez** | Frontend Developer | [github.com/raquerh](https://github.com/raquerh) |
-| **Valeria Thomas** | Fullstack Developer | [github.com/usuario-valeria](https://github.com/Irinath) |
+| **Valeria Thomas** | Fullstack Developer | [github.com/Irinath](https://github.com/Irinath) |
 
 ---
 
@@ -54,6 +54,10 @@ Demostrar el dominio de React mediante la implementación de:
 - **JavaScript (ES6+)** - Sintaxis moderna con arrow functions, destructuring, async/await
 - **CSS3** - Variables CSS, Flexbox, Grid, Animaciones, Transiciones
 - **HTML5** - Estructura semántica
+
+### Tipografías
+
+- **Google Fonts** - [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) - Fuente monoespaciada principal de la interfaz
 
 ### Librerías de Iconos
 
@@ -213,6 +217,8 @@ const toggleSidebar = () => {
 - Responsive: se colapsa automáticamente en mobile
 - Animaciones suaves de transición
 
+![Sidebar Dashboard](./screenshots/sidebar-expanded.png)
+
 ---
 
 ### 2. Explorador de Datos JSON con Filtrado en Tiempo Real
@@ -242,6 +248,8 @@ useEffect(() => {
 - Filtros por categoría y estado
 - Actualización instantánea de resultados
 - Contador de resultados filtrados
+
+![Explorador JSON](./screenshots/json-explorer.png)
 
 ---
 
@@ -290,6 +298,8 @@ useEffect(() => {
 - Indicador de página actual (ej: "Página 2 de 7")
 - Botón Reintentar funcional con `retryCount`
 
+![Explorador Musical](./screenshots/api-music.png)
+
 ---
 
 ### 4. Galería de Imágenes con Lightbox
@@ -322,6 +332,9 @@ useEffect(() => {
 - Contador de posición (ej: "5 / 18")
 - Prevención de scroll del body cuando está abierto
 - Animaciones de zoom y fade
+
+![Galería grid](./screenshots/gallery-grid.png)
+![Lightbox abierto](./screenshots/gallery-lightbox.png)
 
 ---
 
@@ -519,6 +532,12 @@ App (ROOT)
 ---
 
 ## 📈 Evolución del Proyecto (TP1 → TP2)
+
+### Capturas Comparativas
+
+| TP1 - HTML Estático | TP2 - React SPA |
+|---------------------|-----------------|
+| ![TP1](./screenshots/tp1-before.png) | ![TP2](./screenshots/tp2-after.png) |
 
 ### Cambios Principales
 
@@ -1067,32 +1086,43 @@ npm run lint         # Ejecuta ESLint para verificar código
 
 ## 📸 Capturas de Pantalla
 
-> Las capturas se agregan una vez que el proyecto esté desplegado en Vercel.
-> Ver el sitio en producción: [https://tu-proyecto.vercel.app](https://tu-proyecto.vercel.app)
-
 ### Dashboard Principal
 
-La vista principal presenta la Sidebar fija a la izquierda y la grilla de tarjetas del equipo con animaciones de entrada escalonadas (fadeInUp con delays de 0.1s a 0.5s).
+Vista principal con Sidebar fija a la izquierda y grilla de tarjetas del equipo con animaciones de entrada escalonadas.
 
-### Sidebar Dashboard
+![Dashboard Principal](./screenshots/dashboard-home.png)
+
+### Sidebar Expandida y Colapsada
 
 Navegación lateral colapsable con logo, menú jerarquizado en dos secciones (NAVEGACIÓN / EQUIPO), avatares circulares y punto de estado ONLINE animado.
+
+![Sidebar expandida](./screenshots/sidebar-expanded.png)
+![Sidebar colapsada](./screenshots/sidebar-collapsed.png)
 
 ### Explorador JSON
 
 Buscador con filtrado instantáneo sobre 20 proyectos. Muestra contador de resultados en tiempo real y filtros por categoría y estado.
 
+![Explorador JSON](./screenshots/json-explorer.png)
+
 ### Explorador Musical
 
-Consumo de iTunes Search API con buscador de música, portadas de álbum, preview de audio de 30 segundos, spinner de carga, manejo de error con botón reintentar, y paginación de 8 canciones por página con indicador "Página X de Y".
+Consumo de iTunes Search API con buscador de música, portadas de álbum, preview de audio de 30 segundos y paginación de 8 canciones por página con indicador "Página X de Y".
+
+![Explorador Musical](./screenshots/api-music.png)
 
 ### Galería con Lightbox
 
-Grid responsivo de 10 imágenes. Click en cualquiera abre un modal fullscreen con navegación mediante flechas del teclado y cierre con ESC.
+Grid responsivo de imágenes y modal fullscreen con navegación mediante flechas del teclado y cierre con ESC.
+
+![Galería grid](./screenshots/gallery-grid.png)
+![Lightbox abierto](./screenshots/gallery-lightbox.png)
 
 ### Perfil Individual
 
-Cada perfil muestra: datos personales, habilidades técnicas, películas y discos favoritos con interactividad propia de cada integrante. Mario y Mariana incluyen barras de progreso animadas (SkillBar); Mike y Raquel usan barras XP con CSS animations propias; Valeria presenta lista de habilidades, películas con expand/collapse y carrusel circular de discos.
+Cada perfil muestra datos personales, habilidades técnicas, películas y discos favoritos con interactividad propia de cada integrante.
+
+![Perfil individual](./screenshots/profile.png)
 
 ---
 
