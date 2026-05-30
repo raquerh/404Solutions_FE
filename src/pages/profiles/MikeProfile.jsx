@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './ProfileCommon.css';
 import './MikeProfile.css';
 
@@ -8,8 +8,10 @@ function MikeProfile() {
   const [expandedMovies, setExpandedMovies] = useState({});
   const [dsExecuted, setDsExecuted] = useState(false);
   const [currentProject, setCurrentProject] = useState(0);
-  const [expandedProjects, setExpandedProjects] = useState({}); // Nuevo estado para controlar "Leer más"
+  const [expandedProjects, setExpandedProjects] = useState({});
+  const scrollYRef = useRef(null);
 
+  // Detecta sección activa al hacer scroll
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['sobre-mi', 'habilidades', 'proyectos', 'peliculas', 'discos'];
@@ -25,29 +27,37 @@ function MikeProfile() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Restaura scroll después de cambiar proyecto
+  useEffect(() => {
+    if (scrollYRef.current !== null) {
+      window.scrollTo({ top: scrollYRef.current, behavior: 'instant' });
+      scrollYRef.current = null;
+    }
+  }, [currentProject]);
+
   const toggleProject = (index) => {
-    setExpandedProjects(prev => ({
-      ...prev,
-      [index]: !prev[index]
-    }));
+    setExpandedProjects(prev => ({ ...prev, [index]: !prev[index] }));
   };
 
-
-  const nextProject = () => setCurrentProject((prev) => (prev + 1) % projects.length);
-  const prevProject = () => setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
-  const goToProject = (index) => setCurrentProject(index);
+  const nextProject = () => {
+    scrollYRef.current = window.scrollY;
+    setCurrentProject((prev) => (prev + 1) % projects.length);
+  };
+  const prevProject = () => {
+    scrollYRef.current = window.scrollY;
+    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+  const goToProject = (index) => {
+    scrollYRef.current = window.scrollY;
+    setCurrentProject(index);
+  };
 
   const toggleMovie = (index) => {
-    setExpandedMovies(prev => ({
-      ...prev,
-      [index]: !prev[index]
-    }));
+    setExpandedMovies(prev => ({ ...prev, [index]: !prev[index] }));
   };
 
   const executeDsQuery = () => {
-    if (!dsExecuted) {
-      setDsExecuted(true);
-    }
+    if (!dsExecuted) setDsExecuted(true);
   };
 
   const projects = [
@@ -55,29 +65,26 @@ function MikeProfile() {
       title: "Poster Estadística - Sysarmy",
       description: "Visualización de datos e insights sobre la encuesta de remuneración salarial en Argentina, integrada dinámicamente mediante un panel interactivo de Looker Studio.",
       technologies: ["Looker Studio", "Google Sheets", "BI / Analytics"],
-      demo: "https://datastudio.google.com/embed/reporting/c8ff0830-76d1-4694-8637-ebb4dc6aa603/page/b28PF", // Asegurar ruta /embed/
+      demo: "https://datastudio.google.com/embed/reporting/c8ff0830-76d1-4694-8637-ebb4dc6aa603/page/b28PF",
       isEmbed: true
     },
     {
       title: "Análisis Global de Internet y Servicios Móviles",
       description: "Dashboard integral de análisis de usuarios de internet y suscripciones a servicios móviles en 5 países (China, Emiratos Árabes, India, Islas Caimán y USA) desde 1980-2020. Incluye mapas geográficos, análisis de tendencias, top 5 de países, distribución de servicios móviles y aplicaciones más demandadas.",
       technologies: ["Google Sheets", "Looker Studio", "Data Analysis", "SQL"],
-      github: null,
       demo: "https://datastudio.google.com/embed/reporting/e2a20b47-8793-4265-80aa-f017679287bf/page/QJ4RD",
       isEmbed: true
-    }
-    /* Espacio para agregar más proyectos en el futuro:
+    },
     {
-      title: "",
-      description: "",
-      technologies: [],
-      // github: "https://github.com/mikefink22", // Modificar con el enlace real del repositorio si corresponde
-      demo: null,
-      isEmbed: false
+      title: "Agentic Engineer - Professional Validator Dashboard",
+      description: "Dashboard interactivo para gestionar la transición hacia el rol de Agentic Engineer. Trackea progreso técnico en ingeniería de código, arquitectura, seguridad (OWASP) e infraestructura AWS. Incluye radar de competencias dinámico, widget de seniority que evoluciona de Junior Auditor a Senior, centro de recursos clickeables y roadmap de 4 fases de capacitación técnica.",
+      technologies: ["HTML5", "Tailwind CSS", "JavaScript", "Chart.js", "AWS"],
+      github: "https://github.com/mikefink22/Agentic-Engineer-Path",
+      demo: "https://mikefink22.github.io/Agentic-Engineer-Path/",
+      isEmbed: false,
+      preview: "/img/validator_mike.png"
     }
-    */
   ];
-
 
   const movies = [
     {
@@ -109,9 +116,7 @@ function MikeProfile() {
   return (
     <main className="profile-main">
       <nav className="mike-nav-breadcrumb" aria-label="Navegación del perfil">
-        <a href="#inicio" className={activeSection === 'inicio' ? 'mike-nav-active' : ''}>
-          ~/mike/
-        </a>
+        <a href="#inicio" className={activeSection === 'inicio' ? 'mike-nav-active' : ''}>~/mike/</a>
         <span className="mike-nav-sep">·</span>
         <a href="#sobre-mi" className={activeSection === 'sobre-mi' ? 'mike-nav-active' : ''}>sobre_mi</a>
         <span className="mike-nav-sep">·</span>
@@ -161,7 +166,6 @@ function MikeProfile() {
             <div className="formacion-stack">
               <div className="formacion-card">
                 <h3 className="formacion-label"><span>//</span>Cursando Tecnicaturas</h3>
-
                 <div className="tec-item">
                   <div className="tec-header">
                     <h4 className="tec-nombre">Desarrollo de Software</h4>
@@ -175,7 +179,6 @@ function MikeProfile() {
                     <li className="tag">HTML · CSS · JS</li>
                   </ul>
                 </div>
-
                 <div className="tec-item">
                   <div className="tec-header">
                     <h4 className="tec-nombre">Desarrollo Web &amp; Apps</h4>
@@ -201,7 +204,6 @@ function MikeProfile() {
                     </div>
                     <span className="cert-status status-done">✓ completado</span>
                   </div>
-
                   <div className="cert-item">
                     <div className="cert-body">
                       <dt className="cert-name">Java Fullstack - Argentina Programa</dt>
@@ -209,7 +211,6 @@ function MikeProfile() {
                     </div>
                     <span className="cert-status status-done">✓ completado</span>
                   </div>
-
                   <div className="cert-item">
                     <div className="cert-body">
                       <dt className="cert-name">Code in Place</dt>
@@ -217,7 +218,6 @@ function MikeProfile() {
                     </div>
                     <span className="cert-status status-wip">▶ en curso</span>
                   </div>
-
                   <div className="cert-item">
                     <div className="cert-body">
                       <dt className="cert-name">GCI World 2026</dt>
@@ -233,38 +233,14 @@ function MikeProfile() {
           <section id="habilidades">
             <h2>Habilidades_</h2>
             <div className="tech-icons-mike">
-              <div className="tech-icon-mike" title="C# / .NET">
-                <i className="devicon-csharp-plain colored"></i>
-                <span>C#</span>
-              </div>
-              <div className="tech-icon-mike" title="Python">
-                <i className="devicon-python-plain colored"></i>
-                <span>Python</span>
-              </div>
-              <div className="tech-icon-mike" title="JavaScript">
-                <i className="devicon-javascript-plain colored"></i>
-                <span>JavaScript</span>
-              </div>
-              <div className="tech-icon-mike" title="HTML5">
-                <i className="devicon-html5-plain colored"></i>
-                <span>HTML5</span>
-              </div>
-              <div className="tech-icon-mike" title="CSS3">
-                <i className="devicon-css3-plain colored"></i>
-                <span>CSS3</span>
-              </div>
-              <div className="tech-icon-mike" title="Git">
-                <i className="devicon-git-plain colored"></i>
-                <span>Git</span>
-              </div>
-              <div className="tech-icon-mike" title="PostgreSQL">
-                <i className="devicon-postgresql-plain colored"></i>
-                <span>PostgreSQL</span>
-              </div>
-              <div className="tech-icon-mike" title="Java">
-                <i className="devicon-java-plain colored"></i>
-                <span>Java</span>
-              </div>
+              <div className="tech-icon-mike" title="C# / .NET"><i className="devicon-csharp-plain colored"></i><span>C#</span></div>
+              <div className="tech-icon-mike" title="Python"><i className="devicon-python-plain colored"></i><span>Python</span></div>
+              <div className="tech-icon-mike" title="JavaScript"><i className="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+              <div className="tech-icon-mike" title="HTML5"><i className="devicon-html5-plain colored"></i><span>HTML5</span></div>
+              <div className="tech-icon-mike" title="CSS3"><i className="devicon-css3-plain colored"></i><span>CSS3</span></div>
+              <div className="tech-icon-mike" title="Git"><i className="devicon-git-plain colored"></i><span>Git</span></div>
+              <div className="tech-icon-mike" title="PostgreSQL"><i className="devicon-postgresql-plain colored"></i><span>PostgreSQL</span></div>
+              <div className="tech-icon-mike" title="Java"><i className="devicon-java-plain colored"></i><span>Java</span></div>
             </div>
             <ul className="habilidades-layout">
               <li className="skill-item">
@@ -328,66 +304,40 @@ function MikeProfile() {
             </aside>
           </section>
 
-
-
           <section id="proyectos" className="media-section">
-            {/* Desarrollos y análisis de datos en ejecución.*/}
             <h2>Proyectos Destacados_</h2>
-            <p className="section-subtitle" style={{ color: 'var(--terminal-gray)', marginBottom: '1.5rem' }}></p>
 
-            {/* Carrusel con posición relativa para botones absolutos */}
             <div className="raq-carrusel" style={{ position: 'relative', width: '100%' }}>
+              <button type="button" className="raq-carrusel-btn raq-prev-btn" onClick={prevProject} aria-label="Proyecto anterior"
+                style={{ position: 'absolute', left: '-1.5rem', top: '40%', transform: 'translateY(-50%)', zIndex: 2, background: 'none', border: 'none', color: 'white', fontSize: '2rem', cursor: 'pointer' }}>
+                ‹
+              </button>
 
-              {/* Botón anterior — posicionado sobre el contenido */}
-              <button
-                className="raq-carrusel-btn raq-prev-btn"
-                onClick={prevProject}
-                aria-label="Proyecto anterior"
-                style={{
-                  position: 'absolute', left: '-1.5rem', top: '40%',
-                  transform: 'translateY(-50%)', zIndex: 2,
-                  background: 'none', border: 'none',
-                  color: 'white', fontSize: '2rem', cursor: 'pointer'
-                }}
-              >‹</button>
-
-              {/* Contenedor del proyecto — ocupa el 100% */}
               <div className="raq-carrusel-contenedor" style={{ width: '100%' }}>
-
-                {/* Iframe / imagen del proyecto */}
-                <div className="raq-proyecto-imagen" style={{
-                  position: 'relative',
-                  width: '100%',
-                  paddingBottom: '62.5%', /* ratio 16/10 */
-                  background: '#1e1e1e',
-                  borderRadius: '4px 4px 0 0',
-                  overflow: 'hidden'
-                }}>
-                  {projects[currentProject].isEmbed && projects[currentProject].demo ? (
-                    <iframe
-                      src={projects[currentProject].demo}
-                      title={projects[currentProject].title}
-                      style={{
-                        position: 'absolute', top: 0, left: 0,
-                        width: '100%', height: '100%',
-                        border: 'none', display: 'block'
-                      }}
-                      allowFullScreen
-                      sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                <div className="raq-proyecto-imagen">
+                  {projects[currentProject].isEmbed ? (
+                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+                      <iframe
+                        src={projects[currentProject].demo}
+                        title={projects[currentProject].title}
+                        style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
+                        allowFullScreen
+                        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
+                      />
+                    </div>
+                  ) : projects[currentProject].preview ? (
+                    <img
+                      src={projects[currentProject].preview}
+                      alt={projects[currentProject].title}
+                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                   ) : (
-                    <div style={{
-                      position: 'absolute', top: 0, left: 0,
-                      width: '100%', height: '100%',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: 'var(--terminal-gray)'
-                    }}>
-                      <span>[ Sin vista previa interactiva ]</span>
+                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--terminal-gray)' }}>
+                      <span>[ Haz click en "Demo live" para visitar el proyecto ]</span>
                     </div>
                   )}
                 </div>
 
-                {/* Tarjeta de información inferior */}
                 <div className="tarjeta" style={{ width: '100%', padding: '1.5rem', boxSizing: 'border-box', borderTop: '1px solid rgba(255,255,255,0.1)', borderRadius: '0 0 8px 8px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
                     <h4 style={{ margin: 0, fontSize: '1.4rem' }}>{projects[currentProject].title}</h4>
@@ -400,11 +350,12 @@ function MikeProfile() {
                     </div>
                   </div>
                   <div className="contenedor" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                    <p className={`description-peliculas parrafo-expandible ${expandedProjects[currentProject] ? 'parrafo-completo' : 'parrafo-resumido'}`} style={{ fontSize: '0.95rem', lineHeight: '1.5', color: '#ccc', margin: 0 }}>
+                    <p className={`description-peliculas parrafo-expandible ${expandedProjects[currentProject] ? 'parrafo-completo' : 'parrafo-resumido'}`}
+                      style={{ fontSize: '0.95rem', lineHeight: '1.5', color: '#ccc', margin: 0 }}>
                       {projects[currentProject].description}
                     </p>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', marginTop: '0.5rem' }}>
-                      <button className="btn-leer" aria-expanded={expandedProjects[currentProject] || false} onClick={() => toggleProject(currentProject)} style={{ margin: 0 }}>
+                      <button type="button" className="btn-leer" aria-expanded={expandedProjects[currentProject] || false} onClick={() => toggleProject(currentProject)} style={{ margin: 0 }}>
                         {expandedProjects[currentProject] ? 'Leer menos' : 'Leer más'}
                       </button>
                       <div className="raq-proyecto-links" style={{ display: 'flex', gap: '0.8rem' }}>
@@ -420,24 +371,16 @@ function MikeProfile() {
                 </div>
               </div>
 
-              {/* Botón siguiente — posicionado sobre el contenido */}
-              <button
-                className="raq-carrusel-btn raq-next-btn"
-                onClick={nextProject}
-                aria-label="Proyecto siguiente"
-                style={{
-                  position: 'absolute', right: '-1.5rem', top: '40%',
-                  transform: 'translateY(-50%)', zIndex: 2,
-                  background: 'none', border: 'none',
-                  color: 'white', fontSize: '2rem', cursor: 'pointer'
-                }}
-              >›</button>
+              <button type="button" className="raq-carrusel-btn raq-next-btn" onClick={nextProject} aria-label="Proyecto siguiente"
+                style={{ position: 'absolute', right: '-1.5rem', top: '40%', transform: 'translateY(-50%)', zIndex: 2, background: 'none', border: 'none', color: 'white', fontSize: '2rem', cursor: 'pointer' }}>
+                ›
+              </button>
             </div>
 
-            {/* Indicadores */}
             <div className="raq-carrusel-indicadores" style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginTop: '1rem' }}>
               {projects.map((_, idx) => (
                 <button
+                  type="button"
                   key={idx}
                   className={`raq-indicador ${currentProject === idx ? 'raq-indicador-activo' : ''}`}
                   onClick={() => goToProject(idx)}
@@ -466,11 +409,7 @@ function MikeProfile() {
                     <p className={`description-peliculas parrafo-expandible ${expandedMovies[index] ? 'parrafo-completo' : 'parrafo-resumido'}`}>
                       {movie.description}
                     </p>
-                    <button
-                      className="btn-leer"
-                      aria-expanded={expandedMovies[index] || false}
-                      onClick={() => toggleMovie(index)}
-                    >
+                    <button type="button" className="btn-leer" aria-expanded={expandedMovies[index] || false} onClick={() => toggleMovie(index)}>
                       {expandedMovies[index] ? 'Leer menos' : 'Leer más'}
                     </button>
                   </div>
@@ -499,12 +438,12 @@ function MikeProfile() {
             <a href="https://www.linkedin.com/in/miguel-flores-3211b398" target="_blank" rel="noopener noreferrer" className="nav-button">LinkedIn</a>
           </div>
         </div>
-      </article >
+      </article>
 
       <div className="back-navigation">
         <Link to="/" className="nav-button">_VOLVER_AL_INICIO</Link>
       </div>
-    </main >
+    </main>
   );
 }
 
