@@ -256,28 +256,61 @@ h2 {
     transition: width 1s ease-in-out;
 }
 
+/* DESPUÉS */
 .tech-icons-mike {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+    margin-bottom: 2rem;
 }
 
 .tech-icon-mike {
+    width: 80px;
+    height: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    padding: 12px;
-    border: 1px solid rgba(0, 255, 65, 0.3);
+    justify-content: center;
+    gap: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 255, 65, 0.3);
     border-radius: 8px;
     cursor: default;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    min-width: 60px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.tech-icon-mike::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(0, 255, 65, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.tech-icon-mike:hover::before {
+    width: 120%;
+    height: 120%;
+}
+
+.tech-icon-mike:hover {
+    border-color: var(--terminal-green);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+    transform: translateY(-5px) scale(1.1);
 }
 
 .tech-icon-mike i {
     font-size: 2rem;
+    position: relative;
+    /* para que quede sobre el ::before */
+    z-index: 1;
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -285,17 +318,20 @@ h2 {
     font-size: 0.65rem;
     color: var(--terminal-green);
     text-align: center;
-}
-
-.tech-icon-mike:hover {
-    transform: translateY(-4px) scale(1.08);
-    border-color: var(--terminal-green);
-    box-shadow: 0 0 16px rgba(0, 255, 65, 0.4);
+    position: relative;
+    z-index: 1;
 }
 
 .tech-icon-mike:hover i {
     transform: rotate(10deg) scale(1.2);
     filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.7));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+@media (max-width: 600px) {
+    .tech-icons-mike {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .mike-content .ds-note {
@@ -304,6 +340,21 @@ h2 {
     padding: 1.2rem;
     background: rgba(0, 255, 65, 0.05);
     font-size: 1rem;
+}
+
+.ds-line {
+    margin: 4px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 0.6s steps(30) forwards;
+    animation-delay: calc(var(--i) * 0.7s);
+}
+
+@keyframes typing {
+    to {
+        width: 100%;
+    }
 }
 
 /* Proyectos — carrusel */

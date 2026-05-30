@@ -83,6 +83,24 @@ function MikeProfile() {
       demo: "https://mikefink22.github.io/Agentic-Engineer-Path/",
       isEmbed: false,
       preview: "/img/validator_mike.png"
+    },
+    {
+      title: "ClinicFlow E-commerce",
+      description: "Plataforma web moderna y segura para la comercialización de planes de suscripción de ClinicFlow, un sistema de gestión de pacientes. Incluye landing informativo, catálogo de planes (Básico, Estándar, Premium, Personalizado), carrito de compras, checkout con pasarela de pago integrada, gestión de usuarios y panel administrativo para la administración de productos y ventas.",
+      technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "Python", "SQL"],
+      github: "https://github.com/ISPC-WEB-2025/ClinicFlow",
+      demo: "https://ispc-web-2025.github.io/ClinicFlow/front/",
+      isEmbed: false,
+      preview: "/img/clinicflow.png"
+    },
+    {
+      title: "ClinicFlow - Sitio Corporativo",
+      description: "Sitio corporativo oficial de ClinicFlow construido con WordPress y Elementor. Presenta la plataforma de gestión de pacientes, módulos de currículums de integrantes del equipo, gestión de leads mediante FluentForms, tienda online integrada con WooCommerce para planes de suscripción, y optimización de rendimiento con WP Super Cache.",
+      technologies: ["WordPress", "Elementor", "WooCommerce", "FluentForms", "WP Super Cache"],
+      github: null,
+      demo: "https://clinicflow.com.ar/",
+      isEmbed: false,
+      preview: "/img/clinicflow-wp.png"
     }
   ];
 
@@ -287,17 +305,17 @@ function MikeProfile() {
               </li>
             </ul>
 
-            <aside className="ds-note" id="ds-container" onClick={executeDsQuery} style={{ cursor: 'pointer' }}>
+            <aside className="ds-note" id="ds-container" onClick={executeDsQuery} style={{ cursor: dsExecuted ? 'default' : 'pointer' }}>
               <div id="ds-terminal-text">
                 {!dsExecuted ? (
                   <p style={{ color: 'var(--terminal-green)' }}>[ CLICK PARA EJECUTAR CONSULTA Data Science ]</p>
                 ) : (
                   <>
-                    <p style={{ color: 'var(--terminal-green)', margin: '4px 0' }}>$ query --tags 'data-science'</p>
-                    <p style={{ color: 'white', margin: '4px 0' }}>&gt; PANDAS: Procesamiento de datos.</p>
-                    <p style={{ color: 'white', margin: '4px 0' }}>&gt; LOOKER STUDIO: Dashboards.</p>
-                    <p style={{ color: 'white', margin: '4px 0' }}>&gt; STATS: Estadística descriptiva.</p>
-                    <p style={{ color: 'white', margin: '4px 0' }}>// Cursado en Codo a Codo.</p>
+                    <p className="ds-line" style={{ '--i': 0, color: 'var(--terminal-green)' }}>$ query --tags 'data-science'</p>
+                    <p className="ds-line" style={{ '--i': 1, color: 'white' }}>&gt; PANDAS: Procesamiento de datos.</p>
+                    <p className="ds-line" style={{ '--i': 2, color: 'white' }}>&gt; LOOKER STUDIO: Dashboards.</p>
+                    <p className="ds-line" style={{ '--i': 3, color: 'white' }}>&gt; STATS: Estadística descriptiva.</p>
+                    <p className="ds-line" style={{ '--i': 4, color: 'white' }}>// Cursado en Codo a Codo.</p>
                   </>
                 )}
               </div>
