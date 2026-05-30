@@ -269,7 +269,10 @@
 }
 
 .logo-tecnologias:hover {
-  filter: grayscale(100%);
+  
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 2px var(--text-accent));
+  animation: girarDisco 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .mario-content .contenedor-peliculas {
@@ -290,7 +293,7 @@
 .mario-content .description-peliculas {
   color: var(--text-accent);
   font-size: 0.75rem;
-  line-height: 1.5;
+  line-height: 1.8;
 }
 
 .mario-content iframe {
@@ -314,6 +317,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-family: inherit;
+  margin-top: 10px;
 }
 
 .mario-content .btn-leer:hover {
@@ -350,6 +354,10 @@
   overflow: hidden;
   transition: max-height 0.3s ease;
 }
+
+  .tarjeta h3 {
+    color: var(--text-accent);
+  }
 
 
 .skills-bars-mario {
@@ -452,6 +460,7 @@
   }
 
   .tarjeta h3 {
+    color: var(--text-accent);
     margin-top: 0px;
     margin-bottom: 0px;
     font-size: 1rem;
