@@ -37,6 +37,15 @@
     border: none;
 }
 
+.contenedor-proyectos {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    /* Permite que el contenedor crezca con el contenido */
+    padding: 20px;
+}
+
+
 /* Barra de navegación */
 /* Breadcrumb nav — opción B */
 .mike-nav-breadcrumb {

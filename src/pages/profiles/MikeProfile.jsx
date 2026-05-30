@@ -7,10 +7,12 @@ function MikeProfile() {
   const [activeSection, setActiveSection] = useState('inicio');
   const [expandedMovies, setExpandedMovies] = useState({});
   const [dsExecuted, setDsExecuted] = useState(false);
+  const [currentProject, setCurrentProject] = useState(0);
+  const [expandedProjects, setExpandedProjects] = useState({}); // Nuevo estado para controlar "Leer más"
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['sobre-mi', 'habilidades', 'peliculas', 'discos'];
+      const sections = ['sobre-mi', 'habilidades', 'proyectos', 'peliculas', 'discos'];
       const scrollY = window.scrollY + 150;
       let current = 'inicio';
       for (const id of sections) {
@@ -22,6 +24,18 @@ function MikeProfile() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleProject = (index) => {
+    setExpandedProjects(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
+
+  const nextProject = () => setCurrentProject((prev) => (prev + 1) % projects.length);
+  const prevProject = () => setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
+  const goToProject = (index) => setCurrentProject(index);
 
   const toggleMovie = (index) => {
     setExpandedMovies(prev => ({
@@ -35,6 +49,36 @@ function MikeProfile() {
       setDsExecuted(true);
     }
   };
+
+  const projects = [
+    {
+      title: "Poster Estadística - Sysarmy",
+      description: "Visualización de datos e insights sobre la encuesta de remuneración salarial en Argentina, integrada dinámicamente mediante un panel interactivo de Looker Studio.",
+      technologies: ["Looker Studio", "Google Sheets", "BI / Analytics"],
+      // github: "https://github.com/mikefink22", // Modificar con el enlace real del repositorio si corresponde
+      demo: "https://datastudio.google.com/embed/reporting/c8ff0830-76d1-4694-8637-ebb4dc6aa603/page/b28PF", // Asegurar ruta /embed/
+      isEmbed: true
+    },
+    {
+      title: "Proyecto de Datos II (Pendiente)",
+      description: "Espacio reservado para el segundo proyecto de datos una vez reestablecida la conexión de la fuente de origen.",
+      technologies: ["Pandas", "Python", "SQL"],
+      github: "https://github.com/mikefink22",
+      demo: null,
+      isEmbed: false
+    }
+    /* Espacio para agregar más proyectos en el futuro:
+    {
+      title: "",
+      description: "",
+      technologies: [],
+      github: "",
+      demo: null,
+      isEmbed: false
+    }
+    */
+  ];
+
 
   const movies = [
     {
@@ -73,6 +117,8 @@ function MikeProfile() {
         <a href="#sobre-mi" className={activeSection === 'sobre-mi' ? 'mike-nav-active' : ''}>sobre_mi</a>
         <span className="mike-nav-sep">·</span>
         <a href="#habilidades" className={activeSection === 'habilidades' ? 'mike-nav-active' : ''}>skills</a>
+        <span className="mike-nav-sep">·</span>
+        <a href="#proyectos" className={activeSection === 'proyectos' ? 'mike-nav-active' : ''}>proyectos</a>
         <span className="mike-nav-sep">·</span>
         <a href="#peliculas" className={activeSection === 'peliculas' ? 'mike-nav-active' : ''}>pelis</a>
         <span className="mike-nav-sep">·</span>
@@ -283,6 +329,126 @@ function MikeProfile() {
             </aside>
           </section>
 
+
+
+          <section id="proyectos" className="media-section">
+            {/* Desarrollos y análisis de datos en ejecución.*/}
+            <h2>Proyectos Destacados_</h2>
+            <p className="section-subtitle" style={{ color: 'var(--terminal-gray)', marginBottom: '1.5rem' }}></p>
+
+            {/* Carrusel con posición relativa para botones absolutos */}
+            <div className="raq-carrusel" style={{ position: 'relative', width: '100%' }}>
+
+              {/* Botón anterior — posicionado sobre el contenido */}
+              <button
+                className="raq-carrusel-btn raq-prev-btn"
+                onClick={prevProject}
+                aria-label="Proyecto anterior"
+                style={{
+                  position: 'absolute', left: '-1.5rem', top: '40%',
+                  transform: 'translateY(-50%)', zIndex: 2,
+                  background: 'none', border: 'none',
+                  color: 'white', fontSize: '2rem', cursor: 'pointer'
+                }}
+              >‹</button>
+
+              {/* Contenedor del proyecto — ocupa el 100% */}
+              <div className="raq-carrusel-contenedor" style={{ width: '100%' }}>
+
+                {/* Iframe / imagen del proyecto */}
+                <div className="raq-proyecto-imagen" style={{
+                  position: 'relative',
+                  width: '100%',
+                  paddingBottom: '62.5%', /* ratio 16/10 */
+                  background: '#1e1e1e',
+                  borderRadius: '4px 4px 0 0',
+                  overflow: 'hidden'
+                }}>
+                  {projects[currentProject].isEmbed && projects[currentProject].demo ? (
+                    <iframe
+                      src={projects[currentProject].demo}
+                      title={projects[currentProject].title}
+                      style={{
+                        position: 'absolute', top: 0, left: 0,
+                        width: '100%', height: '100%',
+                        border: 'none', display: 'block'
+                      }}
+                      allowFullScreen
+                      sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                    />
+                  ) : (
+                    <div style={{
+                      position: 'absolute', top: 0, left: 0,
+                      width: '100%', height: '100%',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      color: 'var(--terminal-gray)'
+                    }}>
+                      <span>[ Sin vista previa interactiva ]</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Tarjeta de información inferior */}
+                <div className="tarjeta" style={{ width: '100%', padding: '1.5rem', boxSizing: 'border-box', borderTop: '1px solid rgba(255,255,255,0.1)', borderRadius: '0 0 8px 8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
+                    <h4 style={{ margin: 0, fontSize: '1.4rem' }}>{projects[currentProject].title}</h4>
+                    <div className="raq-proyecto-techs" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                      {projects[currentProject].technologies.map((tech, idx) => (
+                        <span key={idx} className="raq-tech-badge" style={{ padding: '0.2rem 0.6rem', background: '#222', border: '1px solid #333', borderRadius: '4px', fontSize: '0.75rem', color: 'var(--terminal-green)' }}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="contenedor" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    <p className={`description-peliculas parrafo-expandible ${expandedProjects[currentProject] ? 'parrafo-completo' : 'parrafo-resumido'}`} style={{ fontSize: '0.95rem', lineHeight: '1.5', color: '#ccc', margin: 0 }}>
+                      {projects[currentProject].description}
+                    </p>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', marginTop: '0.5rem' }}>
+                      <button className="btn-leer" aria-expanded={expandedProjects[currentProject] || false} onClick={() => toggleProject(currentProject)} style={{ margin: 0 }}>
+                        {expandedProjects[currentProject] ? 'Leer menos' : 'Leer más'}
+                      </button>
+                      <div className="raq-proyecto-links" style={{ display: 'flex', gap: '0.8rem' }}>
+                        {projects[currentProject].github && (
+                          <a href={projects[currentProject].github} target="_blank" rel="noopener noreferrer" className="nav-button" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Ver código</a>
+                        )}
+                        {projects[currentProject].demo && !projects[currentProject].isEmbed && (
+                          <a href={projects[currentProject].demo} target="_blank" rel="noopener noreferrer" className="nav-button" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Demo live</a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Botón siguiente — posicionado sobre el contenido */}
+              <button
+                className="raq-carrusel-btn raq-next-btn"
+                onClick={nextProject}
+                aria-label="Proyecto siguiente"
+                style={{
+                  position: 'absolute', right: '-1.5rem', top: '40%',
+                  transform: 'translateY(-50%)', zIndex: 2,
+                  background: 'none', border: 'none',
+                  color: 'white', fontSize: '2rem', cursor: 'pointer'
+                }}
+              >›</button>
+            </div>
+
+            {/* Indicadores */}
+            <div className="raq-carrusel-indicadores" style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginTop: '1rem' }}>
+              {projects.map((_, idx) => (
+                <button
+                  key={idx}
+                  className={`raq-indicador ${currentProject === idx ? 'raq-indicador-activo' : ''}`}
+                  onClick={() => goToProject(idx)}
+                  aria-label={`Ir al proyecto ${idx + 1}`}
+                  style={{ width: '10px', height: '10px', borderRadius: '50%', border: 'none', background: currentProject === idx ? 'var(--terminal-green, #00ff00)' : '#555', cursor: 'pointer' }}
+                />
+              ))}
+            </div>
+          </section>
+
           <section id="peliculas" className="media-section">
             <h2>Películas Favoritas_</h2>
             {movies.map((movie, index) => (
@@ -334,12 +500,12 @@ function MikeProfile() {
             <a href="https://www.linkedin.com/in/miguel-flores-3211b398" target="_blank" rel="noopener noreferrer" className="nav-button">LinkedIn</a>
           </div>
         </div>
-      </article>
+      </article >
 
       <div className="back-navigation">
         <Link to="/" className="nav-button">_VOLVER_AL_INICIO</Link>
       </div>
-    </main>
+    </main >
   );
 }
 
