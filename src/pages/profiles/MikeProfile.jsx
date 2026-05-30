@@ -55,24 +55,23 @@ function MikeProfile() {
       title: "Poster Estadística - Sysarmy",
       description: "Visualización de datos e insights sobre la encuesta de remuneración salarial en Argentina, integrada dinámicamente mediante un panel interactivo de Looker Studio.",
       technologies: ["Looker Studio", "Google Sheets", "BI / Analytics"],
-      // github: "https://github.com/mikefink22", // Modificar con el enlace real del repositorio si corresponde
       demo: "https://datastudio.google.com/embed/reporting/c8ff0830-76d1-4694-8637-ebb4dc6aa603/page/b28PF", // Asegurar ruta /embed/
       isEmbed: true
     },
     {
-      title: "Proyecto de Datos II (Pendiente)",
-      description: "Espacio reservado para el segundo proyecto de datos una vez reestablecida la conexión de la fuente de origen.",
-      technologies: ["Pandas", "Python", "SQL"],
-      github: "https://github.com/mikefink22",
-      demo: null,
-      isEmbed: false
+      title: "Análisis Global de Internet y Servicios Móviles",
+      description: "Dashboard integral de análisis de usuarios de internet y suscripciones a servicios móviles en 5 países (China, Emiratos Árabes, India, Islas Caimán y USA) desde 1980-2020. Incluye mapas geográficos, análisis de tendencias, top 5 de países, distribución de servicios móviles y aplicaciones más demandadas.",
+      technologies: ["Google Sheets", "Looker Studio", "Data Analysis", "SQL"],
+      github: null,
+      demo: "https://datastudio.google.com/embed/reporting/e2a20b47-8793-4265-80aa-f017679287bf/page/QJ4RD",
+      isEmbed: true
     }
     /* Espacio para agregar más proyectos en el futuro:
     {
       title: "",
       description: "",
       technologies: [],
-      github: "",
+      // github: "https://github.com/mikefink22", // Modificar con el enlace real del repositorio si corresponde
       demo: null,
       isEmbed: false
     }
