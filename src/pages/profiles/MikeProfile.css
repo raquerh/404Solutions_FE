@@ -510,9 +510,6 @@ h2 {
     transform: rotate(10deg);
 }
 
-
-
-
 /* Discos */
 .mike-content .discos-favoritos {
     display: flex;
@@ -557,13 +554,29 @@ h2 {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .mike-nav-breadcrumb {
+        top: 3.5rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
     .mike-content .habilidades-layout {
         grid-template-columns: 1fr 1fr;
     }
 
     .mike-content section[id] {
-        scroll-margin-top: 3rem;
+        scroll-margin-top: 6.5rem;
     }
+
+    #inicio {
+        scroll-margin-top: 8rem;
+    }
+
+    #sobre-mi {
+        scroll-margin-top: 7rem;
+    }
+
 }
 
 @media (max-width: 600px) {
@@ -593,9 +606,23 @@ h2 {
         margin: 0 auto;
     }
 
+    .mike-content section[id] {
+        scroll-margin-top: 6.5rem;
+    }
+
     .mike-nav-breadcrumb {
-        gap: 0.4rem;
-        padding: 0.5rem 1rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .mike-nav-breadcrumb::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mike-nav-breadcrumb a,
+    .mike-nav-sep {
+        flex-shrink: 0;
     }
 }
 

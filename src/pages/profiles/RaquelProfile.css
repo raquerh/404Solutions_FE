@@ -846,6 +846,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .nav-principal {
+    top: 3.5rem;
+  }
+}
+
 @media (max-width: 600px) {
   .tech-icons-raquel {
     grid-template-columns: repeat(3, 1fr);
