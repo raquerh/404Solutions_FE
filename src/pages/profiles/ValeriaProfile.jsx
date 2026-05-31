@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import './ProfileCommon.css';
 import './ValeriaProfile.css';
+import SkillBar from '../../components/SkillBar';
+
 
 function getItemsPerView() {
   if (window.innerWidth < 600) return 1;
@@ -16,6 +18,47 @@ function ValeriaProfile() {
   const [itemsPerView, setItemsPerView] = useState(() => getItemsPerView());
   const [containerWidth, setContainerWidth] = useState(0);
   const carruselRef = useRef(null);
+  const [currentProject, setCurrentProject] = useState(0);
+
+  // Proyectos para el carrusel
+  const projects = [
+    {
+      title: "Amigo Secreto",
+      description: "Proyecto de ONE-Alura para práctica para curso de FrontEnd. Aplicación de gestión de sorteos.",
+      technologies: [ "HTML", "CSS", "JavaScript"],
+      image: "/img/proyectos-valeria/Amigosecreto.png",
+      github: "https://github.com/Irinath/challenge-amigo-secreto_esp-main.git",
+      demo: "https://challenge-amigo-secreto-esp-main-six.vercel.app/"
+    },
+    {
+      title: "Cotizador",
+      description: "Proyecto realizado con React integrando APIs de proveedores, con posibilidad de ampliar a AMB de clientes e integrar con sistema de facturación y gestión de cobranzas",
+      technologies: ["HTML", "CSS", "JavaScript", "React", "TailWinds"],
+      image: "/img/proyectos-valeria/cotizadorpro.png",
+      github: " ",
+      demo: " "
+    },
+    {
+      title: "E-Commerce App",
+      description: "Proyecto de E-Commerce para curso de FrontEnd de Talento Tech 1c2025",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      image: "/img/proyectos-valeria/Organizalogia.png",
+      github: "https://github.com/Irinath/organizalogia.git/",
+      demo: "https://irinath.github.io/organizalogia/"
+    },
+  ];
+
+  const nextProject = () => {
+    setCurrentProject((prev) => (prev + 1) % projects.length);
+  };
+
+  const prevProject = () => {
+    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
+  const goToProject = (index) => {
+    setCurrentProject(index);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -79,6 +122,23 @@ function ValeriaProfile() {
     }
   ];
 
+  const technologies = [
+    { name: "HTML5", img: "/img/tecnologias-valeria/HTML5_logo.png" },
+    { name: "CSS3", img: "/img/tecnologias-valeria/CSS3_logo.png" },
+    { name: "JavaScript", img: "/img/tecnologias-valeria/JavaScript_logo.png" },
+    { name: "Tailwind", img: "/img/tecnologias-valeria/tailwind.svg" },
+    { name: "Java", img: "/img/tecnologias-valeria/java.webp" },
+    { name: "Kotlin", img: "/img/tecnologias-valeria/kotlin-1-logo.svg" },
+    { name: "MySQL", img: "/img/tecnologias-valeria/MySQL-logo.png" },
+    { name: "Git", img: "/img/tecnologias-valeria/git-logo.svg" },
+    { name: "GitHub", img: "/img/tecnologias-valeria/GitHub-Logo.wine.svg" },
+    { name: "Kubernetes", img: "/img/tecnologias-valeria/kubernetes.svg" },
+    { name: "React", img: "/img/tecnologias-valeria/react.png" },
+    { name: "Docker", img: "/img/tecnologias-valeria/docker-logo.svg" },
+    { name: "NodeJS", img: "/img/tecnologias-valeria/nodejs-logo.svg" }
+  ];
+
+
   const albums = [
     { title: "Aenima", artist: "Tool", img: "/img/img-valeria/Aenima.jpg", url: "https://www.youtube.com/watch?v=BC6B4G3za9M&list=RDBC6B4G3za9M&start_radio=1" },
     { title: "Dummy", artist: "PortisHead", img: "/img/img-valeria/Dummy.jpg", url: "https://www.youtube.com/watch?v=cXf2bvfSKOs" },
@@ -121,14 +181,80 @@ function ValeriaProfile() {
               construyo soluciones que tengan un impacto real y atractivo.
             </p>
 
-            <h2>Habilidades_</h2>
-            <ul className="skills">
-              <li>HTML / CSS3 / JS</li>
-              <li>REACT / NODEJS</li>
-              <li>JAVA / KOTLIN</li>
-              <li>SQL &amp; Databases</li>
-              <li>Git &amp; Workflows</li>
-            </ul>
+
+          <h2 className="titulo" id="habilidades">Habilidades_</h2>
+                    {[0, 1, 2].map((row) => (
+                      <section key={row} className="contenedor-seccion">
+                        <ul className="habilidades">
+                          {technologies.slice(row * 4, (row + 1) * 4).map((tech, index) => (
+                            <li key={index} className="listas">
+                              <img className="logo-tecnologias" src={tech.img} alt={tech.name} />
+                            </li>
+                          ))}
+                        </ul>
+                      </section>
+                    ))}
+          
+                    <div className="skills-bars-mario">
+                      <SkillBar skill="HTML5" level={85} delay={100} />
+                      <SkillBar skill="CSS3 / Bootstrap" level={80} delay={200} />
+                      <SkillBar skill="JavaScript" level={75} delay={300} />
+                      <SkillBar skill="Java / Kotlin" level={65} delay={650} />
+                      <SkillBar skill="MySQL" level={75} delay={600} />
+                      <SkillBar skill="NodeJS" level={60} delay={600} />
+                      <SkillBar skill="React" level={75} delay={750} />
+                      <SkillBar skill="Docker / Kubernetes" level={80} delay={800} />
+                      <SkillBar skill="Git / Github" level={100} delay={0} />
+                    </div>
+          
+
+          {/* Carrusel de Proyectos */}
+          <h2 className="titulo" id="proyectos">Proyectos Destacados_</h2>
+          <div className="proyectos-carrusel">
+            <button className="carrusel-btn prev-btn" onClick={prevProject}>
+              <p>‹</p>
+            </button>
+
+            <div className="carrusel-contenedor">
+              <div className="proyecto-card">
+                <div className="proyecto-imagen">
+                  <img src={projects[currentProject].image} alt={projects[currentProject].title} />
+                </div>
+                <div className="proyecto-info">
+                  <h3>{projects[currentProject].title}</h3>
+                  <p className="proyecto-descripcion">{projects[currentProject].description}</p>
+                  <div className="proyecto-tecnologias">
+                    {projects[currentProject].technologies.map((tech, idx) => (
+                      <span key={idx} className="tech-badge">{tech}</span>
+                    ))}
+                  </div>
+                  <div className="proyecto-links">
+                    <a href={projects[currentProject].github} target="_blank" rel="noopener noreferrer" className="proyecto-link">
+                      <img className="icono-github" src="/img/tecnologias-mario/github.png" alt="github" /> Código
+                    </a>
+                    <a href={projects[currentProject].demo} target="_blank" rel="noopener noreferrer" className="proyecto-link">
+                      🔗 Demo
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button className="carrusel-btn next-btn" onClick={nextProject}>
+              <p>›</p>
+            </button>
+          </div>
+
+          <div className="carrusel-indicadores">
+            {projects.map((_, idx) => (
+              <button
+                key={idx}
+                className={`indicador ${currentProject === idx ? 'activo' : ''}`}
+                onClick={() => goToProject(idx)}
+              />
+            ))}
+          </div>
+
 
             <section className="media-section">
               <h2>Películas Favoritas_</h2>
