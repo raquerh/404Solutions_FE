@@ -15,18 +15,26 @@ function Gallery() {
     { id: 5,  src: '/img/img-valeria/avatar_vale.png',                title: 'Valeria Thomas',           category: 'Equipo' },
     { id: 6,  src: '/img/super-mario64.png',                          title: 'Mascota del equipo',       category: 'Equipo' },
     // --- APP (capturas de 404 Solutions — orden: sidebar) ---
-    { id: 37, src: '/img/readme-img/func-diagnostico.gif',      title: 'Dashboard — Simulador de Diagnóstico',  category: 'App' },
-    { id: 38, src: '/img/readme-img/func-menu-hamburguesa.gif', title: 'Dashboard — Menú Hamburguesa Mobile',   category: 'App' },
-    { id: 39, src: '/img/readme-img/explorador-JSON.JPG',       title: 'Explorador JSON — Proyectos',           category: 'App' },
-    { id: 47, src: '/img/readme-img/api-itunes.JPG',            title: 'Música — Explorador iTunes API',        category: 'App' },
-    { id: 48, src: '/img/readme-img/galeria.gif',               title: 'Galería — Galería Interactiva',         category: 'App' },
-    { id: 40, src: '/img/readme-img/func-galeria.gif',          title: 'Mariana — Galería de Películas',        category: 'App' },
-    { id: 41, src: '/img/readme-img/func-expandible-mario.gif', title: 'Mario — Descripción Expandible',        category: 'App' },
-    { id: 42, src: '/img/readme-img/func-consulta-mike.gif',    title: 'Mike — Consulta Data Science',          category: 'App' },
-    { id: 43, src: '/img/readme-img/func-scroll.gif',           title: 'Raquel — Navegación por Secciones',     category: 'App' },
-    { id: 44, src: '/img/readme-img/func-copiar-url.gif',       title: 'Raquel — Copiar URL del Perfil',        category: 'App' },
-    { id: 45, src: '/img/readme-img/func-carrousel.gif',        title: 'Valeria — Carrusel de Discos',          category: 'App' },
-    { id: 46, src: '/img/readme-img/func-año.png',              title: 'Footer — Año Dinámico',                 category: 'App' },
+    // · Dashboard
+    { id: 37, src: '/img/readme-img/tp2-home-loading.gif.gif',   title: 'Dashboard — Pantalla de Carga',          category: 'App' },
+    { id: 38, src: '/img/readme-img/tp2-sidebar.gif.gif',        title: 'Dashboard — Hero & Diagnóstico',         category: 'App' },
+    { id: 39, src: '/img/readme-img/func-diagnostico.gif',       title: 'Dashboard — Simulador de Diagnóstico',   category: 'App' },
+    { id: 40, src: '/img/readme-img/tp2-menu-mobile.gif.gif',    title: 'Dashboard — Vista Mobile',               category: 'App' },
+    // · Explorador JSON
+    { id: 42, src: '/img/readme-img/tp2-json-filter.gif.gif',    title: 'Explorador JSON — Filtrado en Tiempo Real', category: 'App' },
+    // · Música
+    { id: 43, src: '/img/readme-img/tp2-api-paginacion.gif.gif', title: 'Música — iTunes API con Paginación',     category: 'App' },
+    // · Galería
+    { id: 44, src: '/img/readme-img/galeria.gif',                title: 'Galería — Galería Interactiva',          category: 'App' },
+    // · Perfiles
+    { id: 46, src: '/img/readme-img/func-galeria.gif',           title: 'Mariana — Galería de Películas',         category: 'App' },
+    { id: 47, src: '/img/readme-img/func-expandible-mario.gif',  title: 'Mario — Películas Favoritas',            category: 'App' },
+    { id: 48, src: '/img/readme-img/func-consulta-mike.gif',     title: 'Mike — Consulta Data Science',           category: 'App' },
+    { id: 49, src: '/img/readme-img/func-scroll.gif',            title: 'Raquel — Navegación por Secciones',      category: 'App' },
+    { id: 50, src: '/img/readme-img/func-copiar-url.gif',        title: 'Raquel — Copiar URL del Perfil',         category: 'App' },
+    { id: 51, src: '/img/readme-img/func-carrousel.gif',         title: 'Valeria — Carrusel de Discos',           category: 'App' },
+    // · General
+    { id: 52, src: '/img/readme-img/func-año.png',               title: 'Footer — Año Dinámico',                  category: 'App' },
     // --- PROYECTOS ---
     { id: 7,  src: '/img/proyectos-mariana/proyecto1.png',            title: 'Proyecto 1 — Mariana',     category: 'Proyectos' },
     { id: 8,  src: '/img/proyectos-mariana/proyecto2.png',            title: 'Proyecto 2 — Mariana',     category: 'Proyectos' },
