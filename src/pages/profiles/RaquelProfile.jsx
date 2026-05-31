@@ -198,8 +198,8 @@ function RaquelProfile() {
                 desarrolladora. Este portfolio es un log en tiempo real de ese proceso.
               </p>
               <div className="social-links">
-                <a href="https://github.com/raquerh" target="_blank" rel="noopener noreferrer" className="nav-button">GitHub</a>
-                <a href="https://www.linkedin.com/in/raquel-rodriguez-herlein/" target="_blank" rel="noopener noreferrer" className="nav-button">LinkedIn</a>
+                <a href="https://github.com/raquerh" target="_blank" rel="noopener noreferrer" className="nav-button social-btn"><i className="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/raquel-rodriguez-herlein/" target="_blank" rel="noopener noreferrer" className="nav-button social-btn"><i className="fa-brands fa-linkedin"></i> LinkedIn</a>
               </div>
               <div className="profile-actions">
                 <button

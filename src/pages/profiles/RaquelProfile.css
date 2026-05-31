@@ -143,13 +143,13 @@
   gap: 1rem;
 }
 
-.profile-data-box {
+.profile-content-wrapper .profile-data-box {
   border-left: 0.125rem solid #00ff41;
   padding-left: 1.25rem;
   font-size: 1.1rem;
 }
 
-.profile-data-box p {
+.profile-content-wrapper .profile-data-box p {
   margin: 0.3rem 0;
   font-weight: bold;
   color: #00ff41;
@@ -166,6 +166,16 @@
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.social-btn i {
+  font-size: 1.1em;
 }
 
 .copy-profile-btn {
@@ -260,17 +270,17 @@
 
 .skills-grid {
   width: 100%;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .skills-header {
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: 0.4rem;
-  font-size: 0.65rem;
+  font-size: 0.78rem;
   color: var(--text-dim);
   letter-spacing: 0.08em;
-  padding: 0.5rem 0.4rem;
+  padding: 0.6rem 0.4rem;
   border-bottom: 1px solid var(--border);
   text-transform: uppercase;
 }
@@ -300,12 +310,12 @@
   gap: 0.5rem;
 }
 
-.skill-level { 
-  min-width: 5rem; 
+.skill-level {
+  min-width: 6rem;
 }
 
-.skill-xp { 
-  min-width: 5rem; 
+.skill-xp {
+  min-width: 8rem;
 }
 
 .tech-icons-raquel {
@@ -328,12 +338,12 @@
 }
 
 .tech-icon-raquel i {
-  font-size: 2.4rem;
+  font-size: 3.2rem;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .tech-icon-raquel span {
-  font-size: 0.65rem;
+  font-size: 0.85rem;
   color: var(--green);
   text-align: center;
 }
@@ -350,10 +360,10 @@
 }
 
 .xp-bar {
-  width: 5rem;
-  height: 0.25rem;
+  width: 8rem;
+  height: 0.5rem;
   background: var(--border);
-  border-radius: 0.125rem;
+  border-radius: 0.25rem;
   overflow: hidden;
 }
 
@@ -647,12 +657,18 @@
   border-right: 1px solid var(--border);
   overflow: hidden;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .raq-proyecto-imagen img {
+  max-width: 100%;
+  max-height: 100%;
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: center;
   display: block;
   transition: transform 0.4s ease;
 }
@@ -848,7 +864,11 @@
 
 @media (max-width: 768px) {
   .nav-principal {
-    top: 3.5rem;
+    top: 0;
+  }
+
+  .nav-principal .nav-inner {
+    padding-left: 3.75rem;
   }
 }
 
@@ -954,7 +974,7 @@
     height: 0.25rem;
   }
 
-  .profile-data-box {
+  .profile-content-wrapper .profile-data-box {
     font-size: 0.9rem;
   }
 
