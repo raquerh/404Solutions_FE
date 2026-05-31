@@ -369,9 +369,13 @@
 
 .xp-fill {
   height: 100%;
-  width: var(--pct);
+  width: 0%;
   background: linear-gradient(90deg, var(--green-dim), var(--green));
   border-radius: 0.125rem;
+  transition: none;
+}
+
+.skills-animated .xp-fill {
   animation: load-bar 1.5s ease-out forwards;
 }
 
@@ -418,7 +422,6 @@
 
 .movie-card:hover {
   border-color: var(--cyan);
-  transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0, 229, 255, 0.08);
 }
 
@@ -647,6 +650,17 @@
   height: 400px;
 }
 
+@keyframes raq-slideFromRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes raq-slideFromLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.raq-proyecto-card.raq-slide-right { animation: raq-slideFromRight 0.35s ease; }
+.raq-proyecto-card.raq-slide-left  { animation: raq-slideFromLeft  0.35s ease; }
+
 @keyframes raq-fadeIn {
   from { opacity: 0; transform: translateX(16px); }
   to   { opacity: 1; transform: translateX(0); }
@@ -826,6 +840,63 @@
 }
 
 /* === FIN CARRUSEL DE PROYECTOS === */
+
+/* ===== HUD CORNERS ===== */
+.hud-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  z-index: 4;
+  pointer-events: none;
+}
+.hud-tl { top: -3px;    left: -3px;  border-top: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+.hud-tr { top: -3px;    right: -3px; border-top: 2px solid var(--cyan); border-right: 2px solid var(--cyan); }
+.hud-bl { bottom: -3px; left: -3px;  border-bottom: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+.hud-br { bottom: -3px; right: -3px; border-bottom: 2px solid var(--cyan); border-right: 2px solid var(--cyan); }
+
+/* ===== BADGE ONLINE ===== */
+.raq-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--green);
+  letter-spacing: 0.12em;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--green-dim);
+  border-radius: 2px;
+  background: rgba(0, 255, 159, 0.05);
+  margin-top: 0.75rem;
+}
+
+.raq-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+  animation: blink-dot 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes blink-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+/* ===== CURSOR TYPEWRITER ===== */
+.raq-cursor {
+  color: var(--green);
+  animation: blink-cursor 0.8s step-end infinite;
+  margin-left: 2px;
+  font-size: 0.9em;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
 
 .back-navigation {
   width: 100%;

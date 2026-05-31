@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './ProfileCommon.css';
 import './RaquelProfile.css';
 
@@ -7,6 +7,18 @@ function RaquelProfile() {
   const [activeSection, setActiveSection] = useState('sobre-mi');
   const [copySuccess, setCopySuccess] = useState(false);
   const [currentProject, setCurrentProject] = useState(0);
+  const [slideDir, setSlideDir] = useState('right');
+  const [visibleLines, setVisibleLines] = useState(0);
+  const [skillsVisible, setSkillsVisible] = useState(false);
+  const skillsRef = useRef(null);
+
+  const DATA_LINES = [
+    '> ID: #0051_',
+    '> Name: Raquel_',
+    '> Age: 404 años (error no encontrado)_',
+    '> Clase: Desarrolladora_',
+    '> Location: La Plata, Buenos Aires, AR_',
+  ];
 
   const projects = [
     {
@@ -56,8 +68,8 @@ function RaquelProfile() {
     }
   ];
 
-  const nextProject = () => setCurrentProject((prev) => (prev + 1) % projects.length);
-  const prevProject = () => setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
+  const nextProject = () => { setSlideDir('right'); setCurrentProject((prev) => (prev + 1) % projects.length); };
+  const prevProject = () => { setSlideDir('left');  setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length); };
   const goToProject = (index) => setCurrentProject(index);
 
   useEffect(() => {
@@ -80,6 +92,39 @@ function RaquelProfile() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // IntersectionObserver para XP bars
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setSkillsVisible(true); },
+      { threshold: 0.3 }
+    );
+    if (skillsRef.current) observer.observe(skillsRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Typewriter data-box
+  useEffect(() => {
+    if (visibleLines < DATA_LINES.length) {
+      const t = setTimeout(() => setVisibleLines(v => v + 1), 320);
+      return () => clearTimeout(t);
+    }
+  }, [visibleLines]);
+
+  // Tilt 3D películas
+  const handleMovieTilt = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transition = 'border-color 0.3s, box-shadow 0.3s';
+    card.style.transform = `perspective(700px) rotateX(${y * -10}deg) rotateY(${x * 10}deg) translateY(-4px)`;
+  };
+  const resetMovieTilt = (e) => {
+    const card = e.currentTarget;
+    card.style.transition = 'border-color 0.3s, box-shadow 0.3s, transform 0.4s ease';
+    card.style.transform = '';
+  };
 
   const copyProfileUrl = async () => {
     try {
@@ -138,6 +183,7 @@ function RaquelProfile() {
 
   return (
     <main className="profile-main">
+
       <nav className="nav-principal" id="nav-principal">
         <div className="nav-inner">
           <span className="nav-label">// NAVEGAR</span>
@@ -171,14 +217,26 @@ function RaquelProfile() {
                   <img src="/img/perfil-raq.png" alt="Avatar generado de Raquel" className="avatar-img" loading="lazy" width="300" height="300" />
                   <div className="avatar-overlay"></div>
                   <div className="avatar-border-anim"></div>
+                  <span className="hud-corner hud-tl" />
+                  <span className="hud-corner hud-tr" />
+                  <span className="hud-corner hud-bl" />
+                  <span className="hud-corner hud-br" />
+                </div>
+                <div className="raq-status-badge">
+                  <span className="raq-status-dot" />
+                  ONLINE
                 </div>
               </div>
               <div className="profile-data-box">
-                <p>&gt; ID: #0051_</p>
-                <p>&gt; Name: Raquel_</p>
-                <p>&gt; Age: 404 años (error no encontrado)_</p>
-                <p>&gt; Clase: Desarrolladora_</p>
-                <p>&gt; Location: La Plata, Buenos Aires, AR_</p>
+                {DATA_LINES.slice(0, visibleLines).map((line, i) => (
+                  <p key={i}>
+                    {line}
+                    {i === visibleLines - 1 && visibleLines < DATA_LINES.length && (
+                      <span className="raq-cursor">▌</span>
+                    )}
+                  </p>
+                ))}
+                {visibleLines === 0 && <span className="raq-cursor">▌</span>}
               </div>
             </div>
             <div className="sobre-mi-texto">
@@ -216,7 +274,7 @@ function RaquelProfile() {
             </div>
           </section>
 
-          <section id="habilidades">
+          <section id="habilidades" ref={skillsRef}>
             <div className="section-header">
               <span className="section-tag">// 02 — STATS</span>
               <h2>Habilidades_</h2>
@@ -247,7 +305,7 @@ function RaquelProfile() {
                 <span>Git</span>
               </div>
             </div>
-            <div className="habilidades-layout">
+            <div className={`habilidades-layout${skillsVisible ? ' skills-animated' : ''}`}>
               <div className="habilidades-col">
                 <div className="skills-grid">
                   <div className="skills-header">
@@ -282,7 +340,7 @@ function RaquelProfile() {
               <button className="raq-carrusel-btn raq-prev-btn" onClick={prevProject} aria-label="Proyecto anterior">‹</button>
 
               <div className="raq-carrusel-contenedor">
-                <div className="raq-proyecto-card" key={currentProject}>
+                <div className={`raq-proyecto-card raq-slide-${slideDir}`} key={`${currentProject}-${slideDir}`}>
                   <div className="raq-proyecto-imagen">
                     <img
                       src={projects[currentProject].image}
@@ -335,7 +393,7 @@ function RaquelProfile() {
             <p className="section-subtitle">Las tres películas que más me gustaron y marcaron una diferencia.</p>
             <div className="movies-grid">
               {movies.map((movie, index) => (
-                <article key={index} className="movie-card">
+                <article key={index} className="movie-card" onMouseMove={handleMovieTilt} onMouseLeave={resetMovieTilt}>
                   <div className="movie-poster">
                     <img src={movie.poster} alt={`Poster de ${movie.title}`} />
                   </div>
