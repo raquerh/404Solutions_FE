@@ -176,11 +176,13 @@ function MikeProfile() {
 
             <div className="formacion-stack">
               <div className="formacion-card">
-                <h3 className="formacion-label"><span>//</span>Cursando Tecnicaturas</h3>
+                <h3 className="formacion-label"><span>//</span>Tecnicaturas</h3>
                 <div className="tec-item">
                   <div className="tec-header">
-                    <h4 className="tec-nombre">Desarrollo de Software</h4>
-                    <span className="tec-inst">IFTS N°29</span>
+                    <h4 className="tec-nombre">Desarrollo de Soft</h4>
+                    <span className="tec-inst">IFTS N°29</span><span className="cert-status status-wip">
+                      ▶ <span className="cert-status-text">en curso</span>
+                    </span>
                   </div>
                   <ul className="tag-list">
                     <li className="tag">C#</li>
@@ -188,14 +190,16 @@ function MikeProfile() {
                     <li className="tag">Node.js</li>
                     <li className="tag">MySQL</li>
                     <li className="tag">PostgreSQL</li>
-                    <li className="tag">AWS</li>
                     <li className="tag">HTML · CSS · JS</li>
+                    <li className="tag">AWS</li>
                   </ul>
                 </div>
                 <div className="tec-item">
                   <div className="tec-header">
                     <h4 className="tec-nombre">Desarrollo Web &amp; Apps</h4>
-                    <span className="tec-inst">ISPC</span>
+                    <span className="tec-inst">ISPC</span><span className="cert-status status-wip">
+                      ▶ <span className="cert-status-text">en curso</span>
+                    </span>
                   </div>
                   <ul className="tag-list">
                     <li className="tag">Python</li>
