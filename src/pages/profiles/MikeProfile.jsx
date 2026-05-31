@@ -69,7 +69,7 @@ function MikeProfile() {
       isEmbed: true
     },
     {
-      title: "Agentic Engineer - Professional Validator Dashboard",
+      title: "Agentic Engineer Dashboard",
       description: "Dashboard interactivo para gestionar la transición hacia el rol de Agentic Engineer. Trackea progreso técnico en ingeniería de código, arquitectura, seguridad (OWASP) e infraestructura AWS. Incluye radar de competencias dinámico, widget de seniority que evoluciona de Junior Auditor a Senior, centro de recursos clickeables y roadmap de 4 fases de capacitación técnica.",
       technologies: ["HTML5", "Tailwind CSS", "JavaScript", "Chart.js", "AWS"],
       github: "https://github.com/mikefink22/Agentic-Engineer-Path",
@@ -164,9 +164,9 @@ function MikeProfile() {
             </div>
           </div>
 
-          <section className="profile-info">
+          <section className="profile-info" id="sobre-mi">
             <h1>&gt; Mike</h1>
-            <h2 id="sobre-mi">Sobre Mi_</h2>
+            <h2>Sobre Mi_</h2>
             <p className="role">Software & Web Developer Student</p>
             <hr />
             <p className="hero-description">
@@ -186,6 +186,8 @@ function MikeProfile() {
                     <li className="tag">C#</li>
                     <li className="tag">Kotlin</li>
                     <li className="tag">Node.js</li>
+                    <li className="tag">MySQL</li>
+                    <li className="tag">PostgreSQL</li>
                     <li className="tag">AWS</li>
                     <li className="tag">HTML · CSS · JS</li>
                   </ul>
@@ -198,7 +200,9 @@ function MikeProfile() {
                   <ul className="tag-list">
                     <li className="tag">Python</li>
                     <li className="tag">Django</li>
+                    <li className="tag">TypeScript</li>
                     <li className="tag">Angular</li>
+                    <li className="tag">MySQL</li>
                     <li className="tag">PostgreSQL</li>
                     <li className="tag">HTML · CSS · JS</li>
                   </ul>
@@ -261,21 +265,21 @@ function MikeProfile() {
                 </div>
               </li>
               <li className="skill-item">
-                <div className="skill-info"><span>Python</span><span>70%</span></div>
-                <div className="xp-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Python 70%">
-                  <div className="xp-fill" style={{ '--pct': '70%' }}></div>
-                </div>
-              </li>
-              <li className="skill-item">
-                <div className="skill-info"><span>HTML / CSS</span><span>75%</span></div>
-                <div className="xp-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="HTML / CSS 75%">
+                <div className="skill-info"><span>Python</span><span>75%</span></div>
+                <div className="xp-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Python 75%">
                   <div className="xp-fill" style={{ '--pct': '75%' }}></div>
                 </div>
               </li>
               <li className="skill-item">
-                <div className="skill-info"><span>JavaScript</span><span>50%</span></div>
-                <div className="xp-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript 50%">
-                  <div className="xp-fill" style={{ '--pct': '50%' }}></div>
+                <div className="skill-info"><span>HTML / CSS</span><span>70%</span></div>
+                <div className="xp-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="HTML / CSS 70%">
+                  <div className="xp-fill" style={{ '--pct': '70%' }}></div>
+                </div>
+              </li>
+              <li className="skill-item">
+                <div className="skill-info"><span>JavaScript</span><span>60%</span></div>
+                <div className="xp-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript 60%">
+                  <div className="xp-fill" style={{ '--pct': '60%' }}></div>
                 </div>
               </li>
               <li className="skill-item">
@@ -285,9 +289,9 @@ function MikeProfile() {
                 </div>
               </li>
               <li className="skill-item">
-                <div className="skill-info"><span>Git / GitHub</span><span>65%</span></div>
-                <div className="xp-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="Git / GitHub 65%">
-                  <div className="xp-fill" style={{ '--pct': '65%' }}></div>
+                <div className="skill-info"><span>Git / GHub</span><span>85%</span></div>
+                <div className="xp-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Git / GitHub 85%">
+                  <div className="xp-fill" style={{ '--pct': '85%' }}></div>
                 </div>
               </li>
               <li className="skill-item">
@@ -318,7 +322,7 @@ function MikeProfile() {
           <section id="proyectos" className="media-section">
             <h2>Proyectos Destacados_</h2>
 
-            <div className="raq-carrusel" style={{ position: 'relative', width: '100%' }}>
+            <div className="raq-carrusel-wrapper" style={{ position: 'relative', width: '100%' }}>
               <button type="button" className="raq-carrusel-btn raq-prev-btn" onClick={prevProject} aria-label="Proyecto anterior">
                 ‹
               </button>
