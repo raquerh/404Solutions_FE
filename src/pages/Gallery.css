@@ -120,6 +120,23 @@
   transition: transform 0.3s ease;
 }
 
+/* Capturas de la app: ratio 16:9, imagen completa sin recorte */
+.gallery-item--app {
+  aspect-ratio: 16 / 9;
+  grid-column: span 2;
+}
+
+.gallery-item--app .gallery-image {
+  object-fit: contain;
+  background: #0a0a0a;
+}
+
+@media (max-width: 600px) {
+  .gallery-item--app {
+    grid-column: span 1;
+  }
+}
+
 .gallery-item:hover .gallery-image {
   transform: scale(1.1);
 }
