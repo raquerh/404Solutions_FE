@@ -1,9 +1,5 @@
 /* Estilos Mike — todos bajo .mike-content para evitar conflictos globales */
 
-.mike-content {
-    overflow-x: hidden;
-}
-
 .mike-content h1 {
     font-size: 2.8rem;
     margin-bottom: 0;
@@ -367,11 +363,6 @@
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-@media (max-width: 600px) {
-    .tech-icons-mike {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
 .mike-content .ds-note {
     margin-top: 2rem;
@@ -624,8 +615,14 @@ h4.tec-nombre {
 }
 
 @media (max-width: 768px) {
+    .profile-main {
+        margin-top: -5rem;
+    }
+
     .mike-nav-breadcrumb {
-        top: 3.5rem;
+        background-color: rgba(10, 10, 10, 0.9);
+        top: 0rem;
+        padding-left: 3.75rem;
         flex-wrap: nowrap;
         overflow-x: auto;
         scrollbar-width: none;
@@ -636,7 +633,7 @@ h4.tec-nombre {
     }
 
     .mike-content section[id] {
-        scroll-margin-top: 6.5rem;
+        scroll-margin-top: 4rem;
     }
 
     #inicio {
@@ -644,12 +641,23 @@ h4.tec-nombre {
     }
 
     #sobre-mi {
-        scroll-margin-top: 6rem;
+        scroll-margin-top: 3rem;
     }
 
 }
 
 @media (max-width: 600px) {
+
+    .profile-card {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+
+    .tech-icons-mike {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .mike-content .contenedor-peliculas {
         grid-template-columns: 1fr;
     }
@@ -664,7 +672,23 @@ h4.tec-nombre {
     }
 
     .mike-content .tec-header {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.4rem;
+    }
+
+    h4.tec-nombre {
+        margin: 0;
+    }
+
+
+    .mike-content .tec-header .cert-status {
+        min-width: auto;
+        padding: 0.15rem 0.4rem;
+        font-size: 0.75rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 
     .mike-content .cert-item {
@@ -677,17 +701,25 @@ h4.tec-nombre {
     }
 
     .mike-content section[id] {
-        scroll-margin-top: 6.5rem;
+        scroll-margin-top: 8rem;
     }
 
-    /* #sobre-mi {
-        scroll-margin-top: 5rem;
-    } */
+    #sobre-mi {
+        scroll-margin-top: 6.5rem;
+    }
 
     .mike-nav-breadcrumb {
         flex-wrap: nowrap;
         overflow-x: auto;
         scrollbar-width: none;
+        max-width: 100%;
+        width: calc(100vw - 0px);
+        width: 100vw;
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-top: 4rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     .mike-nav-breadcrumb::-webkit-scrollbar {
@@ -697,6 +729,10 @@ h4.tec-nombre {
     .mike-nav-breadcrumb a,
     .mike-nav-sep {
         flex-shrink: 0;
+    }
+
+    .cert-status.status-wip span {
+        display: none;
     }
 }
 
