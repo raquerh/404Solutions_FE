@@ -854,6 +854,12 @@
 /* =========================================
    MEDIA QUERIES GLOBALES (Ajuste Submenú)
 ========================================= */
+@media (max-width: 768px) {
+  .mariana-submenu {
+    top: 3.5rem;
+  }
+}
+
 @media (max-width: 600px) {
   .role-subtitle {
     font-size: 0.8rem;

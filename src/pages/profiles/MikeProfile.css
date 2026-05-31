@@ -557,6 +557,10 @@ h2 {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .mike-nav-breadcrumb {
+        top: 3.5rem;
+    }
+
     .mike-content .habilidades-layout {
         grid-template-columns: 1fr 1fr;
     }
