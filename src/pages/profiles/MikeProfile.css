@@ -1,5 +1,9 @@
 /* Estilos Mike — todos bajo .mike-content para evitar conflictos globales */
 
+.mike-content {
+    overflow-x: hidden;
+}
+
 .mike-content h1 {
     font-size: 2.8rem;
     margin-bottom: 0;
