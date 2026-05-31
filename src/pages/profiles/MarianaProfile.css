@@ -173,13 +173,13 @@
   align-items: center;
 }
 
-.profile-data-box {
+.mariana-secciones .profile-data-box {
   font-size: 1.1rem;
   color: var(--terminal-green);
   text-align: left;
 }
 
-.profile-data-box p {
+.mariana-secciones .profile-data-box p {
   margin: 5px 0;
   font-weight: bold;
 }
@@ -864,7 +864,7 @@
   .role-subtitle {
     font-size: 0.8rem;
   }
-  .profile-data-box {
+  .mariana-secciones .profile-data-box {
     font-size: 0.8rem;
   }
   .tech-icons {

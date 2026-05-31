@@ -23,27 +23,27 @@ function Bitacora() {
             <tr>
               <td><strong>Mariana Aiello</strong></td>
               <td>Software Dev &amp; Data Science</td>
-              <td>Perfil individual completo, componente SkillBar, explorador JSON, documentación</td>
+              <td>Perfil individual · Explorador JSON con filtrado y búsqueda en tiempo real · Componente SkillBar animado · Bitácora (documentación técnica)</td>
             </tr>
             <tr>
               <td><strong>Mario González</strong></td>
               <td>Full Stack Developer</td>
-              <td>Sidebar Dashboard, estructura de routing, integración de componentes</td>
+              <td>Perfil individual · Sidebar Dashboard fija (menú, responsive, hamburguesa) · Configuración de React Router y estructura de rutas · README del proyecto</td>
             </tr>
             <tr>
               <td><strong>Miguel Ángel Flores</strong></td>
               <td>Full Stack Developer</td>
-              <td>Módulo API externa, sistema de paginación, manejo de estados</td>
+              <td>Perfil individual · Setup inicial (Vite + React 19 + dependencias) · Módulo API externa con paginación y manejo de estados loading/error</td>
             </tr>
             <tr>
               <td><strong>Raquel Rodríguez</strong></td>
               <td>Frontend Developer</td>
-              <td>Galería con Lightbox, estilos y animaciones, perfil individual</td>
+              <td>Perfil individual · Galería de imágenes con Lightbox (zoom, navegación, tecla ESC) · Estilos globales, animaciones y diseño responsivo general</td>
             </tr>
             <tr>
               <td><strong>Valeria Thomas</strong></td>
               <td>Fullstack Developer</td>
-              <td>Árbol de componentes, deploy en Vercel, perfil individual</td>
+              <td>Perfil individual · Panel central Dashboard Home (grilla de tarjetas, animaciones de entrada) · Árbol de Componentes · Deploy y configuración en Vercel</td>
             </tr>
           </tbody>
         </table>
@@ -61,7 +61,7 @@ function Bitacora() {
             <strong>Revisión de código:</strong> Pull requests revisados por al menos un compañero antes de hacer merge.
           </li>
           <li>
-            <strong>Comunicación:</strong> Coordinación del equipo vía grupo de WhatsApp para sincronizar avances y resolver bloqueos.
+            <strong>Comunicación:</strong> Coordinación del equipo vía WhatsApp y Discord para sincronizar avances y resolver bloqueos.
           </li>
           <li>
             <strong>Testing:</strong> Pruebas manuales de cada funcionalidad en el navegador antes de integrar los cambios.
