@@ -125,7 +125,7 @@ function MikeProfile() {
   ];
 
   return (
-    <main className="profile-main">
+    <main className="profile-main" id="inicio">
       <nav className="mike-nav-breadcrumb" aria-label="Navegación del perfil">
         <a href="#inicio" className={activeSection === 'inicio' ? 'mike-nav-active' : ''}>~/mike/</a>
         <span className="mike-nav-sep">·</span>
@@ -140,7 +140,7 @@ function MikeProfile() {
         <a href="#discos" className={activeSection === 'discos' ? 'mike-nav-active' : ''}>discos</a>
       </nav>
 
-      <article className="profile-card" id="inicio">
+      <article className="profile-card">
         <div className="terminal-header">
           <span className="dot red"></span>
           <span className="dot yellow"></span>
@@ -164,9 +164,9 @@ function MikeProfile() {
             </div>
           </div>
 
-          <section id="sobre-mi" className="profile-info">
+          <section className="profile-info">
             <h1>&gt; Mike</h1>
-            <h2>Sobre Mi_</h2>
+            <h2 id="sobre-mi">Sobre Mi_</h2>
             <p className="role">Software & Web Developer Student</p>
             <hr />
             <p className="hero-description">
