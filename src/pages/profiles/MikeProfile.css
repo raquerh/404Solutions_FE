@@ -5,7 +5,7 @@
     margin-bottom: 0;
 }
 
-h2 {
+.mike-content h2 {
     margin-bottom: 2.5rem;
 }
 
@@ -358,17 +358,17 @@ h2 {
 }
 
 /* Proyectos — carrusel */
-.raq-carrusel-btn {
+.mike-content .raq-carrusel-btn {
     position: absolute;
-    top: 30% !important;
-    transform: translateY(-50%) !important;
+    top: 30%;
+    transform: translateY(-50%);
     width: 45px;
     height: 45px;
-    background: rgba(0, 0, 0, 0.8) !important;
-    border: 1px solid var(--terminal-green) !important;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--terminal-green);
     border-radius: 50%;
-    color: var(--terminal-green) !important;
-    font-size: 1.8rem !important;
+    color: var(--terminal-green);
+    font-size: 1.8rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -377,29 +377,27 @@ h2 {
     z-index: 2;
 }
 
-.raq-carrusel-btn:hover {
-    background: var(--terminal-green) !important;
-    color: #000 !important;
+.mike-content .raq-carrusel-btn:hover {
+    background: var(--terminal-green);
+    color: #000;
 }
 
-.raq-prev-btn {
+.mike-content .raq-prev-btn {
     left: -22px;
 }
 
-.raq-next-btn {
+.mike-content .raq-next-btn {
     right: -22px;
 }
 
-.raq-proyecto-imagen {
+.mike-content .raq-proyecto-imagen {
     position: relative;
     width: 100%;
     padding-bottom: 62.5%;
-    /* ratio 16/10 */
     background: #1e1e1e;
     border-radius: 4px 4px 0 0;
     overflow: hidden;
     contain: layout;
-    /* Evita que los cambios internos afecten el scroll de la página principal */
 }
 
 /* Multimedia — películas */
