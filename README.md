@@ -258,7 +258,7 @@ const toggleSidebar = () => {
 ```
 
 <p align="center">
-  <img src="/img/readme-img/tp2-sidebar.gif" alt="Navegación Sidebar" width="600">
+  <img src="./public/img/readme-img/tp2-sidebar.gif" alt="Navegación Sidebar" width="600">
 </p>
 
 ---
@@ -287,7 +287,7 @@ useEffect(() => {
 ```
 
 <p align="center">
-  <img src="/img/readme-img/tp2-home-loading.gif" alt="Transiciones de Carga y Animaciones" width="600">
+  <img src="./public/img/readme-img/tp2-home-loading.gif" alt="Transiciones de Carga y Animaciones" width="600">
 </p>
 
 ---
@@ -321,7 +321,7 @@ useEffect(() => {
 ```
 
 <p align="center">
-  <img src="/img/readme-img/tp2-api-paginacion.gif" alt="API Musical y Paginación" width="600">
+  <img src="./public/img/readme-img/tp2-api-paginacion.gif" alt="API Musical y Paginación" width="600">
 </p>
 
 ---
@@ -352,7 +352,7 @@ useEffect(() => {
 ```
 
 <p align="center">
-  <img src="/img/readme-img/tp2-api-paginacion.gif" alt="API Musical y Paginación" width="600">
+  <img src="./public/img/readme-img/tp2-api-paginacion.gif" alt="API Musical y Paginación" width="600">
 </p>
 
 ---
@@ -387,7 +387,7 @@ useEffect(() => {
 ```
 
 <p align="center">
-  <img src="/img/readme-img/tp2-lightbox.gif" alt="Galería Lightbox" width="600">
+  <img src="./public/img/readme-img/tp2-lightbox.gif" alt="Galería Lightbox" width="600">
 </p>
 
 ### 🔹 2. Funcionalidades Migradas a React (Base TP1)
@@ -417,7 +417,7 @@ Las siguientes funcionalidades fueron implementadas originalmente en el TP1 util
 - **Migración a React:** el comportamiento del menú fue adaptado utilizando el estado booleano `menuOpen`, que controla de forma condicional las clases CSS aplicadas al menú de navegación. Esto reemplaza la manipulación manual del DOM utilizada en la versión desarrollada con JavaScript, lo que permite gestionar la apertura y cierre del menú directamente desde React.
 
 <p align="center">
-  <img src="/img/readme-img/tp2-menu-mobile.gif" alt="Menú Mobile" width="550">
+  <img src="./public/img/readme-img/tp2-menu-mobile.gif" alt="Menú Mobile" width="550">
 </p>
 
 ---
