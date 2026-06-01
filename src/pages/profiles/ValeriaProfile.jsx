@@ -9,7 +9,7 @@ function getItemsPerView() {
   if (window.innerWidth < 600) return 1;
   if (window.innerWidth < 900) return 2;
   if (window.innerWidth < 1200) return 3;
-  return 5;
+  return 4;
 }
 
 function ValeriaProfile() {
@@ -19,13 +19,16 @@ function ValeriaProfile() {
   const [containerWidth, setContainerWidth] = useState(0);
   const carruselRef = useRef(null);
   const [currentProject, setCurrentProject] = useState(0);
+  const itemWidth = containerWidth / itemsPerView;
+  const slideOffset = currentIndex * (itemWidth + 15);
+
 
   // Proyectos para el carrusel
   const projects = [
     {
       title: "Amigo Secreto",
       description: "Proyecto de ONE-Alura para práctica para curso de FrontEnd. Aplicación de gestión de sorteos.",
-      technologies: [ "HTML", "CSS", "JavaScript"],
+      technologies: ["HTML", "CSS", "JavaScript"],
       image: "/img/proyectos-valeria/Amigosecreto.png",
       github: "https://github.com/Irinath/challenge-amigo-secreto_esp-main.git",
       demo: "https://challenge-amigo-secreto-esp-main-six.vercel.app/"
@@ -97,7 +100,7 @@ function ValeriaProfile() {
     );
   };
 
-  const slideOffset = currentIndex * (containerWidth / itemsPerView);
+  // const slideOffset = currentIndex * (containerWidth / itemsPerView);
 
   const movies = [
     {
@@ -182,80 +185,82 @@ function ValeriaProfile() {
             </p>
 
             <br />
-
-          <h2 className="titulo" id="habilidades">Habilidades_</h2>
-                    {[0, 1, 2].map((row) => (
-                      <section key={row} className="contenedor-seccion-valeria">
-                        <ul className="habilidades-valeria">
-                          {technologies.slice(row * 4, (row + 1) * 4).map((tech, index) => (
-                            <li key={index} className="listas-valeria">
-                              <img className="logo-tecnologias-valeria" src={tech.img} alt={tech.name} />
-                            </li>
-                          ))}
-                        </ul>
-                      </section>
+            <section id="habilidades">
+              <h2 className="titulo" id="habilidades">Habilidades_</h2>
+              {[0, 1, 2].map((row) => (
+                <section key={row} className="contenedor-seccion-valeria">
+                  <ul className="habilidades-valeria">
+                    {technologies.slice(row * 4, (row + 1) * 4).map((tech, index) => (
+                      <li key={index} className="listas-valeria">
+                        <img className="logo-tecnologias-valeria" src={tech.img} alt={tech.name} />
+                      </li>
                     ))}
-          
-                    <div className="skills-bars-valeria">
-                      <SkillBar skill="HTML5" level={85} delay={100} />
-                      <SkillBar skill="CSS3 / Bootstrap" level={80} delay={200} />
-                      <SkillBar skill="JavaScript" level={75} delay={300} />
-                      <SkillBar skill="Java / Kotlin" level={65} delay={650} />
-                      <SkillBar skill="MySQL" level={75} delay={600} />
-                      <SkillBar skill="NodeJS" level={60} delay={600} />
-                      <SkillBar skill="React" level={75} delay={750} />
-                      <SkillBar skill="Docker / Kubernetes" level={80} delay={800} />
-                      <SkillBar skill="Git / Github" level={100} delay={0} />
-                    </div>
-          
+                  </ul>
+                </section>
+              ))}
 
-          {/* Carrusel de Proyectos */}
-          <h2 className="titulo" id="proyectos">Proyectos Destacados_</h2>
-          <div className="proyectos-carrusel">
-            <button className="carrusel-btn prev-btn" onClick={prevProject}>
-              <p>‹</p>
-            </button>
-
-            <div className="carrusel-contenedor">
-              <div className="proyecto-card">
-                <div className="proyecto-imagen">
-                  <img src={projects[currentProject].image} alt={projects[currentProject].title} />
-                </div>
-                <div className="proyecto-info">
-                  <h3>{projects[currentProject].title}</h3>
-                  <p className="proyecto-descripcion">{projects[currentProject].description}</p>
-                  <div className="proyecto-tecnologias">
-                    {projects[currentProject].technologies.map((tech, idx) => (
-                      <span key={idx} className="tech-badge">{tech}</span>
-                    ))}
-                  </div>
-                  <div className="proyecto-links">
-                    <a href={projects[currentProject].github} target="_blank" rel="noopener noreferrer" className="proyecto-link">
-                      <img className="icono-github" src="/img/tecnologias-mario/github.png" alt="github" /> Código
-                    </a>
-                    <a href={projects[currentProject].demo} target="_blank" rel="noopener noreferrer" className="proyecto-link">
-                      🔗 Demo
-                    </a>
-                  </div>
-                </div>
+              <div className="skills-bars-valeria">
+                <SkillBar skill="HTML5" level={85} delay={100} />
+                <SkillBar skill="CSS3 / Bootstrap" level={80} delay={200} />
+                <SkillBar skill="JavaScript" level={75} delay={300} />
+                <SkillBar skill="Java / Kotlin" level={65} delay={650} />
+                <SkillBar skill="MySQL" level={75} delay={600} />
+                <SkillBar skill="NodeJS" level={60} delay={600} />
+                <SkillBar skill="React" level={75} delay={750} />
+                <SkillBar skill="Docker / Kubernetes" level={80} delay={800} />
+                <SkillBar skill="Git / Github" level={100} delay={0} />
               </div>
-            </div>
+            </section>
 
-            <button className="carrusel-btn next-btn" onClick={nextProject}>
-              <p>›</p>
-            </button>
-          </div>
+            <section id="proyectos">
+              {/* Carrusel de Proyectos */}
+              <h2 className="titulo" id="proyectos">Proyectos Destacados_</h2>
+              <div className="proyectos-carrusel">
+                <button className="carrusel-btn prev-btn" onClick={prevProject}>
+                  <p>‹</p>
+                </button>
 
-          <div className="carrusel-indicadores">
-            {projects.map((_, idx) => (
-              <button
-                key={idx}
-                className={`indicador ${currentProject === idx ? 'activo' : ''}`}
-                onClick={() => goToProject(idx)}
-              />
-            ))}
-          </div>
+                <div className="carrusel-contenedor">
+                  <div className="proyecto-card">
+                    <div className="proyecto-imagen">
+                      <img src={projects[currentProject].image} alt={projects[currentProject].title} />
+                    </div>
+                    <div className="proyecto-info">
+                      <h3>{projects[currentProject].title}</h3>
+                      <p className="proyecto-descripcion">{projects[currentProject].description}</p>
+                      <div className="proyecto-tecnologias">
+                        {projects[currentProject].technologies.map((tech, idx) => (
+                          <span key={idx} className="tech-badge">{tech}</span>
+                        ))}
+                      </div>
+                      <div className="proyecto-links">
+                        <a href={projects[currentProject].github} target="_blank" rel="noopener noreferrer" className="proyecto-link">
+                          <img className="icono-github" src="/img/tecnologias-mario/github.png" alt="github" /> Código
+                        </a>
+                        <a href={projects[currentProject].demo} target="_blank" rel="noopener noreferrer" className="proyecto-link">
+                          🔗 Demo
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
+                <button className="carrusel-btn next-btn" onClick={nextProject}>
+                  <p>›</p>
+                </button>
+              </div>
+
+              <div className="carrusel-indicadores">
+                {projects.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`indicador ${currentProject === idx ? 'activo' : ''}`}
+                    onClick={() => goToProject(idx)}
+                    aria-label={`Ir al proyecto ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </section>
 
             <section className="media-section">
               <h2>Películas Favoritas_</h2>
@@ -273,8 +278,8 @@ function ValeriaProfile() {
                     <p className={`description-peliculas parrafo-expandible ${expandedMovies[index] ? 'parrafo-completo' : 'parrafo-resumido'}`}>
                       {movie.description}
                     </p>
-                    <button 
-                      className="btn-leer" 
+                    <button
+                      className="btn-leer"
                       aria-expanded={expandedMovies[index] || false}
                       onClick={() => toggleMovie(index)}
                     >
@@ -285,7 +290,9 @@ function ValeriaProfile() {
               ))}
             </section>
 
-            <section className="media-section">
+            {/* SOLUCIÓN: media-section-discos diferenciada de media-section 
+            con width: 100vw para evitar overflow del carrusel*/}
+            <section className="media-section discos">
               <h2>Discos Favoritos_</h2>
               <div ref={carruselRef} className="carrusel-container">
                 <button
@@ -295,7 +302,11 @@ function ValeriaProfile() {
                 >
                   &lt;
                 </button>
-                <div className="discos-favoritos" style={{ transform: `translateX(-${slideOffset}px)` }}>
+                <div className="discos-favoritos" style={{
+                  transform: `translateX(-${slideOffset}px)`,
+                  display: 'flex',
+                  flexWrap: 'nowrap'
+                }}>
                   {albums.map((album, index) => (
                     <figure key={index} className="disco-item">
                       <img src={album.img} alt={`Portada disco ${album.title} - ${album.artist}`} />
@@ -306,8 +317,8 @@ function ValeriaProfile() {
                     </figure>
                   ))}
                 </div>
-                <button 
-                  className="carrusel-btn next" 
+                <button
+                  className="carrusel-btn next"
                   aria-label="Siguiente"
                   onClick={nextSlide}
                 >
