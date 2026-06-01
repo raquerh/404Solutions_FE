@@ -771,7 +771,7 @@
 
 @media (max-width: 768px) {
   .mariana-submenu {
-    top: 3.5rem;
+    top: 0rem;
   }
 }
 
@@ -779,6 +779,7 @@
   .role-subtitle {
     font-size: 0.8rem;
   }
+
   .mariana-secciones .profile-data-box {
     font-size: 0.8rem;
   }
@@ -786,6 +787,7 @@
   .tech-icons {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .mariana-submenu {
     margin-left: 0;
     width: 100%;
