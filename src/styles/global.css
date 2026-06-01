@@ -44,7 +44,8 @@ body {
   transition: margin-left 0.3s ease;
 }
 
-.sidebar.collapsed ~ .main-content {
+.sidebar.collapsed ~ .main-content,
+.desktop-sidebar.collapsed ~ .main-content {
   margin-left: 80px;
 }
 
@@ -139,11 +140,8 @@ h2 {
 /* Responsive */
 @media (max-width: 768px) {
   .main-content {
-    margin-left: 80px;
-  }
-
-  .sidebar.collapsed ~ .main-content {
     margin-left: 0;
+    padding-top: 3.5rem; /* espacio para el botón hamburguesa */
   }
 
   .main-content main {
@@ -152,10 +150,6 @@ h2 {
 }
 
 @media (max-width: 480px) {
-  .main-content {
-    margin-left: 0;
-  }
-
   .main-content main {
     padding: 1rem 0.5rem;
   }

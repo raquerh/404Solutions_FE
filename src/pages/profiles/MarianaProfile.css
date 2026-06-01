@@ -104,13 +104,11 @@
 .separador-terminal {
   border: none;
   height: 1px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--terminal-green),
-    var(--terminal-green) 10px,
-    transparent 10px,
-    transparent 20px
-  );
+  background: repeating-linear-gradient(90deg,
+      var(--terminal-green),
+      var(--terminal-green) 10px,
+      transparent 10px,
+      transparent 20px);
   opacity: 0.2;
   margin: 10px 0;
 }
@@ -175,14 +173,12 @@
   height: 200px;
   border-radius: 10px;
   padding: 3px;
-  background: linear-gradient(
-    135deg,
-    rgb(16, 16, 28) 0%,
-    #009765 25%,
-    rgb(21, 18, 23) 50%,
-    #006b43 75%,
-    #023733 100%
-  );
+  background: linear-gradient(135deg,
+      rgb(16, 16, 28) 0%,
+      #009765 25%,
+      rgb(21, 18, 23) 50%,
+      #006b43 75%,
+      #023733 100%);
   position: relative;
   overflow: hidden;
   cursor: default;
@@ -413,6 +409,7 @@
     opacity: 0;
     transform: translateX(20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -596,6 +593,7 @@
   .mariana-tarjeta-principal .discos-favoritos {
     grid-template-columns: repeat(3, 1fr) !important;
   }
+
   .mariana-tarjeta-principal .pelicula-info-display {
     flex-direction: row !important;
     text-align: left !important;
@@ -783,6 +781,7 @@
   .mariana-secciones .profile-data-box {
     font-size: 0.8rem;
   }
+
   .tech-icons {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -791,17 +790,25 @@
     width: 100%;
     border-bottom: 1px solid rgba(0, 255, 65, 0.2);
   }
+
   .mariana-submenu-inner {
     gap: 10px;
-    padding: 10px;
+    padding-top: 4rem;
   }
+
+  .submenu-prompt {
+    display: none;
+  }
+
   .mariana-submenu ul {
     gap: 8px;
   }
+
   .mariana-submenu a {
     font-size: 0.75rem;
     padding: 4px 6px;
   }
+
   .submenu-prompt {
     font-size: 0.75rem;
   }
@@ -814,20 +821,25 @@
     gap: 50px;
     align-items: center;
   }
+
   .info-personal-basica {
     align-items: flex-start;
     margin-top: 15px;
   }
+
   .social-links-mariana {
     justify-content: flex-start;
   }
+
   .pelicula-trailer {
     width: 60%;
   }
+
   .pelicula-detalles {
     width: 40%;
     padding-left: 10px;
   }
+
   .pelicula-detalles .disco-meta {
     justify-content: flex-start;
   }

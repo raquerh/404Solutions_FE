@@ -1,16 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Sidebar.css';
 
 function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const location = useLocation();
 
-  const toggleSidebar = () => {
-    setIsCollapsed(!isCollapsed);
-  };
-
   const isActive = (path) => location.pathname === path;
+
+  // Cierra el drawer mobile al navegar
+  useEffect(() => {
+    setIsMobileOpen(false);
+  }, [location.pathname]);
+
+  // Cierra el drawer al hacer resize a desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) setIsMobileOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const menuItems = [
     { path: '/', icon: '⚡', label: 'Dashboard' },
@@ -29,19 +40,26 @@ function Sidebar() {
     { path: '/valeria', name: 'Valeria', avatar: '/img/img-valeria/avatar_vale.png' },
   ];
 
-  return (
-    <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+  const navContent = (
+    <>
       <div className="sidebar-header">
         <Link to="/" className="sidebar-logo">
           <img src="/logo404solution.ico" alt="404 Solutions" className="logo-icon" />
           {!isCollapsed && <span className="logo-text">404_SOLUTIONS</span>}
         </Link>
-        <button 
-          className="sidebar-toggle" 
-          onClick={toggleSidebar}
+        <button
+          className="sidebar-toggle desktop-only"
+          onClick={() => setIsCollapsed(!isCollapsed)}
           aria-label={isCollapsed ? 'Expandir sidebar' : 'Colapsar sidebar'}
         >
           {isCollapsed ? '»' : '«'}
+        </button>
+        <button
+          className="sidebar-toggle mobile-only"
+          onClick={() => setIsMobileOpen(false)}
+          aria-label="Cerrar menú"
+        >
+          ✕
         </button>
       </div>
 
@@ -53,8 +71,8 @@ function Sidebar() {
           <ul className="nav-list">
             {menuItems.map((item) => (
               <li key={item.path}>
-                <Link 
-                  to={item.path} 
+                <Link
+                  to={item.path}
                   className={`nav-item ${isActive(item.path) ? 'active' : ''}`}
                   title={item.label}
                 >
@@ -73,14 +91,14 @@ function Sidebar() {
           <ul className="nav-list team-list">
             {teamMembers.map((member) => (
               <li key={member.path}>
-                <Link 
-                  to={member.path} 
+                <Link
+                  to={member.path}
                   className={`nav-item team-item ${isActive(member.path) ? 'active' : ''}`}
                   title={member.name}
                 >
-                  <img 
-                    src={member.avatar} 
-                    alt={member.name} 
+                  <img
+                    src={member.avatar}
+                    alt={member.name}
                     className="team-avatar"
                   />
                   {!isCollapsed && <span className="nav-label">{member.name}</span>}
@@ -99,7 +117,39 @@ function Sidebar() {
           {!isCollapsed && <span className="status-text">ONLINE</span>}
         </div>
       </div>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Botón hamburguesa — solo visible en mobile */}
+      <button
+        className="hamburger-btn"
+        onClick={() => setIsMobileOpen(true)}
+        aria-label="Abrir menú"
+      >
+        ☰
+      </button>
+
+      {/* Backdrop — solo en mobile cuando el drawer está abierto */}
+      {isMobileOpen && (
+        <div
+          className="sidebar-backdrop"
+          onClick={() => setIsMobileOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Sidebar desktop */}
+      <aside className={`sidebar desktop-sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+        {navContent}
+      </aside>
+
+      {/* Sidebar mobile drawer */}
+      <aside className={`sidebar mobile-drawer ${isMobileOpen ? 'open' : ''}`}>
+        {navContent}
+      </aside>
+    </>
   );
 }
 

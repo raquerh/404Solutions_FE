@@ -1,12 +1,24 @@
-# 404 Solutions - Aplicación React con Dashboard
+<h1 align="center">404 Solutions - Aplicación React con Dashboard </h1>
 
-## 🚀 Deploy en Producción
+<p align="center">
+  <img src="https://img.shields.io/github/last-commit/raquerh/404Solutions_FE?style=flat-square&color=purple&label=ULTIMA_ACTUALIZACION&cacheSeconds=300">
+  <img src="https://img.shields.io/badge/STATUS-ENTREGADO-green?style=flat-square">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white">
+  <img src="https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB">
+  <img src="https://img.shields.io/badge/React_Router_7-CA4245?style=flat-square&logo=react-router&logoColor=white">
+  <img src="https://img.shields.io/badge/Vite_8-646CFF?style=flat-square&logo=vite&logoColor=white">
+</p>
 
-**🌐 Sitio Web:** [https://tu-proyecto.vercel.app](https://tu-proyecto.vercel.app) _(Pendiente de deploy)_
+## Deploy en Producción
+
+**Sitio Web:** [https://404-solutions-fe.vercel.app/](https://404-solutions-fe.vercel.app/)
+
+**GitHub:** [github.com/raquerh/404Solutions_FE](https://github.com/raquerh/404Solutions_FE)
 
 ---
 
-## 📝 Descripción del Proyecto
+## 📚 Descripción del Proyecto
 
 Este proyecto es la **migración completa** del sitio web estático de 404 Solutions (TP1) a una **Single Page Application (SPA)** moderna desarrollada con React. La aplicación implementa una arquitectura de componentes reutilizables, navegación mediante React Router, y un sistema de Dashboard con Sidebar fija para una experiencia de usuario profesional.
 
@@ -25,13 +37,13 @@ Demostrar el dominio de React mediante la implementación de:
 
 ## 👥 Integrantes del Equipo
 
-| Nombre | Rol | GitHub |
-| --- | --- | --- |
-| **Mariana Aiello** | Software Dev & Data Science | [github.com/Aiello-M](https://github.com/Aiello-M) |
-| **Mario González** | Full Stack Developer | [github.com/elavincho](https://github.com/elavincho) |
-| **Miguel Ángel Flores** | Full Stack Developer | [github.com/mikefink22](https://github.com/mikefink22) |
-| **Raquel Rodríguez** | Frontend Developer | [github.com/raquerh](https://github.com/raquerh) |
-| **Valeria Thomas** | Fullstack Developer | [github.com/usuario-valeria](https://github.com/Irinath) |
+| Nombre                  | Rol                         | GitHub                                                 |
+| ----------------------- | --------------------------- | ------------------------------------------------------ |
+| **Mariana Aiello**      | Software Dev & Data Science | [github.com/Aiello-M](https://github.com/Aiello-M)     |
+| **Mario González**      | Full Stack Developer        | [github.com/elavincho](https://github.com/elavincho)   |
+| **Miguel Ángel Flores** | Full Stack Developer        | [github.com/mikefink22](https://github.com/mikefink22) |
+| **Raquel Rodríguez**    | Frontend Developer          | [github.com/raquerh](https://github.com/raquerh)       |
+| **Valeria Thomas**      | Fullstack Developer         | [github.com/Irinath](https://github.com/Irinath)       |
 
 ---
 
@@ -41,76 +53,81 @@ Demostrar el dominio de React mediante la implementación de:
 
 - **React** 19.2.5 - Librería de UI con componentes funcionales y Hooks
 - **React Router DOM** 7.1.3 - Navegación SPA sin recarga de página
-- **Vite** 8.0.10 - Build tool ultrarrápido con HMR (Hot Module Replacement)
+- **Vite** 8.0.10 - Build tool ultrarrápido y servidor de desarrollo con HMR (Hot Module Replacement)
 
 ### Herramientas de Desarrollo
 
-- **ESLint** 10.2.1 - Linter para calidad y consistencia de código
+- **ESLint** 10.2.1 - Linter para análisis de calidad y consistencia de código estático.
 - **Git** - Control de versiones
 - **npm** - Gestor de paquetes
 
 ### Lenguajes y Estilos
 
-- **JavaScript (ES6+)** - Sintaxis moderna con arrow functions, destructuring, async/await
-- **CSS3** - Variables CSS, Flexbox, Grid, Animaciones, Transiciones
-- **HTML5** - Estructura semántica
+- **JavaScript (ES6+)** - Lógica dinámica con arrow functions, destructuring y asincronismo (fetch/promises, async/await)
+- **CSS3** - Variables CSS, Flexbox, Grid, Animaciones, Transiciones y Media Queries.
+- **HTML5** - Estructura semántica base en `index.html`.
 
-### Librerías de Iconos
+### Recursos Externos
 
-- **DevIcons** - Iconos de tecnologías y lenguajes de programación
-- **Font Awesome** 6.5.1 - Iconos generales para UI
+- #### Tipografías
+  - **Google Fonts** - [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) - Fuente monoespaciada principal
+  - **Google Fonts** - [Fira Code](https://fonts.google.com/specimen/Fira+Code) - Fuente general utilizada en el perfil de Raquel
+  - **Google Fonts** - [Syne](https://fonts.google.com/specimen/Syne) - Fuente de títulos utilizada en el perfil de Raquel
 
-### APIs Externas
+- #### Librerías de Iconos
+  - **DevIcons** - Iconos de tecnologías y lenguajes de programación
+  - **Font Awesome** 6.5.1 - Iconos generales para UI
 
-- **iTunes Search API** - API pública de Apple para búsqueda de música (<https://itunes.apple.com/search>)
+- #### API Externa
+
+* **iTunes Search API** - API pública de Apple para búsqueda de música (<https://itunes.apple.com/search>)
 
 ---
 
 ## 📁 Estructura de Archivos
 
 ```text
-tp2/
-├── public/                      # Archivos estáticos
+404Solutions_FE/
+├── public/                      # Archivos estáticos y base de datos local
 │   ├── data/
 │   │   └── projects.json       # Datos locales (20 proyectos)
-│   ├── img/                    # Imágenes del proyecto
+│   ├── img/                    # Recursos gráficos y GIFs para README
 │   │   ├── discos-mariana/
 │   │   ├── discos-mario/
 │   │   ├── discos-mike/
 │   │   ├── discos-raquel/
+│   │   ├── iconos-mario/
 │   │   ├── img-valeria/
 │   │   ├── peliculas-mariana/
 │   │   ├── peliculas-raquel/
+│   │   ├── proyectos-mariana/
+│   │   ├── proyectos-mario/
+│   │   ├── proyectos-raquel/
+│   │   ├── proyectos-valeria/
+│   │   ├── readme-img/         # Capturas para documentación
+│   │   └── tecnologias-mario/
+│   │   └── tecnologias-valeria/
 │   │   └── ...
 │   └── logo404solution.ico
+│   │
 ├── src/
-│   ├── components/             # Componentes reutilizables
-│   │   ├── Sidebar.jsx        # Navegación Dashboard
-│   │   ├── Sidebar.css
-│   │   ├── Header.jsx
-│   │   ├── Header.css
-│   │   ├── Footer.jsx         # Pie de página
+│   ├── components/            # Componentes de interfaz reutilizables
+│   │   ├── Footer.jsx         # Pie de página con año dinámico
 │   │   ├── Footer.css
+│   │   ├── Header.jsx         # Controlador de menú móvil
+│   │   ├── Header.css
 │   │   ├── HeroSection.jsx    # Sección hero con animaciones
 │   │   ├── HeroSection.css
-│   │   ├── TeamList.jsx       # Grilla de integrantes
-│   │   ├── TeamList.css
+│   │   └── ScrollToTop.jsx    # Scroll automático en navegación
+│   │   ├── Sidebar.jsx        # Navegación Dashboard
+│   │   ├── Sidebar.css
 │   │   ├── SkillBar.jsx       # Barra de progreso animada reutilizable
 │   │   ├── SkillBar.css
-│   │   └── ScrollToTop.jsx    # Scroll automático en navegación
-│   ├── pages/                  # Páginas/Vistas
-│   │   ├── Home.jsx           # Dashboard principal
-│   │   ├── Bitacora.jsx       # Documentación del proyecto
-│   │   ├── Bitacora.css
-│   │   ├── JsonExplorer.jsx   # ⭐ Explorador de JSON (NUEVO)
-│   │   ├── JsonExplorer.css
-│   │   ├── ApiData.jsx        # ⭐ Consumo de API (NUEVO)
-│   │   ├── ApiData.css
-│   │   ├── Gallery.jsx        # ⭐ Galería con Lightbox (NUEVO)
-│   │   ├── Gallery.css
-│   │   ├── ComponentTree.jsx  # ⭐ Árbol de componentes (NUEVO)
-│   │   ├── ComponentTree.css
-│   │   └── profiles/          # Perfiles individuales
+│   │   ├── TeamList.jsx       # Grilla de integrantes del equipo
+│   │   ├── TeamList.css
+│   │
+│   ├── pages/                 # Páginas/Vistas
+│   │   └── profiles/          # Perfiles individuales de integrantes
 │   │       ├── MarianaProfile.jsx
 │   │       ├── MarianaProfile.css
 │   │       ├── MarioProfile.jsx
@@ -122,10 +139,24 @@ tp2/
 │   │       ├── ValeriaProfile.jsx
 │   │       ├── ValeriaProfile.css
 │   │       └── ProfileCommon.css
+│   │   ├── ApiData.jsx        # Consumo de API iTunes con paginación
+│   │   ├── ApiData.css
+│   │   ├── Bitacora.jsx       # Documentación del proyecto
+│   │   ├── Bitacora.css
+│   │   ├── ComponentTree.jsx  # Árbol de componentes
+│   │   ├── ComponentTree.css
+│   │   ├── Gallery.jsx        # Galería con Lightbox
+│   │   ├── Gallery.css
+│   │   ├── Home.jsx           # Dashboard principal
+│   │   ├── Home.css
+│   │   ├── JsonExplorer.jsx   # Explorador de JSON local con filtros
+│   │   ├── JsonExplorer.css
+│   │
 │   ├── styles/
-│   │   └── global.css         # Estilos globales y variables CSS
-│   ├── App.jsx                # Componente raíz con Router
-│   └── main.jsx               # Punto de entrada de la aplicación
+│   │   └── global.css         # Variables CSSC y reset
+│   ├── App.jsx                # Configuración de React Router
+│   └── main.jsx               # Punto de entrada de React (createRoot)
+│
 ├── .gitignore
 ├── eslint.config.js           # Configuración de ESLint
 ├── index.html                 # HTML base
@@ -138,17 +169,20 @@ tp2/
 
 ## 🎨 Guía de Estilos
 
+El equipo adoptó una estética unificada de **Terminal / Retro-Computing** para la interfaz general, con variaciones controladas en los perfiles individuales para aportar identidad propia sin perder coherencia.
+
 ### Paleta de Colores
 
-| Color | Muestra | Hexadecimal | Uso |
-| ----- | --------- | ------------- | ----- |
-| **Verde Terminal** | ![#00ff41](https://placehold.co/15x15/00ff41/00ff41.png) | `#00ff41` | Texto principal, acentos, bordes activos |
-| **Negro Profundo** | ![#0a0a0a](https://placehold.co/15x15/0a0a0a/0a0a0a.png) | `#0a0a0a` | Fondo principal de la aplicación |
-| **Gris Oscuro** | ![#1a1a1a](https://placehold.co/15x15/1a1a1a/1a1a1a.png) | `#1a1a1a` | Fondos de tarjetas y contenedores |
-| **Blanco** | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) | `#ffffff` | Texto secundario, títulos |
-| **Rojo** | ![#ff0000](https://placehold.co/15x15/ff0000/ff0000.png) | `#ff0000` | Acentos del perfil de Mario, bordes |
-| **Amarillo** | ![#ffff00](https://placehold.co/15x15/ffff00/ffff00.png) | `#ffff00` | Alertas, estados en progreso |
-| **Cyan** | ![#4ecdc4](https://placehold.co/15x15/4ecdc4/4ecdc4.png) | `#4ecdc4` | Badges de layout, acentos secundarios |
+| Color              | Hexadecimal | Uso                                      |
+| ------------------ | ----------- | ---------------------------------------- |
+| **Verde Terminal** | `#00ff41`   | Texto principal, acentos, bordes activos |
+| **Negro Profundo** | `#0a0a0a`   | Fondo principal de la aplicación         |
+| **Gris Oscuro**    | `#1a1a1a`   | Fondos de tarjetas y contenedores        |
+| **Blanco**         | `#ffffff`   | Texto secundario, títulos                |
+| **Verde Oscuro**   | `#003b00`   | Hover y fondos sutiles                   |
+| **Rojo**           | `#ff0000`   | Acentos del perfil de Mario, bordes      |
+| **Amarillo**       | `#ffff00`   | Alertas, estados en progreso             |
+| **Cyan**           | `#4ecdc4`   | Badges de layout, acentos secundarios    |
 
 ### Tipografías
 
@@ -158,13 +192,18 @@ tp2/
 - **Tipo:** Monoespaciada
 - **Pesos:** 400 (Regular), 700 (Bold)
 - **Link:** [Google Fonts - JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono)
-- **Uso:** Toda la interfaz (estética terminal/código)
+- **Uso:** Toda la interfaz (estética de consola/terminal)
 
 #### Fuente Secundaria
 
 - **Nombre:** Courier New
 - **Tipo:** Monoespaciada (sistema)
 - **Uso:** Fallback para JetBrains Mono
+
+#### Excepción (perfil de Raquel - identidad personalizada)
+
+- Títulos: [Syne](https://fonts.google.com/specimen/Syne)
+- Cuerpo y navegación: [Fira Code](https://fonts.google.com/specimen/Fira+Code)
 
 ### Iconografía
 
@@ -179,251 +218,311 @@ tp2/
 
 - **Versión:** 6.5.1
 - **Link:** [fontawesome.com](https://fontawesome.com/)
-- **Uso:** Iconos generales de UI (email, teléfono, ubicación, etc.)
+- **Uso:** Iconos generales de UI
 - **Implementación:** Clases CSS (`fa-solid`, `fa-brands`)
 
 #### Emojis Unicode
 
-- **Uso:** Iconos de navegación en Sidebar (🏠, 📋, 🔍, 🎵, 🖼️, 🌳)
+- **Uso:** Iconos de navegación en Sidebar (⚡, 📌, 🗃️, 🎧, 📸, 🧩)
 - **Ventaja:** No requieren librería externa, universales
 
 ---
 
 ## ⚙️ Funcionalidades Dinámicas Implementadas (JavaScript/React)
 
-### 1. Sidebar Dashboard con Estado Colapsable
+La aplicación combina nuevas implementaciones nativas de la arquitectura React (TP2) con funcionalidades interactivas migradas y adaptadas del proyecto estático original (TP1).
 
-**Componente:** `Sidebar.jsx`  
-**Hooks utilizados:** `useState`, `useLocation`
+### 🔹 1. Nuevas Funcionalidades (Implementación TP2)
+
+#### 1. Sidebar Dashboard con Estado Colapsable
+
+**Componente:** `Sidebar.jsx` | **Hooks utilizados:** `useState`, `useLocation`
+
+Se implementó una navegación SPA sin recargas. El Sidebar detecta la ruta activa usando `useLocation` para iluminar la sección actual y permite colapsarse modificando su ancho mediante `useState`.
+
+**Detalles de funcionalidad:**
+
+- Navegación lateral fija siempre visible.
+- Botón para colapsar/expandir (280px ↔ 80px).
+- Indicador visual de ruta activa.
+- Responsive: se colapsa automáticamente en mobile.
+- Animaciones suaves de transición CSS.
 
 ```javascript
 const [isCollapsed, setIsCollapsed] = useState(false);
-const location = useLocation();
+const location = useLocation(); // Permite asignar clases "active" dinámicamente
 
 const toggleSidebar = () => {
   setIsCollapsed(!isCollapsed);
 };
 ```
 
-**Funcionalidades:**
-
-- Navegación lateral fija siempre visible
-- Botón para colapsar/expandir (280px ↔ 80px)
-- Indicador visual de ruta activa
-- Responsive: se colapsa automáticamente en mobile
-- Animaciones suaves de transición
+<p align="center">
+  <img src="./public/img/readme-img/tp2-sidebar.gif" alt="Navegación Sidebar" width="600">
+</p>
 
 ---
 
-### 2. Explorador de Datos JSON con Filtrado en Tiempo Real
+#### 1.2. Transiciones de Carga y Animaciones de Entrada (Home)
 
-**Componente:** `JsonExplorer.jsx`  
-**Hooks utilizados:** `useState`, `useEffect`  
-**Datos:** `public/data/projects.json` (20 objetos)
+**Componentes:** `Home.jsx`, `HeroSection.jsx`, `TeamList.jsx` | **Hooks utilizados:** `useState`, `useEffect`
+
+El Dashboard principal integra muchas secuencias de animación para simular el inicio de un sistema operativo, mejorando la percepción de rendimiento mediante retroalimentación visual antes de renderizar el DOM completo.
+
+**Detalles de funcionalidad:**
+
+- Estado de carga inicial (`isLoading`) controlado por temporizador.
+- Animación de entrada escalonada para las 3 cajas de métricas (Desarrolladores, Bugs, Dedicación).
+- Efecto visual tipo interferencia CRT (Glitch) al montar las tarjetas de los integrantes.
+- Uso de `IntersectionObserver` para ejecutar las animaciones de las tarjetas únicamente cuando ingresan al viewport, evitando re-renders innecesarios.
 
 ```javascript
-const [projects, setProjects] = useState([]);
-const [filteredProjects, setFilteredProjects] = useState([]);
-const [searchTerm, setSearchTerm] = useState('');
-const [selectedCategory, setSelectedCategory] = useState('Todas');
+const [isLoading, setIsLoading] = useState(true);
 
 useEffect(() => {
-  let result = projects.filter(project =>
-    project.title.toLowerCase().includes(searchTerm.toLowerCase())
+  // Simula el tiempo de carga del sistema
+  const timer = setTimeout(() => setIsLoading(false), 800);
+  return () => clearTimeout(timer);
+}, []);
+```
+
+<p align="center">
+  <img src="./public/img/readme-img/tp2-home-loading.gif" alt="Transiciones de Carga y Animaciones" width="600">
+</p>
+
+---
+
+#### 1.3. Explorador de Datos JSON con Filtrado en Tiempo Real
+
+**Componente:** `JsonExplorer.jsx` | **Hooks utilizados:** `useState`, `useEffect`
+
+Se implementó un motor de búsqueda sobre datos estáticos (20 objetos consumidos desde `projects.json`) utilizando estados combinados de React. Los filtros se evalúan en tiempo real cada vez que el usuario interactúa, sin necesidad de recargar la página ni usar botones de envío.
+
+**Detalles de funcionalidad:**
+
+- Carga de datos dinámica desde un archivo JSON local.
+- Búsqueda por texto (input) que filtra coincidencias en tiempo real.
+- Filtro combinable por categoría mediante menú desplegable (select).
+- Actualización instantánea del Virtual DOM al modificar cualquier filtro.
+- Contador de resultados dinámico que refleja la cantidad exacta de tarjetas visibles.
+
+```javascript
+useEffect(() => {
+  let result = projects.filter((project) =>
+    project.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
+
+  if (selectedCategory !== "Todas") {
+    result = result.filter((project) => project.category === selectedCategory);
+  }
+
   setFilteredProjects(result);
 }, [searchTerm, selectedCategory, projects]);
 ```
 
-**Funcionalidades:**
-
-- Carga de datos desde JSON local
-- Búsqueda por texto en tiempo real (título, descripción, tecnología)
-- Filtros por categoría y estado
-- Actualización instantánea de resultados
-- Contador de resultados filtrados
+<p align="center">
+  <img src="./public/img/readme-img/tp2-api-paginacion.gif" alt="API Musical y Paginación" width="600">
+</p>
 
 ---
 
-### 3. Explorador Musical via iTunes API con Paginación
+#### 1.4. Módulo de API Externa (iTunes) con Paginación
 
-**Componente:** `ApiData.jsx`  
-**Hooks utilizados:** `useState`, `useEffect`, `useRef`  
-**API:** iTunes Search API (sin API key, gratuita)
+**Componente:** `ApiData.jsx` | **Hooks utilizados:** `useState`, `useEffect`, `useRef`
+
+Se implementó el consumo asíncrono de la API pública de iTunes mediante `fetch`, integrando un sistema de paginación propio y manejo estricto del reproductor de audio nativo del navegador.
+
+**Detalles de funcionalidad:**
+
+- Control de estados de interfaz: carga (`loading`), errores (`error`) y resultados (`data`).
+- Paginación matemática limitando la vista a 8 tarjetas por página, con botones de Anterior/Siguiente deshabilitables dinámicamente.
+- Reproductor de audio de 30 segundos (preview).
+- Función de _cleanup_ (limpieza) en `useEffect` combinada con `useRef` para garantizar que, si el usuario reproduce una canción y cambia de página o vista, el audio se detenga automáticamente y no quede sonando en segundo plano.
 
 ```javascript
-const [tracks, setTracks] = useState([]);
-const [loading, setLoading] = useState(true);
-const [error, setError] = useState(null);
-const [searchTerm, setSearchTerm] = useState('rock');
-const [retryCount, setRetryCount] = useState(0);
-const audioRef = useRef(null);
-
+// Cleanup para el audio al desmontar el componente o cambiar de vista
 useEffect(() => {
-  const fetchTracks = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `https://itunes.apple.com/search?term=${encodeURIComponent(searchTerm)}&media=music&limit=50&country=AR`
-      );
-      const data = await response.json();
-      setTracks(data.results || []);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
+  return () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
     }
   };
-  fetchTracks();
-}, [searchTerm, retryCount]);
+}, []);
 ```
 
-**Funcionalidades:**
-
-- Buscador de música en tiempo real (artista, canción, álbum)
-- Portada de álbum (300x300px) en cada tarjeta
-- Botón ▶ para preview de 30 segundos (solo una canción a la vez)
-- Cleanup de audio al navegar a otra página (useRef + useEffect)
-- Manejo de estados: loading, error, success
-- Sistema de paginación (8 items por página, 4x2)
-- Botones Anterior/Siguiente con disable inteligente
-- Indicador de página actual (ej: "Página 2 de 7")
-- Botón Reintentar funcional con `retryCount`
+<p align="center">
+  <img src="./public/img/readme-img/tp2-api-paginacion.gif" alt="API Musical y Paginación" width="600">
+</p>
 
 ---
 
-### 4. Galería de Imágenes con Lightbox
+#### 1.5. Galería de Imágenes Interactiva con Lightbox
 
-**Componente:** `Gallery.jsx`  
-**Hooks utilizados:** `useState`, `useEffect`
+**Componente:** `Gallery.jsx` | **Hooks utilizados:** `useState`, `useEffect`
+
+Se implementó un sistema de grilla con un visor modal (Lightbox) a pantalla completa. Se priorizó la accesibilidad y la experiencia de usuario (UX) integrando navegación nativa por teclado y bloqueo de scroll.
+
+**Detalles de funcionalidad:**
+
+- Renderizado dinámico de un Grid de imágenes responsivo.
+- Apertura de modal al hacer clic, el cual bloquea automáticamente el scroll del fondo (`body`).
+- Detección de eventos globales del teclado: tecla `ESC` para cerrar, y flechas `←` / `→` para navegar entre las imágenes.
+- Prevención de fugas de memoria (_memory leaks_) utilizando la función de _cleanup_ del `useEffect` para remover los _event listeners_ del objeto `window` cuando el modal se cierra.
 
 ```javascript
-const [lightboxOpen, setLightboxOpen] = useState(false);
-const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
 useEffect(() => {
   const handleKeyDown = (e) => {
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') goToNext();
-    if (e.key === 'ArrowLeft') goToPrevious();
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") goToNext();
+    if (e.key === "ArrowLeft") goToPrevious();
   };
-  window.addEventListener('keydown', handleKeyDown);
-  return () => window.removeEventListener('keydown', handleKeyDown);
+
+  // Agrega el listener global
+  window.addEventListener("keydown", handleKeyDown);
+
+  // Cleanup: remueve el listener al cerrar el lightbox o desmontar
+  return () => window.removeEventListener("keydown", handleKeyDown);
 }, [lightboxOpen]);
 ```
 
-**Funcionalidades:**
+<p align="center">
+  <img src="./public/img/readme-img/tp2-lightbox.gif" alt="Galería Lightbox" width="600">
+</p>
 
-- Grid responsive de imágenes
-- Click para abrir Lightbox (modal fullscreen)
-- Navegación con flechas (← →)
-- Cierre con tecla ESC
-- Cierre con click fuera de la imagen
-- Contador de posición (ej: "5 / 18")
-- Prevención de scroll del body cuando está abierto
-- Animaciones de zoom y fade
+### 🔹 2. Funcionalidades Migradas a React (Base TP1)
+
+Las siguientes funcionalidades fueron implementadas originalmente en el TP1 utilizando JavaScript y posteriormente integradas a la versión desarrollada con React mediante el uso de **Hooks**.
 
 ---
 
-### 5. Animaciones de Entrada en Dashboard Home
+#### 2.1. Simulador de Diagnóstico (Consola Interactiva)
 
-**Componentes:** `HeroSection.jsx`, `TeamList.jsx`
+**Componente:** `HeroSection.jsx` | **Lógica:** `useState`, `setInterval`
 
-```css
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+- **Funcionalidad:** al hacer clic en el botón "Ejecutar Diagnóstico", simula una terminal ejecutando comandos de chequeo del sistema. El texto aparece progresivamente en pantalla (efecto máquina de escribir) y desactiva el botón mientras se ejecuta.
+- **Migración a React:** la lógica original fue adaptada utilizando un arreglo de _strings_ y un `setInterval`. En lugar de manipular directamente el contenido mostrado en pantalla, se actualiza de forma progresiva un estado de React (`setCodeLines`), que renderiza cada línea de la terminal a medida que avanza la simulación.
 
-.team-card {
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-.team-card:nth-child(1) { animation-delay: 0.1s; }
-.team-card:nth-child(2) { animation-delay: 0.2s; }
-```
-
-**Funcionalidades:**
-
-- Animación fadeIn del header
-- Animación fadeInUp escalonada de tarjetas
-- Delays progresivos para efecto cascada
-- Transiciones suaves en hover
+<p align="center">
+  <img src="./public/img/readme-img/func-diagnostico.gif" alt="Simulador de Diagnóstico" width="550">
+</p>
 
 ---
 
-### 6. Simulador de Diagnóstico Interactivo
+#### 2.2. Menú Hamburguesa (Mobile)
 
-**Componente:** `HeroSection.jsx`
+**Componente:** `Header.jsx` | **Hooks utilizados:** `useState`
 
-```javascript
-const runDiagnostic = () => {
-  const lines = [
-    "// Inicializando sistema...",
-    "// Verificando dependencias...",
-    "// Estado: <span class='status-ok'>OK</span>"
-  ];
-  
-  let index = 0;
-  const interval = setInterval(() => {
-    if (index < lines.length) {
-      setCodeLines(prev => [...prev, lines[index]]);
-      index++;
-    }
-  }, 500);
-};
-```
+- **Funcionalidad:** en resoluciones menores a 768px aparece un menú hamburguesa que, al presionarlo, despliega la navegación sobre el contenido (con un fondo oscurecido) y bloquea el desplazamiento de la página para facilitar la navegación en dispositivos móviles.
+- **Migración a React:** el comportamiento del menú fue adaptado utilizando el estado booleano `menuOpen`, que controla de forma condicional las clases CSS aplicadas al menú de navegación. Esto reemplaza la manipulación manual del DOM utilizada en la versión desarrollada con JavaScript, lo que permite gestionar la apertura y cierre del menú directamente desde React.
 
-**Funcionalidades:**
-
-- Botón interactivo que ejecuta simulación
-- Aparición progresiva de líneas de código
-- Auto-scroll al final del output
-- Estado disabled durante ejecución
+<p align="center">
+  <img src="./public/img/readme-img/tp2-menu-mobile.gif" alt="Menú Mobile" width="550">
+</p>
 
 ---
 
-### 7. Scroll Automático al Cambiar de Ruta
+#### 2.3. Párrafos Expandibles ("Leer más / Leer menos")
 
-**Componente:** `ScrollToTop.jsx`
+**Componentes:** `MarioProfile.jsx`, `MikeProfile.jsx`, `ValeriaProfile.jsx` | **Hooks utilizados:** `useState`
 
-```javascript
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  
-  return null;
-}
-```
+- **Funcionalidad:** en las descripciones largas de películas o proyectos, trunca el texto y muestra un botón interactivo. Al hacer clic, el texto se expande empujando el contenido adyacente de forma fluida.
+- **Migración a React:** en lugar de manipular clases CSS directamente sobre elementos del DOM, se utiliza un objeto de estado (`expandedMovies` o `expandedProjects`) para registrar qué tarjeta fue expandida (ID/Índice de la tarjeta activa). Esto permite actualizar el contenido correspondiente únicamente cuando el usuario interactúa con el botón.
 
-**Funcionalidades:**
-
-- Scroll automático al top en cada cambio de ruta
-- Mejora la UX en navegación SPA
+<p align="center">
+  <img src="./public/img/readme-img/func-expandible-mario.gif" alt="Texto Expandible" width="550">
+</p>
 
 ---
 
-### 8. Footer con Año Dinámico
+#### 2.4. Galería Dinámica de Películas
 
-**Componente:** `Footer.jsx`
+**Componente:** `MarianaProfile.jsx` | **Hooks utilizados:** `useState`
 
-```javascript
-const currentYear = new Date().getFullYear();
-```
+- **Funcionalidad:** muestra una galería de pósters de películas y, al seleccionar uno de ellos, se actualiza dinámicamente un contenedor principal con la información correspondiente (título, director, sinopsis y tráiler), sin necesidad de recargar la página.
+- **Migración a React:** en la versión desarrollada con JavaScript la información de cada película se obtenía mediante atributos `data-*` asociados a los pósters. En esta versión, los datos se almacenan en un arreglo de objetos y el estado `selectedMovie` determina qué película se muestra en el contenedor principal, permitiendo que React actualice la interfaz de forma automática ante cada selección.
 
-**Funcionalidades:**
+<p align="center">
+  <img src="./public/img/readme-img/func-galeria.gif" alt="Galería Dinámica Mariana" width="550">
+</p>
 
-- Actualización automática del año
-- No requiere mantenimiento manual
+---
+
+#### 2.5. Consola Interactiva de Base de Datos
+
+**Componente:** `MikeProfile.jsx` | **Hooks utilizados:** `useState`, `useEffect` (Temporizadores)
+
+- **Funcionalidad:** al hacer clic en la sección de habilidades de Data Science, se ejecuta una simulación de consola que representa una consulta a una base de datos. Los mensajes se muestran de forma progresiva, simulando el proceso de conexión y recuperación de información antes de presentar los resultados.
+
+- **Migración a React:** la lógica fue adaptada utilizando el estado booleano `dsExecuted`, que determina cuándo deben mostrarse la animación de escritura y las respuestas simuladas de la consulta. De esta manera, la visualización de la consola queda controlada por el estado de React en lugar de depender de modificaciones directas sobre el DOM.
+
+<p align="center">
+  <img src="./public/img/readme-img/func-consulta-mike.gif" alt="Consola interactiva Mike" width="550">
+</p>
+
+---
+
+#### 2.6. Carruseles Interactivos de Proyectos y Discos
+
+**Componentes:** Perfiles individuales | **Hooks utilizados:** `useState`
+
+- **Funcionalidad:** slider horizontal que permite recorrer los distintos proyectos o discos favoritos mediante controles de navegación de "Anterior" y "Siguiente", actualizando dinámicamente el contenido mostrado en pantalla.
+- **Migración a React:** la lógica de navegación fue adaptada utilizando un estado que almacena el índice del elemento seleccionado. En la versión desarrollada con JavaScript, el desplazamiento se realizaba mediante transformaciones visuales (`transform: translateX`), mientras que en React se actualiza el índice del elemento activo (por ejemplo, `setCurrentProject((prev) => (prev + 1) % projects.length)`), mostrando la información correspondiente a partir de los datos almacenados en el arreglo.
+
+<p align="center">
+  <img src="./public/img/readme-img/func-carrousel.gif" alt="Carrusel Interactivo" width="550">
+</p>
+<p align="center">
+  <img src="./public/img/readme-img/tp2-carrusel.gif" alt="Carrusel de proyectos" width="550">
+</p>
+
+---
+
+#### 2.7. Navegación Interna (ScrollSpy)
+
+**Componentes:** `RaquelProfile.jsx`, `MarianaProfile.jsx` | **Hooks utilizados:** `useState`, `useEffect`
+
+**Funcionalidad:** a medida que el usuario hace scroll por el perfil, el submenú de navegación detecta automáticamente qué sección se encuentra visualizando y resalta el enlace correspondiente, brindando una referencia visual de ubicación durante la navegación.
+**Migración a React:** la funcionalidad fue adaptada mediante un _event listener_ de scroll registrado dentro de un `useEffect`. La lógica evalúa dinámicamente si la posición vertical actual (`window.scrollY`) se encuentra dentro de los límites de cada sección (utilizando `offsetTop` y `offsetHeight`) y actualiza el estado `activeSection`, permitiendo resaltar automáticamente la opción correspondiente del submenú.
+
+<p align="center">
+  <img src="./public/img/readme-img/func-scroll.gif" alt="ScrollSpy Perfiles" width="550">
+</p>
+
+---
+
+#### 2.8. Botón de Copiar URL
+
+**Componente:** `RaquelProfile.jsx` | **Hooks utilizados:** `useState`
+
+- **Funcionalidad:** Permite al usuario copiar el enlace directo del perfil al portapapeles con un solo clic, mostrando un mensaje temporal de confirmación "¡Enlace copiado!" para indicar que la acción se realizó correctamente.
+- **Migración a React:** La funcionalidad fue adaptada utilizando la API `navigator.clipboard.writeText()` asociada al evento `onClick`. El mensaje de confirmación se controla mediante un estado booleano y se oculta automáticamente después de 2 segundos utilizando `setTimeout`.
+
+<p align="center">
+  <img src="./public/img/readme-img/func-copiar-url.gif" alt="Copiar enlace al portapapeles" width="550">
+</p>
+
+---
+
+#### 2.9. Footer Dinámico (Año Automático)
+
+**Componente:** `Footer.jsx` | **Lógica:** Expresiones de JS en JSX
+
+- **Funcionalidad:** el año de copyright en el pie de página se actualiza automáticamente leyendo la fecha del sistema del usuario, lo que evita tener que mantener o modificar el código manualmente cada nuevo año.
+- **Migración a React:** en React, el año se obtiene directamente mediante una expresión JavaScript dentro del JSX: `{new Date().getFullYear()}`. Esto elimina la necesidad de buscar y modificar elementos del DOM mediante IDs o clases, como ocurría en la implementación desarrollada con JavaScript.
+
+<p align="center">
+  <img src="./public/img/readme-img/func-año.png" alt="Copyright Dinámico" width="550">
+</p>
+
+---
+
+#### 2.10. Scroll Automático entre Rutas
+
+**Componente:** `ScrollToTop.jsx` | **Hooks utilizados:** `useLocation`, `useEffect`
+
+- **Funcionalidad:** al navegar entre las distintas secciones de la SPA, la vista vuelve automáticamente a la parte superior. Esto mejora la experiencia de usuario solucionando el problema nativo de retención de scroll que ocurre en las Single Page Applications.
+- **Migración a React:** el componente escucha los cambios de ruta mediante `useLocation`. Cada vez que cambia la ruta activa, se ejecuta un `useEffect` que llama al método nativo `window.scrollTo(0, 0)`, reposicionando automáticamente la vista al inicio de la página.
 
 ---
 
@@ -438,16 +537,18 @@ App (ROOT)
 │   │
 │   ├── ScrollToTop (Utility Component)
 │   │
-│   ├── Sidebar (Layout - Dashboard Navigation)
+│   ├── Header (Layout Global Mobile - Renderizado condicional < 768px)
+│   │
+│   ├── Sidebar (Layout Global - Navegación Dashboard)
 │   │   ├── Logo + Toggle Button
-│   │   ├── Navigation Menu
-│   │   │   ├── Dashboard (Home)
-│   │   │   ├── Bitácora
-│   │   │   ├── JSON Explorer
-│   │   │   ├── API Data
-│   │   │   ├── Gallery
-│   │   │   └── Component Tree
-│   │   ├── Team Members Links
+│   │   ├── Navigation Menu (Links a Vistas Principales)
+│   │   │   ├── ⚡ Dashboard (Home)
+│   │   │   ├── 📌 Bitácora
+│   │   │   ├── 🗃️ Explorador JSON
+│   │   │   ├── 🎧 Música (iTunes API)
+│   │   │   ├── 📸 Galería
+│   │   │   └── 🧩 Árbol de Componentes
+│   │   ├── Team Members Links (Links a Perfiles individuales)
 │   │   │   ├── Mariana
 │   │   │   ├── Mario
 │   │   │   ├── Mike
@@ -476,7 +577,7 @@ App (ROOT)
 │       │   │   └── Project Cards Grid
 │       │   │
 │       │   ├── Route: "/api-data" → ApiData
-│       │   │   ├── User Cards Grid
+│       │   │   ├── Music Cards Grid
 │       │   │   └── Pagination Controls
 │       │   │
 │       │   ├── Route: "/gallery" → Gallery
@@ -501,20 +602,20 @@ App (ROOT)
 
 ### Tipos de Componentes
 
-| Tipo | Descripción | Ejemplos |
-| ---- | ----------- | -------- |
-| **Root** | Componente raíz de la aplicación | App.jsx |
-| **Layout** | Componentes de estructura persistente | Sidebar, Footer |
-| **Page** | Componentes de vista/página | Home, Bitacora, JsonExplorer, ApiData, Gallery |
-| **Component** | Componentes reutilizables | HeroSection, TeamList, ScrollToTop |
-| **Utility** | Componentes sin UI (lógica) | ScrollToTop |
+| Tipo          | Descripción                           | Ejemplos                                                                     |
+| ------------- | ------------------------------------- | ---------------------------------------------------------------------------- |
+| **Root**      | Componente raíz de la aplicación      | `App.jsx`                                                                    |
+| **Layout**    | Componentes de estructura persistente | `Sidebar.jsx`, `Header.jsx`, `Footer.jsx`                                    |
+| **Page**      | Componentes de vista/página           | `Home.jsx`, `Bitacora.jsx`, `JsonExplorer.jsx`, `ApiData.jsx`, `Gallery.jsx` |
+| **Component** | Componentes reutilizables             | `HeroSection.jsx`, `TeamList.jsx`, `SkillBar.jsx`                            |
+| **Utility**   | Componentes sin UI (lógica)           | `ScrollToTop.jsx`                                                            |
 
 ### Flujo de Datos
 
-1. **Router** → BrowserRouter gestiona las rutas y la navegación
-2. **Layout** → Sidebar y Footer se mantienen constantes en todas las vistas
-3. **Pages** → Los componentes de página se renderizan según la ruta activa
-4. **Components** → Componentes hijos reciben props y manejan estado local con Hooks
+1. **Router** → `BrowserRouter` gestiona las rutas y la navegación del lado del cliente.
+2. **Layout** → `Sidebar`, `Header` y `Footer` se mantienen visibles en todas las vistas, proporcionando una estructura común de navegación, sin recargas desde cero.
+3. **Pages** → Los componentes de página se cargan y desmontan dinámicamente según la ruta activa.
+4. **Components** → Los componentes hijos reciben `props` y manejan su estado local e interactividad con Hooks.
 
 ---
 
@@ -526,21 +627,19 @@ App (ROOT)
 
 **ANTES (TP1):**
 
-- ❌ Múltiples archivos HTML (index.html, mariana.html, mario.html, etc.)
-- ❌ JavaScript vanilla con manipulación directa del DOM
-- ❌ Código repetitivo en cada página (header, footer)
-- ❌ Navegación con recarga completa de página
-- ❌ Sin gestión de estado centralizada
-- ❌ Difícil mantenimiento y escalabilidad
+- Múltiples archivos HTML (`index.html`, `mariana.html`, `mario.html`, etc.)
+- JavaScript vanilla con manipulación directa y manual del DOM
+- Código repetitivo en cada página (Header y Footer duplicados 5 veces).
+- Navegación con recarga completa de página al cambiar de vista.
+- Sin gestión de estado centralizada.
 
 **DESPUÉS (TP2):**
 
-- ✅ Single Page Application (SPA) con un solo HTML
-- ✅ Componentes React reutilizables
-- ✅ Estado manejado con React Hooks (useState, useEffect)
-- ✅ Navegación sin recarga con React Router
-- ✅ Código modular y mantenible
-- ✅ Fácil escalabilidad y testing
+- Single Page Application (SPA) renderizada desde un solo `index.html`.
+- Arquitectura basada en Componentes React reutilizables.
+- Estado manejado dinámicamente con React Hooks (`useState`, `useEffect`).
+- Navegación fluida del lado del cliente sin recargas mediante React Router.
+- Código modular, escalable y fácil de mantener
 
 ---
 
@@ -548,7 +647,7 @@ App (ROOT)
 
 #### 1. Componentización
 
-**Antes:** Código HTML duplicado en cada página
+**Antes:** código HTML estructural duplicado en cada página.
 
 ```html
 <!-- Repetido en cada archivo HTML -->
@@ -557,79 +656,61 @@ App (ROOT)
 </header>
 ```
 
-**Después:** Componente reutilizable
+**Después:** abstracción en componentes reutilizables.
 
 ```jsx
-// Usado una vez, renderizado en todas las páginas
+// Declarado una sola vez y renderizado en el Layout principal
 <Sidebar />
+<Header />
 ```
-
-**Beneficio:** Cambios en un solo lugar se reflejan en toda la app
 
 ---
 
 #### 2. Gestión de Estado
 
-**Antes:** Variables globales y manipulación del DOM
+**Antes:** variables globales y manipulación forzadadel DOM.
 
 ```javascript
 let menuOpen = false;
-document.getElementById('menu').style.display = 'block';
+document.getElementById("menu").style.display = "block";
 ```
 
-**Después:** React Hooks
+**Después:** flujo reactivo con Hooks.
 
 ```javascript
 const [menuOpen, setMenuOpen] = useState(false);
-// React actualiza el DOM automáticamente
+// React actualiza el DOM automáticamente al cambiar el estado
 ```
-
-**Beneficio:** Estado predecible y reactivo
 
 ---
 
-#### 3. Routing
+#### 3. Routing y Navegación
 
-**Antes:** Enlaces tradicionales con recarga
+**Antes:** enlaces tradicionales con recarga de navegador.
 
 ```html
 <a href="mariana.html">Ver perfil</a>
-<!-- Recarga completa de la página -->
 ```
 
 **Después:** React Router
 
 ```jsx
 <Link to="/mariana">Ver perfil</Link>
-// Navegación instantánea sin recarga
 ```
-
-**Beneficio:** Experiencia de usuario fluida (SPA)
 
 ---
 
-#### 4. Performance
+#### 4. Performance y Optimización
 
-**Antes:**
-
-- Carga completa de HTML/CSS/JS en cada navegación
-- Sin optimización de assets
-- Sin code splitting
-
-**Después:**
-
-- Build optimizado con Vite
-- Code splitting automático
-- Lazy loading de componentes
-- Assets minificados y comprimidos
-
-**Resultado:** Carga inicial más rápida y navegación instantánea
+- **Vite**: reemplazo del desarrollo estático por un servidor de desarrollo con HMR (Hot Module Replacement).
+- **Code Splitting**: empaquetado automático y optimizado para producción.
+- **Assets**: Minificación y compresión automática de recursos estáticos.
 
 ---
 
 #### 5. Arquitectura
 
-**Antes:** Estructura plana sin organización
+**Antes:** estructura plana básica (`/css`, `/js`, archivos `.html` sueltos).
 
 ```text
 /
@@ -640,73 +721,57 @@ const [menuOpen, setMenuOpen] = useState(false);
 └── script.js
 ```
 
-**Después:** Arquitectura modular
+**Después:** estructura modular estándar de React
 
 ```text
 /src
-├── components/    # Componentes reutilizables
-├── pages/         # Vistas/páginas
-├── styles/        # Estilos globales
-├── App.jsx        # Configuración de rutas
+├── components/    # Componentes de UI reutilizables
+├── pages/         # Vistas/páginas de enrutamiento
+├── styles/        # Estilos globales y variables css
+├── App.jsx        # Configuración de rutas (Layout)
 └── main.jsx       # Entry point
 ```
 
-**Beneficio:** Código organizado y escalable
+---
+
+### Nuevas Funcionalidades (Exclusivas del TP2)
+
+| Funcionalidad            | Descripción                                                         | Tecnología / Hooks                        |
+| :----------------------- | :------------------------------------------------------------------ | :---------------------------------------- |
+| **Sidebar Dashboard**    | Navegación lateral fija con estado colapsable.                      | `useState`, `useLocation`                 |
+| **Explorador JSON**      | Búsqueda y filtrado multicriterio en tiempo real.                   | `useState`, `useEffect`                   |
+| **API Externa (iTunes)** | Consumo asíncrono con paginación y reproducción de audio.           | `fetch`, `useState`, `useRef`             |
+| **Galería Lightbox**     | Modal fullscreen con accesibilidad por teclado y bloqueo de scroll. | `useState`, `useEffect` (Event Listeners) |
+| **Transiciones y Carga** | Simulador de carga inicial en el Home.                              | `setTimeout`, `useState`                  |
+| **Animaciones Glitch**   | Efectos de entrada al cargar las tarjetas de integrantes.           | CSS Animations, `IntersectionObserver`    |
+| **Árbol de Componentes** | Documentación visual interactiva de la arquitectura del proyecto.   | React Component                           |
 
 ---
 
-### Nuevas Funcionalidades (No existían en TP1)
+### Desafíos Encontrados y Lecciones Aprendidas
 
-| Funcionalidad | Descripción | Tecnología |
-| --- | --- | --- |
-| **Sidebar Dashboard** | Navegación lateral fija profesional | React + CSS |
-| **Explorador JSON** | Búsqueda y filtrado en tiempo real | useState + useEffect |
-| **API Externa** | Consumo asíncrono con paginación | Fetch API + useState |
-| **Galería Lightbox** | Modal fullscreen con navegación | useState + useEffect (keyboard) |
-| **Árbol de Componentes** | Documentación visual de arquitectura | React Component |
-| **Animaciones de Entrada** | Efectos visuales al cargar | CSS Animations + React |
+1. **Gestión de Efectos Secundarios (Memory Leaks):**
+   - _Desafío:_ al reproducir una canción en la API y cambiar de página, el audio seguía sonando. Lo mismo ocurría con los eventos del teclado en la Galería, que se multiplicaban.
+   - _Solución:_ se incorporaron funciones de _cleanup_ dentro de los `useEffect` (mediante `return () => ...`) para liberar recursos al desmontar componentes, junto con el uso de `useRef` para gestionar referencias del DOM cuando fue necesario.
 
----
+2. **Curva de Aprendizaje de React:**
+   - _Desafío:_ cambiar el modelo mental de "seleccionar y modificar el DOM" a "declarar estados que la UI debe reflejar".
+   - _Solución:_ lectura de documentación oficial y práctica mediante refactorizaciones progresivas y comprensión del funcionamiento de los estados, efectos y ciclo de vida de los componentes.
 
-### Justificación de la Migración
+3. **Contexto de Enrutamiento:**
+   - _Desafío:_ errores de tipo `useLocation() may be used only in the context of a <Router>`.
+   - _Solución:_ se reestructuró el Árbol de Componentes para asegurar que utilidades como `ScrollToTop` y `Sidebar` estén siempre anidadas dentro de `<BrowserRouter>` en `App.jsx`.
 
-#### ¿Por qué migrar a React?
-
-1. **Reutilización de Código**
-   - Componentes como Sidebar, Footer se usan en todas las páginas
-   - Reducción de código duplicado en ~70%
-
-2. **Mantenibilidad**
-   - Cambios en un componente se reflejan en toda la app
-   - Estructura clara y organizada
-
-3. **Escalabilidad**
-   - Fácil agregar nuevas páginas y funcionalidades
-   - Arquitectura preparada para crecimiento
-
-4. **Experiencia de Usuario**
-   - Navegación instantánea sin recargas
-   - Transiciones suaves entre vistas
-   - Interacciones más fluidas
-
-5. **Desarrollo Moderno**
-   - Uso de herramientas actuales (Vite, ESLint)
-   - Hot Module Replacement (HMR) para desarrollo rápido
-   - Ecosistema robusto de librerías
-
-6. **Performance**
-   - Virtual DOM para actualizaciones eficientes
-   - Code splitting automático
-   - Optimización de bundle
-
----
+4. **Conflictos de Estilos Globales:**
+   - _Desafío:_ evitar que las clases CSS de un componente afecten a otro al estar todo renderizado en una misma SPA.
+   - _Solución:_ se utilizaron nombres de clases más específicos y se reorganizaron algunos selectores CSS para aislar mejor los estilos de cada componente.
 
 ### Desafíos Encontrados
 
 1. **Curva de Aprendizaje**
-   - Aprender conceptos de React (componentes, props, state, hooks)
-   - Entender el ciclo de vida de componentes
-   - **Solución:** Documentación oficial, tutoriales, práctica
+   - Conceptos de React: componentes, props, state, hooks
+   - Ciclo de vida de componentes
+   - **Solución:** Documentación oficial, práctica iterativa
 
 2. **Gestión de Estado**
    - Decidir cuándo usar estado local vs props
@@ -714,297 +779,215 @@ const [menuOpen, setMenuOpen] = useState(false);
    - **Solución:** Uso correcto de useState y useEffect
 
 3. **Routing**
-   - Configurar rutas correctamente
-   - Manejar rutas dinámicas
+   - Configuración de rutas en SPA
    - **Solución:** Documentación de React Router
 
 4. **Estilos**
-   - Adaptar CSS del TP1 a componentes React
-   - Evitar conflictos de estilos
-   - **Solución:** CSS Modules y clases específicas
-
----
-
-### Lecciones Aprendidas
-
-✅ **React simplifica el desarrollo** de aplicaciones complejas  
-✅ **Los Hooks son poderosos** para gestionar estado y efectos  
-✅ **La componentización** reduce código y mejora mantenibilidad  
-✅ **El Virtual DOM** optimiza las actualizaciones del UI  
-✅ **Las herramientas modernas** (Vite, ESLint) mejoran la productividad  
-✅ **La planificación** de la arquitectura es crucial antes de codificar  
+   - Evitar conflictos de nombres de clases CSS entre componentes
+   - **Solución:** Clases con prefijos específicos por componente
 
 ---
 
 ## 🤖 Uso de Inteligencia Artificial
+
+Durante el desarrollo del proyecto se utilizaron distintas herramientas de Inteligencia Artificial como apoyo para consultas técnicas, resolución de problemas, generación de contenido y documentación. La IA fue usada como una herramienta de asistencia durante el proceso de desarrollo, mientras que las decisiones de diseño, arquitectura, implementación y validación final fueron realizadas por el equipo.
 
 ### Herramientas de IA Utilizadas
 
 #### 1. **ChatGPT (GPT-4)**
 
 - **Proveedor:** OpenAI
-- **Uso principal:** Generación de contenido, debugging, consultas técnicas
+- **Uso principal:**
+  - Generación y mejora de documentación.
+  - Consultas sobre React, Hooks y buenas prácticas.
+  - Asistencia en debugging y resolución de errores.
 
-#### 2. **GitHub Copilot**
-
-- **Proveedor:** GitHub (powered by OpenAI)
-- **Uso principal:** Autocompletado de código, sugerencias de funciones
-
-#### 3. **Claude (Sonnet 4.6)**
+#### 2. **Claude (Sonnet 4.6)**
 
 - **Proveedor:** Anthropic
-- **Uso principal:** Análisis de código, refactoring, documentación
+- **Uso principal:**
+  - Análisis de código.
+  - Revisión de lógica y propuestas de refactorización.
+  - Ayuda en la redacción técnica del README.
+
+#### 3. **GitHub Copilot**
+
+- **Proveedor:** GitHub (powered by OpenAI)
+- **Uso principal:**
+  - Autocompletado de código.
+  - Sugerencias de funciones y estructuras repetitivas.
+  - Asistencia durante la implementación de componentes React.
+
+#### 4. **Gemini (Pro) **
+
+- **Proveedor:** Google
+- **Uso principal:**
+  - Consultas técnicas complementarias.
+  - Comparación de enfoques de implementación.
+  - Apoyo en tareas de documentación y revisión.
+
+#### 5. **DALL-E 3 y Gemini Flash Image**
+
+- Generación e intervención de imágenes utilizadas en los perfiles de integrantes.
 
 ---
 
-### Uso en Contenido
+### Uso en Código y Desarrollo
 
-#### Textos Generados con IA
+Las herramientas de IA fueron utilizadas principalmente para validar enfoques de implementación, resolver dudas técnicas y detectar posibles errores durante el desarrollo.
 
-1. **Descripciones de Perfiles**
-   - **Herramienta:** ChatGPT
-   - **Proceso:** Prompt con información básica → Generación → Edición manual
-   - **Ejemplo de prompt:**
+Algunos ejemplos concretos fueron:
 
-     ```prompt
-     "Genera una descripción profesional para un perfil de desarrollador 
-     con experiencia en Python, bases de datos y análisis de datos. 
-     Estilo: técnico pero accesible, máximo 3 líneas."
-     ```
+#### Ejemplo 1: Lógica de Paginación
 
-   - **Resultado:** Textos base que fueron personalizados por cada integrante
-
-2. **Contenido del README**
-   - **Herramienta:** Claude
-   - **Proceso:** Estructura sugerida por IA → Contenido técnico propio
-   - **Uso:** Organización de secciones, formato Markdown
-
-3. **Datos del JSON (projects.json)**
-   - **Herramienta:** ChatGPT
-   - **Proceso:** Solicitud de 20 proyectos ficticios con estructura específica
-   - **Ejemplo de prompt:**
-
-     ```prompt
-     "Genera un array JSON con 20 objetos de proyectos de desarrollo.
-     Cada objeto debe tener: id, title, category, technology, 
-     description, year, status. Varía las tecnologías y categorías."
-     ```
-
----
-
-### Uso en Código
-
-#### Ejemplos de Asistencia de IA
-
-##### Ejemplo 1: Componente de Paginación
+Se consultaron herramientas de IA para validar la lógica matemática utilizada para dividir los resultados obtenidos desde la API externa en múltiples páginas.
 
 ```javascript
 // Sugerido por GitHub Copilot, adaptado por el equipo
-const totalPages = Math.ceil(users.length / itemsPerPage);
+const totalPages = Math.ceil(tracks.length / itemsPerPage);
 const indexOfLastItem = currentPage * itemsPerPage;
 const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-const currentUsers = users.slice(indexOfFirstItem, indexOfLastItem);
+const currentItems = tracks.slice(indexOfFirstItem, indexOfLastItem);
 ```
-
-**Contexto:** Copilot sugirió la lógica de paginación después de escribir las primeras líneas. El equipo revisó, entendió y adaptó el código.
 
 ---
 
-##### Ejemplo 2: Manejo de Teclado en Lightbox
+#### Ejemplo 2: Manejo de Eventos de Teclado en el Lightbox
+
+Se utilizaron consultas a IA para comprender el uso correcto de useEffect, el registro de eventos y las funciones de limpieza (cleanup) necesarias para evitar comportamientos no deseados.
 
 ```javascript
-// Problema: Necesitábamos detectar teclas ESC, ← y →
 // ChatGPT ayudó con la estructura del useEffect
-
 useEffect(() => {
   const handleKeyDown = (e) => {
     if (!lightboxOpen) return;
-    
     switch (e.key) {
-      case 'Escape':
+      case "Escape":
         closeLightbox();
         break;
-      case 'ArrowRight':
+      case "ArrowRight":
         goToNext();
         break;
-      case 'ArrowLeft':
+      case "ArrowLeft":
         goToPrevious();
         break;
     }
   };
-  
-  window.addEventListener('keydown', handleKeyDown);
-  return () => window.removeEventListener('keydown', handleKeyDown);
+  window.addEventListener("keydown", handleKeyDown);
+  return () => window.removeEventListener("keydown", handleKeyDown);
 }, [lightboxOpen]);
 ```
 
-**Contexto:** Consultamos a ChatGPT sobre la mejor práctica para manejar eventos de teclado en React. La IA sugirió usar useEffect con cleanup function.
-
 ---
 
-##### Ejemplo 3: Filtrado en Tiempo Real
+#### Ejemplo 3: Filtrado Dinámico de Datos (en tiempo real)
+
+Se usó la IA para revisar alternativas de implementación y optimización de filtros encadenados sobre colecciones de datos.
 
 ```javascript
-// Problema: Filtrar por múltiples criterios simultáneamente
-// Claude ayudó a optimizar la lógica
-
+// Claude ayudó a optimizar la lógica de filtros encadenados
 useEffect(() => {
   let result = projects;
-  
   if (searchTerm) {
-    result = result.filter(project =>
-      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchTerm.toLowerCase())
+    result = result.filter(
+      (project) =>
+        project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.description.toLowerCase().includes(searchTerm.toLowerCase()),
     );
   }
-  
-  if (selectedCategory !== 'Todas') {
-    result = result.filter(project => project.category === selectedCategory);
+  if (selectedCategory !== "Todas") {
+    result = result.filter((project) => project.category === selectedCategory);
   }
-  
   setFilteredProjects(result);
 }, [searchTerm, selectedCategory, projects]);
 ```
 
-**Contexto:** Teníamos un bug donde los filtros no se aplicaban correctamente. Claude sugirió encadenar los filtros y usar el array de dependencias correcto.
-
 ---
 
-#### Debugging con IA
+### Uso en Contenido y Documentación
 
-##### Caso 1: Error en React Router
+Además del código, se utilizaron herramientas de IA para:
 
-- **Problema:** `Error: useLocation() may be used only in the context of a <Router> component`
-- **Herramienta:** ChatGPT
-- **Solución sugerida:** Verificar que `<BrowserRouter>` envuelva todos los componentes que usan hooks de router
-- **Resultado:** Movimos `<BrowserRouter>` al nivel correcto en App.jsx
+- Redacción inicial de algunas secciones del README.
+- Mejora de explicaciones técnicas y descripciones de funcionalidades.
+- Revisión de textos para lograr mayor claridad y organización.
+- Generación de ejemplos y textos de prueba utilizados durante el desarrollo.
 
-##### Caso 2: Estado no se actualizaba
-
-- **Problema:** El estado de `lightboxOpen` no cambiaba al hacer click
-- **Herramienta:** GitHub Copilot
-- **Solución sugerida:** Usar `e.stopPropagation()` para evitar que el click se propague
-- **Resultado:** Agregamos `stopPropagation` en los botones de navegación
+Todos los textos fueron posteriormente revisados, corregidos y adaptados por los integrantes del equipo.
 
 ---
 
 ### Uso en Imágenes
 
-#### Avatares Generados con IA
+Para preservar la privacidad de los integrantes se mantuvo el criterio utilizado en la primera entrega del proyecto, reemplazando o modificando fotografías personales mediante herramientas de generación y edición de imágenes con IA. Los avatares fueron creados o intervenidos utilizando DALL-E 3 y Gemini Flash Image, siguiendo una estética común inspirada en:
 
-**Herramienta:** DALL-E 3 (OpenAI)
+- Terminales de consola.
+- Cyberpunk.
+- Retrocomputación.
+- Ciencia ficción.
+- Videojuegos clásicos.
 
-**Prompts utilizados:**
+**Ejemplos** de criterios de prompts utilizados
 
-1. **Avatar estilo terminal/hacker:**
-
-   ```prompt
-   "Professional developer avatar in terminal aesthetic, 
-   green and black color scheme, minimalist design, 
-   pixel art style, 512x512px"
-   ```
-
-2. **Avatar estilo cyberpunk:**
-
-   ```prompt
-   "Developer profile picture, cyberpunk style, 
-   neon green accents, dark background, 
-   tech-inspired, square format"
-   ```
-
-**Nota:** Algunos integrantes usaron fotos reales, otros usaron avatares generados con IA.
-
----
-
-#### Logo del Equipo
-
-**Herramienta:** Diseño manual (NO IA)  
-**Proceso:** Creado por el equipo usando herramientas de diseño tradicionales  
-**Razón:** Queríamos un logo único que representara nuestra identidad
+- "Editar una fotografía para convertirla en un personaje cyberpunk con iluminación verde y violeta sobre fondo oscuro."
+- "Transformar una imagen incorporando elementos robóticos inspirados en ciencia ficción."
+- "Generar un avatar 3D inspirado en videojuegos clásicos con estética tecnológica."
+- "Modificar una fotografía manteniendo la identidad visual del integrante pero adaptándola a una temática retro-futurista."
 
 ---
 
 ### Reflexión sobre el Uso de IA
 
-#### ¿Cómo usamos la IA de manera responsable?
+La Inteligencia Artificial fue utilizada como una herramienta de apoyo durante el desarrollo del proyecto y no como un reemplazo del trabajo realizado por el equipo.
 
-✅ **Como asistente, no como reemplazo**
+- Todas las sugerencias fueron revisadas antes de incorporarse.
+- El código utilizado fue comprendido, adaptado y probado por los integrantes.
+- Las decisiones de diseño y arquitectura fueron tomadas por el equipo.
+- La IA se utilizó como complemento para acelerar tareas de consulta, documentación y resolución de problemas puntuales.
 
-- La IA sugiere, nosotros decidimos
-- Todo el código fue revisado y comprendido antes de usarlo
-
-✅ **Validación y testing**
-
-- Cada sugerencia de IA fue testeada
-- Verificamos que el código funcione correctamente
-
-✅ **Aprendizaje activo**
-
-- Usamos la IA para aprender conceptos nuevos
-- Investigamos las soluciones sugeridas para entenderlas
-
-✅ **Personalización**
-
-- Adaptamos el código generado a nuestro estilo
-- Agregamos comentarios y mejoras propias
-
-✅ **Transparencia**
-
-- Documentamos qué fue generado con IA
-- Explicamos cómo lo usamos
+De esta manera, la IA actuó como una herramienta de asistencia dentro del proceso de aprendizaje, manteniendo la autoría y responsabilidad del proyecto en manos de los estudiantes.
 
 ---
 
-#### Limitaciones de la IA que encontramos
+## 🤝 Contribuciones
 
-❌ **No siempre entiende el contexto completo**
+### Roles del Equipo
 
-- A veces sugiere código que no se adapta a nuestra arquitectura
-- Requiere ajustes manuales
+| Integrante              | Rol Principal               | Contribuciones TP2                                                                                                                                                   |
+| :---------------------- | :-------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Mariana Aiello**      | Software Dev & Data Science | Perfil individual, Explorador JSON (filtrado y búsqueda en tiempo real y multicriterio, carga dinámica de datos), Documentación técnica y estructuración del README. |
+| **Mario González**      | Full Stack Developer        | Perfil individual, Sidebar Dashboard fija (menú, responsive, hamburguesa), Configuración de React Router y estructura de rutas base, componente SkillBar animado.    |
+| **Miguel Ángel Flores** | Full Stack Developer        | Perfil individual, Módulo API externa (iTunes) con paginación y manejo de estados de carga/error, Setup inicial del proyecto.                                        |
+| **Raquel Rodríguez**    | Front End Developer         | Perfil individual, Galería de imágenes con Lightbox (efecto zoom, navegación por teclado), Estilos globales, animaciones y maquetación general, página de Bitácora.  |
+| **Valeria Thomas**      | Full Stack Developer        | Perfil individual, Panel central Dashboard Home (TeamList, HeroSection, animaciones de entrada), Árbol de Componentes, Deploy en Vercel.                             |
 
-❌ **Puede generar código obsoleto**
+### Metodología de Trabajo
 
-- Algunas sugerencias usan sintaxis antigua
-- Verificamos con documentación oficial
-
-❌ **No reemplaza el pensamiento crítico**
-
-- La IA no puede diseñar la arquitectura completa
-- Las decisiones de diseño fueron nuestras
-
----
-
-#### Conclusión
-
-La IA fue una **herramienta valiosa** en nuestro proceso de desarrollo, pero **no fue el desarrollador**. Nosotros:
-
-- ✅ Diseñamos la arquitectura
-- ✅ Tomamos todas las decisiones técnicas
-- ✅ Escribimos la mayoría del código
-- ✅ Debuggeamos y optimizamos
-- ✅ Testeamos y validamos
-- ✅ Comprendemos cada línea de código
-
-**Autoría:** Este proyecto es 100% nuestro. La IA fue un asistente en el proceso, similar a usar Stack Overflow o documentación oficial.
+- **Control de versiones**: se utilizó GitHub como repositorio central del proyecto.
+- **Estrategia de ramas**: el desarrollo se organizó mediante una rama principal (main), una rama de integración (develop) y ramas específicas para distintas funcionalidades y mejoras antes de incorporarlas al proyecto principal.
+- **Integración de cambios**: las funcionalidades desarrolladas por cada integrante fueron integradas progresivamente al proyecto mediante procesos de merge entre ramas.
+- **Pruebas y validación**: cada funcionalidad fue probada localmente durante el desarrollo y posteriormente verificada en el entorno desplegado en Vercel.
+- **Documentación**: el README fue actualizado durante el avance del proyecto para reflejar la evolución de la aplicación, las decisiones técnicas adoptadas y las funcionalidades implementadas.
+- **Comunicación del equipo**: la coordinación de tareas, resolución de problemas y seguimiento del proyecto se realizó mediante comunicación continua entre los integrantes.
 
 ---
 
-## 📦 Instalación y Ejecución
+## 🚀 Instalación y Ejecución
 
 ### Requisitos Previos
 
 - **Node.js** 18.0.0 o superior
 - **npm** 9.0.0 o superior
-- **Git** (para clonar el repositorio)
+- **Git**
 
 ### Pasos de Instalación
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/tu-usuario/tp2-404-solutions.git
+git clone https://github.com/raquerh/404Solutions_FE.git
 
 # 2. Entrar al directorio
-cd tp2-404-solutions
+cd 404Solutions_FE
 
 # 3. Instalar dependencias
 npm install
@@ -1019,15 +1002,10 @@ npm run dev
 ### Scripts Disponibles
 
 ```bash
-# Desarrollo
-npm run dev          # Inicia servidor de desarrollo con HMR
-
-# Producción
-npm run build        # Compila para producción (carpeta dist/)
-npm run preview      # Vista previa de build de producción
-
-# Calidad de Código
-npm run lint         # Ejecuta ESLint para verificar código
+npm run dev       # Servidor de desarrollo con HMR
+npm run build     # Compila para producción (carpeta dist/)
+npm run preview   # Vista previa del build de producción
+npm run lint      # Ejecuta ESLint
 ```
 
 ---
@@ -1036,93 +1014,52 @@ npm run lint         # Ejecuta ESLint para verificar código
 
 ### Pasos para Desplegar
 
-1. **Crear cuenta en Vercel**
-   - Ir a [vercel.com](https://vercel.com)
-   - Sign up con GitHub
+1. Ir a [vercel.com](https://vercel.com) y hacer Sign up con GitHub
+2. Click en "New Project" → Import Git Repository → Seleccionar `404Solutions_FE`
+3. Configurar:
 
-2. **Conectar repositorio**
-   - Click en "New Project"
-   - Import Git Repository
-   - Seleccionar el repositorio del TP2
-
-3. **Configurar build**
-
-   ```config
+   ```
    Framework Preset: Vite
    Build Command: npm run build
    Output Directory: dist
    Install Command: npm install
    ```
 
-4. **Deploy**
-   - Click en "Deploy"
-   - Esperar 2-3 minutos
-   - Obtener URL: `https://tu-proyecto.vercel.app`
-
-5. **Deploy automático**
-   - Cada push a la rama main despliega automáticamente
-   - Preview deployments para pull requests
+4. Click en "Deploy"
+5. Cada push a `main` despliega automáticamente
 
 ---
 
-## 📸 Capturas de Pantalla
-
-> Las capturas se agregan una vez que el proyecto esté desplegado en Vercel.
-> Ver el sitio en producción: [https://tu-proyecto.vercel.app](https://tu-proyecto.vercel.app)
-
-### Dashboard Principal
-
-La vista principal presenta la Sidebar fija a la izquierda y la grilla de tarjetas del equipo con animaciones de entrada escalonadas (fadeInUp con delays de 0.1s a 0.5s).
-
-### Sidebar Dashboard
-
-Navegación lateral colapsable con logo, menú jerarquizado en dos secciones (NAVEGACIÓN / EQUIPO), avatares circulares y punto de estado ONLINE animado.
-
-### Explorador JSON
-
-Buscador con filtrado instantáneo sobre 20 proyectos. Muestra contador de resultados en tiempo real y filtros por categoría y estado.
-
-### Explorador Musical
-
-Consumo de iTunes Search API con buscador de música, portadas de álbum, preview de audio de 30 segundos, spinner de carga, manejo de error con botón reintentar, y paginación de 8 canciones por página con indicador "Página X de Y".
-
-### Galería con Lightbox
-
-Grid responsivo de 10 imágenes. Click en cualquiera abre un modal fullscreen con navegación mediante flechas del teclado y cierre con ESC.
-
-### Perfil Individual
-
-Cada perfil muestra: datos personales, habilidades técnicas, películas y discos favoritos con interactividad propia de cada integrante. Mario y Mariana incluyen barras de progreso animadas (SkillBar); Mike y Raquel usan barras XP con CSS animations propias; Valeria presenta lista de habilidades, películas con expand/collapse y carrusel circular de discos.
-
----
-
-## 🎯 Funcionalidades Completadas (Checklist TP2)
+## Funcionalidades Completadas (Checklist TP2)
 
 ### Requerimientos Obligatorios
+
+Esta sección resume el grado de cumplimiento de los requerimientos obligatorios establecidos en la consigna del Trabajo Práctico 2.
 
 #### ✅ 1. Navegación Estilo Dashboard (Sidebar Fija)
 
 - [x] Sidebar lateral fija siempre visible
 - [x] Logo del grupo integrado
-- [x] Menú de navegación jerarquizado
+- [x] Menú de navegación jerarquizado (NAVEGACIÓN + EQUIPO)
 - [x] Estética de Dashboard profesional
 - [x] Responsive (colapsa en mobile)
 
 #### ✅ 2. Panel Central de Presentación (Dashboard Home)
 
 - [x] Grilla dinámica de tarjetas de integrantes
-- [x] Nombre completo y avatar en cada tarjeta
-- [x] Animaciones de entrada implementadas
-- [x] Transiciones suaves de carga
+- [x] Nombre y avatar en cada tarjeta
+- [x] Animaciones de entrada CRT escalonadas
+- [x] HeroSection con simulador de diagnóstico interactivo
+- [x] Transiciones suaves de carga inicial
 
-#### ✅ 3. Sección Individual por Integrante
+#### ✅ 3. Sección Individual por Integrante (5 perfiles)
 
-- [x] Vista detallada para cada estudiante (5 perfiles)
+- [x] Vista detallada para cada integrante
 - [x] Información personal y descripción
-- [x] Barras de progreso animadas en todos los perfiles (SkillBar o implementación propia con CSS animation)
-- [x] Mínimo 5 iconos de tech stack con efectos hover en todos los perfiles (DevIcons)
-- [x] Carrusel/galería de proyectos interactivo (mínimo 3 trabajos por integrante)
-- [x] Botones de redes sociales con efectos hover avanzados (escala, color, glow)
+- [x] Barras de progreso animadas
+- [x] Mínimo 5 iconos de tech stack con efectos hover (DevIcons)
+- [x] Carrusel de proyectos interactivo (mínimo 3 por integrante)
+- [x] Botones de redes sociales con efectos hover
 
 #### ✅ 4. Explorador de Datos Locales (JSON)
 
@@ -1139,172 +1076,67 @@ Cada perfil muestra: datos personales, habilidades técnicas, películas y disco
 - [x] Portadas de álbum + preview de audio 30s
 - [x] Manejo de estados (loading, error, success)
 - [x] Sistema de paginación (8 items por página)
-- [x] Botones Anterior/Siguiente
 - [x] Indicador de posición actual
 
 #### ✅ 6. Galería de Imágenes Interactiva
 
-- [x] Visualizador tipo Grid (10 imágenes — Equipo, Películas, Arte)
-- [x] Lightbox integrado
-- [x] Zoom de imagen
+- [x] Grid responsive de imágenes
+- [x] Lightbox integrado (modal fullscreen)
+- [x] Efecto de zoom al ampliar la imagen
 - [x] Navegación interna (anterior/siguiente)
 - [x] Cierre con tecla ESC
 - [x] Animaciones de apertura/cierre
 
 #### ✅ 7. Sección Bitácora de Proyecto
 
-- [x] Tabla de roles del equipo con contribuciones específicas
-- [x] Flujo de trabajo (Git branches, code review, testing manual)
-- [x] Justificación de migración HTML/JS → React con comparación Antes/Después
-- [x] 5 mejoras técnicas concretas con ejemplos de código
+- [x] Tabla de roles del equipo con contribuciones
+- [x] Flujo de trabajo (Git branches, code review)
+- [x] Justificación de migración HTML/JS → React
+- [x] Mejoras técnicas con ejemplos de código
 - [x] Desafíos encontrados y lecciones aprendidas
 
 #### ✅ 8. Sección Árbol de Renderizado
 
 - [x] Representación gráfica del árbol de componentes
 - [x] Estructura jerárquica detallada
-- [x] Componente raíz identificado (App)
-- [x] Componentes de nivel superior (Sidebar, Footer)
-- [x] Componentes hijos y relaciones
+- [x] Tipos y relaciones de componentes documentados
 
 ---
 
-### README.md Completo
+## Recursos y Referencias
 
-#### ✅ Secciones Obligatorias
+### Documentación Oficial consultada
 
-- [x] Título del proyecto y link al deploy
-- [x] Descripción del objetivo y funcionalidades
-- [x] Integrantes con links a GitHub
-- [x] Tecnologías utilizadas (detalladas)
-- [x] Estructura de archivos (completa)
-- [x] Guía de estilos (colores hex, tipografías, iconografía)
-- [x] JavaScript/React con explicaciones detalladas
-- [x] Enlace al proyecto desplegado en Vercel
-- [x] Sección de evolución (TP1 → TP2)
-- [x] Uso de IA (herramientas, código, imágenes)
+- [React Docs](https://react.dev/)
+- [React Router](https://reactrouter.com/)
+- [Vite](https://vitejs.dev/)
+- [MDN Web Docs](https://developer.mozilla.org/)
 
----
+### Recursos utilizados
 
-## 🔧 Herramientas de Desarrollo
-
-### ESLint
-
-Configurado para mantener la calidad del código:
-
-- Detecta errores y problemas potenciales
-- Aplica buenas prácticas de React
-- Verifica el uso correcto de Hooks
-- Asegura código consistente
-
-```bash
-npm run lint
-```
-
-### Vite
-
-Build tool moderno con:
-
-- Hot Module Replacement (HMR) instantáneo
-- Build optimizado para producción
-- Code splitting automático
-- Soporte para CSS modules
-
-### Git
-
-Control de versiones con:
-
-- Commits descriptivos
-- Branches para features
-- Pull requests para revisión de código
-
----
-
-## 📚 Recursos y Referencias
-
-### Documentación Oficial
-
-- [React Docs](https://react.dev/) - Documentación oficial de React
-- [React Router](https://reactrouter.com/) - Documentación de React Router
-- [Vite](https://vitejs.dev/) - Documentación de Vite
-- [MDN Web Docs](https://developer.mozilla.org/) - Referencia de HTML, CSS, JavaScript
-
-### APIs Utilizadas
-
-- [JSONPlaceholder](https://jsonplaceholder.typicode.com/) - API REST de prueba
-
-### Herramientas de Diseño
-
-- [Google Fonts](https://fonts.google.com/) - Tipografías
-- [DevIcons](https://devicon.dev/) - Iconos de tecnologías
-- [Font Awesome](https://fontawesome.com/) - Iconos generales
-
----
-
-## 👨‍💻 Contribuciones
-
-### Roles del Equipo
-
-| Integrante | Rol Principal | Contribuciones |
-| --- | --- | --- |
-| **Mariana Aiello** | Software Dev & Data Science | Perfil individual, explorador JSON, documentación |
-| **Mario González** | Full Stack Developer | Sidebar Dashboard, routing, integración de componentes |
-| **Miguel Ángel Flores** | Full Stack Developer | API externa, paginación, manejo de estados |
-| **Raquel Rodríguez** | Frontend Developer | Galería Lightbox, estilos, animaciones |
-| **Valeria Thomas** | Fullstack Developer | Árbol de componentes, deploy, perfil individual |
-
-### Metodología de Trabajo
-
-- **Git Flow:** Branches por feature, pull requests para revisión
-- **Code Review:** Revisión de código entre pares
-- **Testing:** Pruebas manuales de cada funcionalidad
-- **Documentación:** README actualizado continuamente
-
----
-
-## 📄 Licencia
-
-MIT License - IFTS N°29 - Desarrollo Web FrontEnd
+- [Google Fonts](https://fonts.google.com/)
+- [DevIcons](https://devicon.dev/)
+- [Font Awesome](https://fontawesome.com/)
+- [iTunes Search API](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/)
 
 ---
 
 ## 🎓 Información Académica
 
-**Institución:** IFTS N°29  
-**Carrera:** Tecnicatura en Desarrollo de Software  
-**Materia:** Desarrollo Web FrontEnd  
-**Trabajo Práctico:** TP2 - Proyecto React en Equipo  
-**Fecha de Entrega:** 01/06/2026  
-**Docente:** [Nombre del docente]
+**Institución:** IFTS N°29
 
----
+**Carrera:** Tecnicatura en Desarrollo de Software
 
-## 📞 Contacto
+**Materia:** Desarrollo Web FrontEnd
 
-Para consultas sobre el proyecto:
+**Trabajo Práctico:** TP2 - Proyecto React en Equipo
 
-- **Email del equipo:** <404solutions@example.com>
-- **GitHub Organization:** [github.com/404-solutions](https://github.com/404-solutions)
-
----
-
-## 🙏 Agradecimientos
-
-- A nuestro docente por la guía y el apoyo
-- A la comunidad de React por la excelente documentación
-- A los creadores de las herramientas open source que usamos
-- A nuestros compañeros por el feedback constructivo
-
----
-
-**Última actualización:** 28 de Mayo de 2026
+**Fecha de Entrega:** 01/06/2026
 
 ---
 
 <div align="center">
 
-### ⭐ Si te gustó este proyecto, dale una estrella en GitHub ⭐
-
-**Hecho con ❤️ por el equipo 404 Solutions**
+MIT License - IFTS N°29 - Desarrollo Web FrontEnd
 
 </div>

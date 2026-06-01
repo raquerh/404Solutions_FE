@@ -1,4 +1,4 @@
-import './ComponentTree.css';
+import "./ComponentTree.css";
 
 function ComponentTree() {
   return (
@@ -12,7 +12,8 @@ function ComponentTree() {
         </div>
         <h1>&gt; Árbol de Renderizado_</h1>
         <p className="subtitle">
-          Arquitectura de componentes React | Estructura jerárquica de la aplicación
+          Arquitectura de componentes React | Estructura jerárquica de la
+          aplicación
         </p>
       </div>
 
@@ -21,16 +22,26 @@ function ComponentTree() {
         <section className="tree-explanation">
           <h2>&gt; Descripción de la Arquitectura_</h2>
           <p>
-            Este diagrama representa la estructura jerárquica de componentes de nuestra aplicación React.
-            Cada componente se organiza en niveles, desde el componente raíz hasta los componentes hoja.
+            Este diagrama representa la estructura jerárquica de componentes de
+            nuestra aplicación React. Cada componente se organiza en niveles,
+            desde el componente raíz hasta los componentes hoja.
           </p>
           <div className="legend">
             <h3>Leyenda:</h3>
             <ul>
-              <li><span className="legend-root">■</span> Componente Raíz</li>
-              <li><span className="legend-layout">■</span> Componentes de Layout</li>
-              <li><span className="legend-page">■</span> Páginas/Vistas</li>
-              <li><span className="legend-component">■</span> Componentes Reutilizables</li>
+              <li>
+                <span className="legend-root">■</span> Componente Raíz
+              </li>
+              <li>
+                <span className="legend-layout">■</span> Componentes de Layout
+              </li>
+              <li>
+                <span className="legend-page">■</span> Páginas/Vistas
+              </li>
+              <li>
+                <span className="legend-component">■</span> Componentes
+                Reutilizables
+              </li>
             </ul>
           </div>
         </section>
@@ -43,7 +54,9 @@ function ComponentTree() {
               <span className="node-name">App.jsx</span>
               <span className="node-badge root-badge">ROOT</span>
             </div>
-            <div className="node-description">Componente raíz | Configuración de Router</div>
+            <div className="node-description">
+              Componente raíz | Configuración de Router
+            </div>
 
             <div className="tree-children">
               {/* Router */}
@@ -61,7 +74,21 @@ function ComponentTree() {
                       <span className="node-icon">⬆️</span>
                       <span className="node-name">ScrollToTop</span>
                     </div>
-                    <div className="node-description">Scroll automático al cambiar de ruta</div>
+                    <div className="node-description">
+                      Scroll automático al cambiar de ruta
+                    </div>
+                  </div>
+
+                  {/* Header */}
+                  <div className="tree-node layout">
+                    <div className="node-content">
+                      <span className="node-icon">📱</span>
+                      <span className="node-name">Header</span>
+                      <span className="node-badge">LAYOUT</span>
+                    </div>
+                    <div className="node-description">
+                      Menú hamburguesa mobile
+                    </div>
                   </div>
 
                   {/* Sidebar */}
@@ -71,7 +98,9 @@ function ComponentTree() {
                       <span className="node-name">Sidebar</span>
                       <span className="node-badge">LAYOUT</span>
                     </div>
-                    <div className="node-description">Navegación lateral fija | Dashboard</div>
+                    <div className="node-description">
+                      Navegación lateral fija | Dashboard
+                    </div>
                   </div>
 
                   {/* Main Content */}
@@ -160,12 +189,16 @@ function ComponentTree() {
                             <div className="tree-children">
                               <div className="tree-node component">
                                 <div className="node-content">
-                                  <span className="node-name">MarianaProfile</span>
+                                  <span className="node-name">
+                                    MarianaProfile
+                                  </span>
                                 </div>
                               </div>
                               <div className="tree-node component">
                                 <div className="node-content">
-                                  <span className="node-name">MarioProfile</span>
+                                  <span className="node-name">
+                                    MarioProfile
+                                  </span>
                                 </div>
                               </div>
                               <div className="tree-node component">
@@ -175,12 +208,16 @@ function ComponentTree() {
                               </div>
                               <div className="tree-node component">
                                 <div className="node-content">
-                                  <span className="node-name">RaquelProfile</span>
+                                  <span className="node-name">
+                                    RaquelProfile
+                                  </span>
                                 </div>
                               </div>
                               <div className="tree-node component">
                                 <div className="node-content">
-                                  <span className="node-name">ValeriaProfile</span>
+                                  <span className="node-name">
+                                    ValeriaProfile
+                                  </span>
                                 </div>
                               </div>
                             </div>
@@ -195,7 +232,9 @@ function ComponentTree() {
                           <span className="node-name">Footer</span>
                           <span className="node-badge">LAYOUT</span>
                         </div>
-                        <div className="node-description">Pie de página con año dinámico</div>
+                        <div className="node-description">
+                          Pie de página con año dinámico
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -220,80 +259,151 @@ function ComponentTree() {
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>App.jsx</strong></td>
-                  <td><span className="badge root-badge">Root</span></td>
-                  <td>Componente raíz que configura el Router y estructura general</td>
+                  <td>
+                    <strong>App.jsx</strong>
+                  </td>
+                  <td>
+                    <span className="badge root-badge">Root</span>
+                  </td>
+                  <td>
+                    Componente raíz que configura el Router y estructura general
+                  </td>
                   <td>-</td>
                 </tr>
                 <tr>
-                  <td><strong>Sidebar</strong></td>
-                  <td><span className="badge layout-badge">Layout</span></td>
+                  <td>
+                    <strong>Sidebar</strong>
+                  </td>
+                  <td>
+                    <span className="badge layout-badge">Layout</span>
+                  </td>
                   <td>Navegación lateral fija tipo Dashboard</td>
                   <td>useState (collapsed)</td>
                 </tr>
                 <tr>
-                  <td><strong>ScrollToTop</strong></td>
-                  <td><span className="badge component-badge">Component</span></td>
+                  <td>
+                    <strong>Header</strong>
+                  </td>
+                  <td>
+                    <span className="badge layout-badge">Layout</span>
+                  </td>
+                  <td>
+                    Menú de navegación colapsable para dispositivos móviles
+                  </td>
+                  <td>useState (menuOpen)</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>ScrollToTop</strong>
+                  </td>
+                  <td>
+                    <span className="badge component-badge">Component</span>
+                  </td>
                   <td>Scroll automático al cambiar de ruta</td>
                   <td>useEffect, useLocation</td>
                 </tr>
                 <tr>
-                  <td><strong>Footer</strong></td>
-                  <td><span className="badge layout-badge">Layout</span></td>
+                  <td>
+                    <strong>Footer</strong>
+                  </td>
+                  <td>
+                    <span className="badge layout-badge">Layout</span>
+                  </td>
                   <td>Pie de página con año dinámico</td>
                   <td>-</td>
                 </tr>
                 <tr>
-                  <td><strong>Home</strong></td>
-                  <td><span className="badge page-badge">Page</span></td>
+                  <td>
+                    <strong>Home</strong>
+                  </td>
+                  <td>
+                    <span className="badge page-badge">Page</span>
+                  </td>
                   <td>Página principal con hero y lista de equipo</td>
                   <td>-</td>
                 </tr>
                 <tr>
-                  <td><strong>HeroSection</strong></td>
-                  <td><span className="badge component-badge">Component</span></td>
+                  <td>
+                    <strong>HeroSection</strong>
+                  </td>
+                  <td>
+                    <span className="badge component-badge">Component</span>
+                  </td>
                   <td>Sección hero con presentación del equipo</td>
                   <td>-</td>
                 </tr>
                 <tr>
-                  <td><strong>TeamList</strong></td>
-                  <td><span className="badge component-badge">Component</span></td>
+                  <td>
+                    <strong>TeamList</strong>
+                  </td>
+                  <td>
+                    <span className="badge component-badge">Component</span>
+                  </td>
                   <td>Grilla de tarjetas de integrantes</td>
                   <td>-</td>
                 </tr>
                 <tr>
-                  <td><strong>Bitacora</strong></td>
-                  <td><span className="badge page-badge">Page</span></td>
+                  <td>
+                    <strong>Bitacora</strong>
+                  </td>
+                  <td>
+                    <span className="badge page-badge">Page</span>
+                  </td>
                   <td>Documentación del proyecto y metodología</td>
                   <td>-</td>
                 </tr>
                 <tr>
-                  <td><strong>JsonExplorer</strong></td>
-                  <td><span className="badge page-badge">Page</span></td>
+                  <td>
+                    <strong>JsonExplorer</strong>
+                  </td>
+                  <td>
+                    <span className="badge page-badge">Page</span>
+                  </td>
                   <td>Explorador de datos JSON con filtrado en tiempo real</td>
                   <td>useState (search, filters), useEffect</td>
                 </tr>
                 <tr>
-                  <td><strong>ApiData</strong></td>
-                  <td><span className="badge page-badge">Page</span></td>
-                  <td>Explorador musical via iTunes API con búsqueda y paginación</td>
-                  <td>useState (tracks, loading, error, page, search), useEffect, useRef</td>
+                  <td>
+                    <strong>ApiData</strong>
+                  </td>
+                  <td>
+                    <span className="badge page-badge">Page</span>
+                  </td>
+                  <td>
+                    Explorador musical via iTunes API con búsqueda y paginación
+                  </td>
+                  <td>
+                    useState (tracks, loading, error, page, search), useEffect,
+                    useRef
+                  </td>
                 </tr>
                 <tr>
-                  <td><strong>Gallery</strong></td>
-                  <td><span className="badge page-badge">Page</span></td>
+                  <td>
+                    <strong>Gallery</strong>
+                  </td>
+                  <td>
+                    <span className="badge page-badge">Page</span>
+                  </td>
                   <td>Galería de imágenes con Lightbox</td>
                   <td>useState (lightbox, index), useEffect (keyboard)</td>
                 </tr>
                 <tr>
-                  <td><strong>ComponentTree</strong></td>
-                  <td><span className="badge page-badge">Page</span></td>
+                  <td>
+                    <strong>ComponentTree</strong>
+                  </td>
+                  <td>
+                    <span className="badge page-badge">Page</span>
+                  </td>
                   <td>Visualización del árbol de componentes</td>
                   <td>-</td>
                 </tr>
                 <tr>
-                  <td><strong>*Profile</strong></td>
-                  <td><span className="badge page-badge">Page</span></td>
+                  <td>
+                    <strong>*Profile</strong>
+                  </td>
+                  <td>
+                    <span className="badge page-badge">Page</span>
+                  </td>
                   <td>Páginas individuales de cada integrante (x5)</td>
                   <td>useState (carousels, selections)</td>
                 </tr>

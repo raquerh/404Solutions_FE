@@ -1,4 +1,5 @@
-/* Estilos Valeria — todo bajo .valeria-content excepto lo genuinamente compartido */
+/* Estilos Valeria — todo bajo .valeria-content excepto lo 
+genuinamente compartido */
 
 .valeria-content .profile-header-flex {
   display: flex;
@@ -86,6 +87,51 @@
   font-weight: bold;
 }
 
+/* logos stack tecnologico*/
+.contenedor-seccion-valeria {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.habilidades-valeria {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.listas-valeria {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+@keyframes logo-hover {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
+  }
+  to {
+    opacity: 0.7;
+    transform: scale(1.2); /* agranda 20% */
+    filter: drop-shadow(
+      0px 0px 10px rgba(19, 248, 38, 0.7)
+    ); /* sombra de color / glow */
+    /* filter: drop-shadow(0px 8px 12px rgba(126, 125, 125, 0.3));   sombra */
+  }
+}
+
+.logo-tecnologias-valeria {
+  width: 75px;
+  height: 75px;
+}
+
+.logo-tecnologias-valeria:hover {
+  animation: logo-hover 0.3s ease forwards;
+}
+
 /* Carrusel de discos */
 .valeria-content .carrusel-container {
   position: relative;
@@ -109,7 +155,10 @@
   border: 1px solid rgba(0, 255, 65, 0.15);
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .valeria-content .disco-item:hover {
@@ -196,30 +245,234 @@
   color: var(--terminal-green);
 }
 
+.skills-bars-valeria {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/*responsive */
+
 @media (max-width: 600px) {
   .valeria-content .disco-item {
     flex: 0 0 calc(100% - 15px);
   }
 
-  .valeria-content .profile-header-flex {
-    flex-direction: column;
-  }
+  .valeria-content .disco-item figcaption span {
+  font-size: 0.75rem;
 }
 
-@media (min-width: 600px) {
+.valeria-content .disco-item figcaption a {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.6rem;
+}
+
+  .valeria-content .profile-header-flex {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .valeria-content iframe {
+    height: 180px; /* Reducir altura en móviles */
+  }
+
+  .valeria-content .profile-info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .valeria-content .profile-image img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .valeria-content .habilidades-valeria {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .logo-tecnologias-valeria {
+    width: 65px;
+    height: 65px;
+  }
+
+  .skills-bars-valeria {
+    width: 100%;
+  }
+
+  .valeria-content .contenedor {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .valeria-content .contenedor-peliculas {
+    padding: 10px; /* Reducir padding en móviles */
+  }
+
+  .valeria-content .contenedor-peliculas h4 {
+  font-size: 0.85rem;
+}
+
+  .valeria-content .description-peliculas {
+    text-align: center;
+    font-size: 0.75rem;
+  }
+
+  .valeria-content .btn-leer {
+    align-self: center;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .valeria-content .carrusel-container {
+    padding: 0 40px;
+  }
+
+  .valeria-content .carrusel-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
+}
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
   .valeria-content .disco-item {
     flex: 0 0 calc(50% - 15px);
   }
+
+  .valeria-content .profile-header-flex {
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .valeria-content .profile-image img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .valeria-content .habilidades-valeria {
+    justify-content: space-around;
+    gap: 0.8rem;
+  }
+
+  .logo-tecnologias-valeria {
+    width: 70px;
+    height: 70px;
+  }
+
+  .valeria-content .contenedor-peliculas {
+    padding: 12px;
+  }
+
+  .valeria-content .contenedor {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .valeria-content .description-peliculas {
+    font-size: 0.8rem;
+  }
+
+  .valeria-content .carrusel-container {
+    padding: 0 45px;
+  }
+
+  .valeria-content .carrusel-btn {
+    width: 35px;
+    height: 35px;
+  }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 900px) and (max-width: 1200px) {
   .valeria-content .disco-item {
     flex: 0 0 calc(33.33% - 15px);
+  }
+
+  .valeria-content .profile-header-flex {
+    gap: 2rem;
+    justify-content: flex-start;
+  }
+
+  .valeria-content .profile-image img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .valeria-content .habilidades-valeria {
+    justify-content: space-between;
+  }
+
+  .logo-tecnologias-valeria {
+    width: 80px;
+    height: 80px;
+  }
+
+  .valeria-content .carrusel-container {
+    padding: 0 60px;
+  }
+
+  .valeria-content .contenedor {
+    gap: 1.5rem;
+  }
+
+  .valeria-content .description-peliculas {
+    font-size: 0.9rem;
+  }
+
+  .skills-bars-valeria {
+    width: 90%;
   }
 }
 
 @media (min-width: 1200px) {
   .valeria-content .disco-item {
     flex: 0 0 calc(20% - 15px);
+  }
+
+  .valeria-content .profile-header-flex {
+    gap: 3rem;
+    justify-content: flex-start;
+    margin-bottom: 2.5rem;
+  }
+
+  .valeria-content .profile-image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .valeria-content .habilidades-valeria {
+    justify-content: space-evenly;
+    gap: 1.5rem;
+  }
+
+  .logo-tecnologias-valeria {
+    width: 90px;
+    height: 90px;
+  }
+
+  .valeria-content .carrusel-container {
+    padding: 0 80px;
+  }
+
+  .valeria-content .contenedor {
+    gap: 2rem;
+  }
+
+  .valeria-content .description-peliculas {
+    font-size: 1rem;
+  }
+
+  .skills-bars-valeria {
+    width: 80%;
+    margin: 30px auto;
+  }
+
+  .valeria-content .contenedor-peliculas {
+    padding: 20px;
   }
 }
