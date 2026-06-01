@@ -112,6 +112,8 @@ Demostrar el dominio de React mediante la implementación de:
 │   │
 ├── src/
 │   ├── components/            # Componentes de interfaz reutilizables
+│   │   ├── AdvancedBar.jsx    # Barra segmentada animada interactiva
+│   │   ├── AdvancedBar.css
 │   │   ├── Footer.jsx         # Pie de página con año dinámico
 │   │   ├── Footer.css
 │   │   ├── Header.jsx         # Controlador de menú móvil
@@ -607,7 +609,7 @@ App (ROOT)
 | **Root**      | Componente raíz de la aplicación      | `App.jsx`                                                                    |
 | **Layout**    | Componentes de estructura persistente | `Sidebar.jsx`, `Header.jsx`, `Footer.jsx`                                    |
 | **Page**      | Componentes de vista/página           | `Home.jsx`, `Bitacora.jsx`, `JsonExplorer.jsx`, `ApiData.jsx`, `Gallery.jsx` |
-| **Component** | Componentes reutilizables             | `HeroSection.jsx`, `TeamList.jsx`, `SkillBar.jsx`                            |
+| **Component** | Componentes reutilizables             | `HeroSection.jsx`, `TeamList.jsx`, `SkillBar.jsx`, `AdvancedBar.jsx`         |
 | **Utility**   | Componentes sin UI (lógica)           | `ScrollToTop.jsx`                                                            |
 
 ### Flujo de Datos
@@ -955,7 +957,7 @@ De esta manera, la IA actuó como una herramienta de asistencia dentro del proce
 
 | Integrante              | Rol Principal               | Contribuciones TP2                                                                                                                                                   |
 | :---------------------- | :-------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Mariana Aiello**      | Software Dev & Data Science | Perfil individual, Explorador JSON (filtrado y búsqueda en tiempo real y multicriterio, carga dinámica de datos), Documentación técnica y estructuración del README. |
+| **Mariana Aiello**      | Software Dev & Data Science | Perfil individual, componente AdvancedBar animado, Explorador JSON (filtrado y búsqueda en tiempo real), Documentación y estructuración del README. |
 | **Mario González**      | Full Stack Developer        | Perfil individual, Sidebar Dashboard fija (menú, responsive, hamburguesa), Configuración de React Router y estructura de rutas base, componente SkillBar animado.    |
 | **Miguel Ángel Flores** | Full Stack Developer        | Perfil individual, Módulo API externa (iTunes) con paginación y manejo de estados de carga/error, Setup inicial del proyecto.                                        |
 | **Raquel Rodríguez**    | Front End Developer         | Perfil individual, Galería de imágenes con Lightbox (efecto zoom, navegación por teclado), Estilos globales, animaciones y maquetación general, página de Bitácora.  |
