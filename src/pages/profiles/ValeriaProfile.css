@@ -137,12 +137,13 @@ genuinamente compartido */
   animation: logo-hover 0.3s ease forwards;
 }
 
-/* Carrusel de discos */
-/* Contenedor del carrusel de discos: se extiende a toda la pantalla y se centra con márgenes negativos */
 .valeria-content .discos {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   position: relative;
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+  box-sizing: border-box;
 }
 
 .valeria-content .carrusel-container {
@@ -164,6 +165,7 @@ genuinamente compartido */
 }
 
 .valeria-content .disco-item {
+  min-width: 150px;
   flex: 0 0 calc(100% - 15px);
   text-align: center;
   background: rgba(16, 16, 28, 0.4);
@@ -272,6 +274,12 @@ genuinamente compartido */
 
 @media (max-width: 600px) {
 
+  .valeria-content .discos {
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+  }
+
   .valeria-content .disco-item {
     flex: 0 0 calc(100% - 15px);
     /* 3 discos por fila */
@@ -369,8 +377,16 @@ genuinamente compartido */
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
+
+  .valeria-content .discos {
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+    box-sizing: border-box;
+  }
+
   .valeria-content .disco-item {
-    flex: 0 0 calc(50% - 15px);
+    flex: 0 0 calc(33.33% - 15px);
+    /* 3 en vez de 2 */
   }
 
   .valeria-content .profile-header-flex {
@@ -419,7 +435,8 @@ genuinamente compartido */
 
 @media (min-width: 900px) and (max-width: 1200px) {
   .valeria-content .disco-item {
-    flex: 0 0 calc(33.33% - 15px);
+    flex: 0 0 calc(25% - 15px);
+    /* 4 en vez de 3 */
   }
 
   .valeria-content .profile-header-flex {
@@ -460,7 +477,8 @@ genuinamente compartido */
 
 @media (min-width: 1200px) {
   .valeria-content .disco-item {
-    flex: 0 0 calc(20% - 15px);
+    flex: 0 0 calc(33.33% - 15px);
+    /* 3 en vez de 6, más grandes */
   }
 
   .valeria-content .profile-header-flex {
