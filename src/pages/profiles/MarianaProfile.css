@@ -893,12 +893,40 @@
   opacity: 1;
 }
 
+/* .mariana-submenu ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.mariana-submenu li {
+  flex: 0 0 33%;
+} */
+
+/* .mariana-submenu li {
+  flex: 1 1 45%;
+} */
+
 /* =========================================
    MEDIA QUERIES GLOBALES (Ajuste Submenú)
 ========================================= */
+@media (max-width: 1024px) {
+  .submenu-prompt {
+    display: none;
+  }
+
+  .seccion-interna {
+    scroll-margin-top: 7rem;
+  }
+}
+
 @media (max-width: 768px) {
   .mariana-submenu {
     top: 0rem;
+  }
+
+  .seccion-interna {
+    scroll-margin-top: 9rem;
   }
 }
 
