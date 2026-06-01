@@ -181,21 +181,22 @@ function ValeriaProfile() {
               construyo soluciones que tengan un impacto real y atractivo.
             </p>
 
+            <br />
 
           <h2 className="titulo" id="habilidades">Habilidades_</h2>
                     {[0, 1, 2].map((row) => (
-                      <section key={row} className="contenedor-seccion">
-                        <ul className="habilidades">
+                      <section key={row} className="contenedor-seccion-valeria">
+                        <ul className="habilidades-valeria">
                           {technologies.slice(row * 4, (row + 1) * 4).map((tech, index) => (
-                            <li key={index} className="listas">
-                              <img className="logo-tecnologias" src={tech.img} alt={tech.name} />
+                            <li key={index} className="listas-valeria">
+                              <img className="logo-tecnologias-valeria" src={tech.img} alt={tech.name} />
                             </li>
                           ))}
                         </ul>
                       </section>
                     ))}
           
-                    <div className="skills-bars-mario">
+                    <div className="skills-bars-valeria">
                       <SkillBar skill="HTML5" level={85} delay={100} />
                       <SkillBar skill="CSS3 / Bootstrap" level={80} delay={200} />
                       <SkillBar skill="JavaScript" level={75} delay={300} />
