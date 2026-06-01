@@ -1,21 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import AdvancedBar from "../../components/AdvancedBar";
 import "./ProfileCommon.css";
 import "./MarianaProfile.css";
-
-const AdvancedBar = ({ label, percentage }) => {
-  return (
-    <div className="adv-bar-wrapper">
-      <div className="adv-bar-info">
-        <span>{label}</span>
-        <span>{percentage}%</span>
-      </div>
-      <div className="adv-bar-track scanline-overlay">
-        <div className="adv-bar-fill" style={{ width: `${percentage}%` }}></div>
-      </div>
-    </div>
-  );
-};
 
 function MarianaProfile() {
   const [activeSection, setActiveSection] = useState("sobre-mi");
@@ -28,6 +15,7 @@ function MarianaProfile() {
     trailer: "https://www.youtube.com/embed/vKQi3bBA1y8",
   });
 
+  // Efecto ScrollSpy para el menú
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
@@ -57,6 +45,7 @@ function MarianaProfile() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Datos
   const projects = [
     {
       title: "App de Gestión de Club Deportivo",
@@ -175,7 +164,7 @@ function MarianaProfile() {
 
   return (
     <main className="profile-main">
-      {/* 1. Submenú Fijo Vuelto a la Versión Que Funciona */}
+      {/* Submenú Navegación */}
       <nav className="mariana-submenu">
         <div className="mariana-submenu-inner">
           <span className="submenu-prompt">&gt; mariana.exe</span>
@@ -239,6 +228,7 @@ function MarianaProfile() {
         </div>
       </nav>
 
+      {/* Contenido Principal */}
       <article
         className="profile-card mariana-tarjeta-principal"
         aria-label="Perfil de Mariana"
@@ -251,7 +241,7 @@ function MarianaProfile() {
         </div>
 
         <div className="profile-content mariana-secciones">
-          {/* SECCION: Sobre Mi */}
+          {/* SECCIÓN: Sobre mí */}
           <section id="sobre-mi" className="seccion-interna">
             <h2>&gt; Profile_</h2>
 
@@ -291,7 +281,6 @@ function MarianaProfile() {
               </p>
             </div>
 
-            {/* Redes Sociales con Iconos Limpios y Botones Alineados */}
             <div className="social-links-mariana">
               <div className="social-link-wrapper">
                 <i className="devicon-github-original social-icon-retro"></i>
@@ -320,7 +309,7 @@ function MarianaProfile() {
 
           <hr className="separador-terminal" />
 
-          {/* SECCION: Habilidades */}
+          {/* SECCIÓN: Habilidades */}
           <section id="habilidades" className="seccion-interna">
             <h2>&gt; Habilidades_</h2>
 
@@ -362,7 +351,6 @@ function MarianaProfile() {
               </div>
             </div>
 
-            {/* BARRAS DE PROGRESO SEGMENTADAS */}
             <div className="skills-grid-layout">
               <div className="skills-category">
                 <p className="role-subtitle">
@@ -399,7 +387,7 @@ function MarianaProfile() {
 
           <hr className="separador-terminal" />
 
-          {/* SECCION: Proyectos */}
+          {/* SECCIÓN: Proyectos */}
           <section id="proyectos" className="seccion-interna">
             <h2>&gt; Proyectos_Destacados_</h2>
             <div className="mariana-carrusel">
@@ -468,7 +456,7 @@ function MarianaProfile() {
 
           <hr className="separador-terminal" />
 
-          {/* SECCION: Peliculas */}
+          {/* SECCIÓN: Películas */}
           <section id="peliculas" className="seccion-interna">
             <h2>&gt; Películas Favoritas_</h2>
             <div className="peliculas-posters">
@@ -508,7 +496,7 @@ function MarianaProfile() {
 
           <hr className="separador-terminal" />
 
-          {/* SECCION: Discos */}
+          {/* SECCIÓN: Discos */}
           <section id="discos" className="seccion-interna">
             <h2>&gt; Discos Favoritos_</h2>
             <div className="discos-favoritos">

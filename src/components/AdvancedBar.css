@@ -1,0 +1,78 @@
+.adv-bar-wrapper {
+  margin-bottom: 15px;
+  font-family: monospace;
+}
+
+.adv-bar-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.adv-bar-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 255, 65, 0.1);
+  border: 1px solid rgba(0, 255, 65, 0.2);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.adv-bar-fill {
+  height: 100%;
+  background: repeating-linear-gradient(
+    to right,
+    var(--terminal-green),
+    var(--terminal-green) 10px,
+    transparent 10px,
+    transparent 12px
+  );
+  box-shadow: 0 0 8px var(--terminal-green);
+  transition: width 1s ease-in-out;
+}
+
+.scanline-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  background-size:
+    100% 2px,
+    3px 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.learning-bars .adv-bar-info {
+  color: #ffcc44;
+}
+
+.learning-bars .adv-bar-track {
+  background: rgba(255, 204, 68, 0.1);
+  border: 1px solid rgba(255, 204, 68, 0.2);
+}
+
+.learning-bars .adv-bar-fill {
+  background: repeating-linear-gradient(
+    to right,
+    #ffcc44,
+    #ffcc44 10px,
+    transparent 10px,
+    transparent 12px
+  );
+  box-shadow: 0 0 8px #ffcc44;
+}

@@ -4,15 +4,11 @@
   --color-texto-mutado: #8da392;
 }
 
-/* =========================================
-   ESPACIADOS Y MÁRGENES (AIR Y RESPIRACIÓN)
-========================================= */
 .mariana-secciones {
   display: flex;
   flex-direction: column;
   gap: 40px;
   padding: 40px 30px 80px 30px !important;
-  /* Más aire abajo y a los costados */
 }
 
 @media (min-width: 768px) {
@@ -29,26 +25,18 @@
   margin-bottom: 2.5rem;
   padding-bottom: 0.5rem;
   display: inline-block;
-  /* Quitamos el border-bottom dashed para no tener tantas líneas */
 }
 
-/* =========================================
-   SUBMENU FIJO Y PEGADO ARRIBA
-========================================= */
 .mariana-submenu {
   position: sticky;
   top: 0;
   z-index: 50;
   background: rgba(10, 10, 15, 0.95);
   backdrop-filter: blur(10px);
-  /* Línea verde traslúcida (0.2) */
   border-bottom: 1px solid rgba(0, 255, 65, 0.2);
   width: calc(100% + 40px);
-  /* Compensa el padding de .profile-main */
   margin-top: -20px;
-  /* Anula el padding superior de .profile-main */
   margin-bottom: 50px;
-  /* Espacio extra abajo del submenú */
   margin-left: -20px;
 }
 
@@ -84,7 +72,6 @@
   gap: 6px;
 }
 
-/* Punto indicador amarillo */
 .nav-dot {
   width: 8px;
   height: 8px;
@@ -111,13 +98,9 @@
 .mariana-submenu a:hover,
 .mariana-submenu a.active {
   color: var(--terminal-green);
-  /* Fondo transparente casi nulo para que no encandile */
   background-color: rgba(0, 255, 65, 0.05);
 }
 
-/* =========================================
-   ESTILOS GENERALES
-========================================= */
 .separador-terminal {
   border: none;
   height: 1px;
@@ -158,7 +141,6 @@
   line-height: 1.8;
 }
 
-/* Perfil Header */
 .profile-header-grid {
   display: flex;
   flex-direction: column;
@@ -246,9 +228,6 @@
   margin-top: 30px;
 }
 
-/* =========================================
-   BOTONES REDES SOCIALES
-========================================= */
 .social-links-mariana {
   display: flex;
   gap: 25px;
@@ -259,11 +238,9 @@
 .social-link-wrapper {
   display: flex;
   align-items: center;
-  /* Centra todo verticalmente */
   gap: 10px;
 }
 
-/* Icono redondo y amarillo */
 .social-icon-retro {
   color: #ffcc44;
   font-size: 1.8rem;
@@ -273,13 +250,11 @@
   transition: transform 0.4s ease;
   background-color: transparent;
   border-radius: 50%;
-  /* Hace redondo LinkedIn */
   margin: 0 !important;
   padding: 0 !important;
   line-height: 1 !important;
 }
 
-/* Botón hack-free */
 .advanced-hover {
   background: transparent;
   color: var(--terminal-green);
@@ -292,25 +267,18 @@
   text-decoration: none;
   border-radius: 4px;
   margin: 0 !important;
-  /* <- Esto anula la basura externa que bajaba el botón */
   line-height: 1 !important;
-  /* <- Esto quita el espacio fantasma debajo del texto */
 }
 
-/* Hover: botón verde, letra negra */
 .social-link-wrapper:hover .advanced-hover {
   background: var(--terminal-green) !important;
   color: #000 !important;
 }
 
-/* Hover: icono gira pero sigue amarillo */
 .social-link-wrapper:hover .social-icon-retro {
   transform: rotate(360deg);
 }
 
-/* =========================================
-   ICONOS TECH STACK
-========================================= */
 .skills-icons-section {
   margin-bottom: 3rem;
   padding: 1.5rem;
@@ -394,14 +362,10 @@
   filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.8));
 }
 
-/* =========================================
-   BARRAS DE PROGRESO CSS SEGMENTADAS
-========================================= */
 .skills-grid-layout {
   display: grid;
   grid-template-columns: 1fr;
   gap: 60px;
-  /* Más espacio entre columnas */
 }
 
 @media (min-width: 900px) {
@@ -410,88 +374,6 @@
   }
 }
 
-.adv-bar-wrapper {
-  margin-bottom: 15px;
-  font-family: monospace;
-}
-
-.adv-bar-info {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 6px;
-  font-size: 0.8rem;
-  font-weight: bold;
-}
-
-/* Caja de la barra con scanlines transparentes encima */
-.adv-bar-track {
-  width: 100%;
-  height: 8px;
-  /* Barras delgaditas y sutiles */
-  background: rgba(0, 255, 65, 0.1);
-  border: 1px solid rgba(0, 255, 65, 0.2);
-  border-radius: 2px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Efecto visual de bloques segmentados */
-.adv-bar-fill {
-  height: 100%;
-  /* Crea rayas verticales vacías para que parezcan cuadritos */
-  background: repeating-linear-gradient(to right,
-      var(--terminal-green),
-      var(--terminal-green) 10px,
-      transparent 10px,
-      transparent 12px);
-  box-shadow: 0 0 8px var(--terminal-green);
-  transition: width 1s ease-in-out;
-}
-
-/* Color Amarillo para las barras de Learning Path */
-.learning-bars .adv-bar-info {
-  color: #ffcc44;
-}
-
-.learning-bars .adv-bar-track {
-  background: rgba(255, 204, 68, 0.1);
-  border: 1px solid rgba(255, 204, 68, 0.2);
-}
-
-.learning-bars .adv-bar-fill {
-  background: repeating-linear-gradient(to right,
-      #ffcc44,
-      #ffcc44 10px,
-      transparent 10px,
-      transparent 12px);
-  box-shadow: 0 0 8px #ffcc44;
-}
-
-/* Capa de Scanlines general sólo sobre el fondo de las barras */
-.scanline-overlay::after {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background:
-    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-    linear-gradient(90deg,
-      rgba(255, 0, 0, 0.06),
-      rgba(0, 255, 0, 0.02),
-      rgba(0, 0, 255, 0.06));
-  background-size:
-    100% 2px,
-    3px 100%;
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* =========================================
-   CARRUSEL 
-========================================= */
 .mariana-carrusel {
   display: flex;
   align-items: center;
@@ -679,9 +561,6 @@
   background: var(--terminal-green);
 }
 
-/* =========================================
-   TEXTOS CENTRADOS Y GRID 3 a 1
-========================================= */
 .mariana-tarjeta-principal .pelicula-detalles {
   text-align: center !important;
   justify-content: center !important;
@@ -698,7 +577,6 @@
   justify-content: center !important;
 }
 
-/* Separación entre discos ampliada */
 .mariana-tarjeta-principal .discos-favoritos {
   display: grid !important;
   grid-template-columns: 1fr !important;
@@ -722,9 +600,6 @@
   }
 }
 
-/* =========================================
-   PELICULAS Y DISCOS GENERALES
-========================================= */
 .peliculas-posters {
   display: flex;
   justify-content: center;
@@ -893,40 +768,9 @@
   opacity: 1;
 }
 
-/* .mariana-submenu ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.mariana-submenu li {
-  flex: 0 0 33%;
-} */
-
-/* .mariana-submenu li {
-  flex: 1 1 45%;
-} */
-
-/* =========================================
-   MEDIA QUERIES GLOBALES (Ajuste Submenú)
-========================================= */
-@media (max-width: 1024px) {
-  .submenu-prompt {
-    display: none;
-  }
-
-  .seccion-interna {
-    scroll-margin-top: 7rem;
-  }
-}
-
 @media (max-width: 768px) {
   .mariana-submenu {
-    top: 0rem;
-  }
-
-  .seccion-interna {
-    scroll-margin-top: 9rem;
+    top: 3.5rem;
   }
 }
 
@@ -934,11 +778,6 @@
   .role-subtitle {
     font-size: 0.8rem;
   }
-
-  .seccion-interna {
-    scroll-margin-top: 12rem;
-  }
-
   .mariana-secciones .profile-data-box {
     font-size: 0.8rem;
   }
@@ -946,8 +785,6 @@
   .tech-icons {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  /* En celular, achicamos la letra y quitamos margen lateral */
   .mariana-submenu {
     margin-left: 0;
     width: 100%;
