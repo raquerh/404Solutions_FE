@@ -4,14 +4,11 @@
   --color-texto-mutado: #8da392;
 }
 
-/* =========================================
-   ESPACIADOS Y MÁRGENES (AIR Y RESPIRACIÓN)
-========================================= */
 .mariana-secciones {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 40px 30px 80px 30px !important; /* Más aire abajo y a los costados */
+  padding: 40px 30px 80px 30px !important;
 }
 
 @media (min-width: 768px) {
@@ -28,23 +25,18 @@
   margin-bottom: 2.5rem;
   padding-bottom: 0.5rem;
   display: inline-block;
-  /* Quitamos el border-bottom dashed para no tener tantas líneas */
 }
 
-/* =========================================
-   SUBMENU FIJO Y PEGADO ARRIBA
-========================================= */
 .mariana-submenu {
   position: sticky;
   top: 0;
   z-index: 50;
   background: rgba(10, 10, 15, 0.95);
   backdrop-filter: blur(10px);
-  /* Línea verde traslúcida (0.2) */
   border-bottom: 1px solid rgba(0, 255, 65, 0.2);
-  width: calc(100% + 40px); /* Compensa el padding de .profile-main */
-  margin-top: -20px; /* Anula el padding superior de .profile-main */
-  margin-bottom: 50px; /* Espacio extra abajo del submenú */
+  width: calc(100% + 40px);
+  margin-top: -20px;
+  margin-bottom: 50px;
   margin-left: -20px;
 }
 
@@ -80,7 +72,6 @@
   gap: 6px;
 }
 
-/* Punto indicador amarillo */
 .nav-dot {
   width: 8px;
   height: 8px;
@@ -107,13 +98,9 @@
 .mariana-submenu a:hover,
 .mariana-submenu a.active {
   color: var(--terminal-green);
-  /* Fondo transparente casi nulo para que no encandile */
   background-color: rgba(0, 255, 65, 0.05);
 }
 
-/* =========================================
-   ESTILOS GENERALES
-========================================= */
 .separador-terminal {
   border: none;
   height: 1px;
@@ -156,7 +143,6 @@
   line-height: 1.8;
 }
 
-/* Perfil Header */
 .profile-header-grid {
   display: flex;
   flex-direction: column;
@@ -173,13 +159,13 @@
   align-items: center;
 }
 
-.profile-data-box {
+.mariana-secciones .profile-data-box {
   font-size: 1.1rem;
   color: var(--terminal-green);
   text-align: left;
 }
 
-.profile-data-box p {
+.mariana-secciones .profile-data-box p {
   margin: 5px 0;
   font-weight: bold;
 }
@@ -246,9 +232,6 @@
   margin-top: 30px;
 }
 
-/* =========================================
-   BOTONES REDES SOCIALES
-========================================= */
 .social-links-mariana {
   display: flex;
   gap: 25px;
@@ -258,11 +241,10 @@
 
 .social-link-wrapper {
   display: flex;
-  align-items: center; /* Centra todo verticalmente */
+  align-items: center;
   gap: 10px;
 }
 
-/* Icono redondo y amarillo */
 .social-icon-retro {
   color: #ffcc44;
   font-size: 1.8rem;
@@ -271,13 +253,12 @@
   justify-content: center;
   transition: transform 0.4s ease;
   background-color: transparent;
-  border-radius: 50%; /* Hace redondo LinkedIn */
+  border-radius: 50%;
   margin: 0 !important;
   padding: 0 !important;
   line-height: 1 !important;
 }
 
-/* Botón hack-free */
 .advanced-hover {
   background: transparent;
   color: var(--terminal-green);
@@ -289,24 +270,19 @@
   font-weight: bold;
   text-decoration: none;
   border-radius: 4px;
-  margin: 0 !important; /* <- Esto anula la basura externa que bajaba el botón */
-  line-height: 1 !important; /* <- Esto quita el espacio fantasma debajo del texto */
+  margin: 0 !important;
+  line-height: 1 !important;
 }
 
-/* Hover: botón verde, letra negra */
 .social-link-wrapper:hover .advanced-hover {
   background: var(--terminal-green) !important;
   color: #000 !important;
 }
 
-/* Hover: icono gira pero sigue amarillo */
 .social-link-wrapper:hover .social-icon-retro {
   transform: rotate(360deg);
 }
 
-/* =========================================
-   ICONOS TECH STACK
-========================================= */
 .skills-icons-section {
   margin-bottom: 3rem;
   padding: 1.5rem;
@@ -390,13 +366,10 @@
   filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.8));
 }
 
-/* =========================================
-   BARRAS DE PROGRESO CSS SEGMENTADAS
-========================================= */
 .skills-grid-layout {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 60px; /* Más espacio entre columnas */
+  gap: 60px;
 }
 
 @media (min-width: 900px) {
@@ -405,91 +378,6 @@
   }
 }
 
-.adv-bar-wrapper {
-  margin-bottom: 15px;
-  font-family: monospace;
-}
-
-.adv-bar-info {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 6px;
-  font-size: 0.8rem;
-  font-weight: bold;
-}
-
-/* Caja de la barra con scanlines transparentes encima */
-.adv-bar-track {
-  width: 100%;
-  height: 8px; /* Barras delgaditas y sutiles */
-  background: rgba(0, 255, 65, 0.1);
-  border: 1px solid rgba(0, 255, 65, 0.2);
-  border-radius: 2px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Efecto visual de bloques segmentados */
-.adv-bar-fill {
-  height: 100%;
-  /* Crea rayas verticales vacías para que parezcan cuadritos */
-  background: repeating-linear-gradient(
-    to right,
-    var(--terminal-green),
-    var(--terminal-green) 10px,
-    transparent 10px,
-    transparent 12px
-  );
-  box-shadow: 0 0 8px var(--terminal-green);
-  transition: width 1s ease-in-out;
-}
-
-/* Color Amarillo para las barras de Learning Path */
-.learning-bars .adv-bar-info {
-  color: #ffcc44;
-}
-.learning-bars .adv-bar-track {
-  background: rgba(255, 204, 68, 0.1);
-  border: 1px solid rgba(255, 204, 68, 0.2);
-}
-.learning-bars .adv-bar-fill {
-  background: repeating-linear-gradient(
-    to right,
-    #ffcc44,
-    #ffcc44 10px,
-    transparent 10px,
-    transparent 12px
-  );
-  box-shadow: 0 0 8px #ffcc44;
-}
-
-/* Capa de Scanlines general sólo sobre el fondo de las barras */
-.scanline-overlay::after {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background:
-    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-    linear-gradient(
-      90deg,
-      rgba(255, 0, 0, 0.06),
-      rgba(0, 255, 0, 0.02),
-      rgba(0, 0, 255, 0.06)
-    );
-  background-size:
-    100% 2px,
-    3px 100%;
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* =========================================
-   CARRUSEL 
-========================================= */
 .mariana-carrusel {
   display: flex;
   align-items: center;
@@ -497,6 +385,7 @@
   position: relative;
   margin-top: 20px;
 }
+
 .mc-contenedor {
   width: 100%;
   max-width: 800px;
@@ -505,6 +394,7 @@
   border: 1px solid rgba(0, 255, 65, 0.3);
   background: rgba(10, 10, 15, 0.6);
 }
+
 .mc-card {
   display: grid;
   grid-template-columns: 1fr;
@@ -517,6 +407,7 @@
     grid-template-columns: 1fr 1.5fr;
   }
 }
+
 @keyframes slideFade {
   from {
     opacity: 0;
@@ -536,6 +427,7 @@
   overflow: hidden;
   border-bottom: 1px solid rgba(0, 255, 65, 0.3);
 }
+
 @media (min-width: 768px) {
   .mc-imagen {
     border-bottom: none;
@@ -553,6 +445,7 @@
   filter: grayscale(0.8) contrast(1.2);
   background-color: #000;
 }
+
 .mc-card:hover .mc-imagen img {
   transform: scale(1.08);
   filter: grayscale(0) contrast(1);
@@ -565,22 +458,26 @@
   gap: 15px;
   justify-content: center;
 }
+
 .mc-info h3 {
   color: var(--terminal-green);
   margin: 0;
   font-size: 1.5rem;
 }
+
 .mc-info p {
   color: var(--color-texto-mutado);
   font-size: 0.9rem;
   line-height: 1.6;
   margin: 0;
 }
+
 .mc-techs {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
+
 .mc-badge {
   border: 1px solid #ffcc44;
   color: #ffcc44;
@@ -589,11 +486,13 @@
   font-size: 0.75rem;
   font-family: monospace;
 }
+
 .mc-links {
   display: flex;
   gap: 15px;
   margin-top: 10px;
 }
+
 .mc-links a {
   color: var(--terminal-green);
   text-decoration: none;
@@ -603,6 +502,7 @@
   border-radius: 4px;
   transition: all 0.3s;
 }
+
 .mc-links a:hover {
   background: var(--terminal-green);
   color: #000;
@@ -626,13 +526,16 @@
   justify-content: center;
   padding-bottom: 4px;
 }
+
 .mc-btn:hover {
   background: var(--terminal-green);
   color: #000;
 }
+
 .mc-prev {
   left: -15px;
 }
+
 .mc-next {
   right: -15px;
 }
@@ -643,6 +546,7 @@
   gap: 8px;
   margin-top: 20px;
 }
+
 .mc-dot {
   width: 10px;
   height: 10px;
@@ -653,40 +557,41 @@
   padding: 0;
   transition: all 0.3s;
 }
+
 .mc-dot.activo {
   width: 25px;
   border-radius: 5px;
   background: var(--terminal-green);
 }
 
-/* =========================================
-   TEXTOS CENTRADOS Y GRID 3 a 1
-========================================= */
 .mariana-tarjeta-principal .pelicula-detalles {
   text-align: center !important;
   justify-content: center !important;
   align-items: center !important;
 }
+
 .mariana-tarjeta-principal .disco-info {
   text-align: center !important;
   justify-content: center !important;
 }
+
 .mariana-tarjeta-principal .disco-meta,
 .mariana-tarjeta-principal .pelicula-detalles .disco-meta {
   justify-content: center !important;
 }
 
-/* Separación entre discos ampliada */
 .mariana-tarjeta-principal .discos-favoritos {
   display: grid !important;
   grid-template-columns: 1fr !important;
   gap: 25px !important;
 }
+
 @media (min-width: 600px) {
   .mariana-tarjeta-principal .discos-favoritos {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
+
 @media (min-width: 900px) {
   .mariana-tarjeta-principal .discos-favoritos {
     grid-template-columns: repeat(3, 1fr) !important;
@@ -697,9 +602,6 @@
   }
 }
 
-/* =========================================
-   PELICULAS Y DISCOS GENERALES
-========================================= */
 .peliculas-posters {
   display: flex;
   justify-content: center;
@@ -707,6 +609,7 @@
   margin-bottom: 25px;
   margin-top: 20px;
 }
+
 .poster-item {
   width: 30%;
   max-width: 140px;
@@ -717,11 +620,13 @@
   border: 2px solid transparent;
   transition: all 0.3s ease;
 }
+
 .poster-item.activo {
   border-color: var(--terminal-green);
   box-shadow: 0 0 12px rgba(0, 255, 65, 0.4);
   transform: translateY(-5px);
 }
+
 .poster-img {
   width: 100%;
   aspect-ratio: 2 / 3;
@@ -729,6 +634,7 @@
   display: block;
   transition: transform 0.3s ease;
 }
+
 .poster-item:hover .poster-img {
   transform: scale(1.05);
 }
@@ -748,6 +654,7 @@
   visibility: hidden;
   transition: all 250ms ease-in-out;
 }
+
 .poster-item:hover .poster-overlay {
   visibility: visible;
   opacity: 1;
@@ -762,6 +669,7 @@
   padding: 15px;
   gap: 20px;
 }
+
 .pelicula-trailer {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -769,6 +677,7 @@
   overflow: hidden;
   border: 1px solid rgba(0, 255, 65, 0.2);
 }
+
 .pelicula-trailer iframe {
   width: 100%;
   height: 100%;
@@ -786,33 +695,39 @@
     transform 0.3s ease,
     border-color 0.3s ease;
 }
+
 .mariana-secciones .disco-item:hover {
   transform: translateY(-5px);
   border-color: rgba(0, 255, 65, 0.4);
 }
+
 .mariana-secciones .disco-album {
   color: var(--text-accent);
   font-size: 1rem;
   font-weight: bold;
   margin: 0 0 5px 0;
 }
+
 .mariana-secciones .disco-meta {
   display: flex;
   gap: 6px;
   margin-bottom: 12px;
 }
+
 .mariana-secciones .disco-autor,
 .mariana-secciones .disco-year {
   color: var(--terminal-green);
   font-size: 0.8rem;
   font-weight: bold;
 }
+
 .mariana-secciones .disco-desc {
   color: var(--color-texto-mutado);
   font-size: 0.75rem;
   line-height: 1.4;
   margin: 0;
 }
+
 .mariana-secciones .disco-img-container {
   position: relative;
   display: block;
@@ -821,6 +736,7 @@
   overflow: hidden;
   border-top: 1px solid rgba(0, 255, 65, 0.2);
 }
+
 .mariana-secciones .disco-img-container img {
   width: 100%;
   height: 100%;
@@ -828,9 +744,11 @@
   display: block;
   transition: transform 300ms ease-in-out;
 }
+
 .mariana-secciones .disco-item:hover .disco-img-container img {
   transform: scale(1.05);
 }
+
 .mariana-secciones .reproducir-texto {
   position: absolute;
   bottom: 0;
@@ -846,26 +764,28 @@
   visibility: hidden;
   transition: all 250ms ease-in-out;
 }
+
 .mariana-secciones .disco-item:hover .reproducir-texto {
   visibility: visible;
   opacity: 1;
 }
 
-/* =========================================
-   MEDIA QUERIES GLOBALES (Ajuste Submenú)
-========================================= */
+@media (max-width: 768px) {
+  .mariana-submenu {
+    top: 3.5rem;
+  }
+}
+
 @media (max-width: 600px) {
   .role-subtitle {
     font-size: 0.8rem;
   }
-  .profile-data-box {
+  .mariana-secciones .profile-data-box {
     font-size: 0.8rem;
   }
   .tech-icons {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  /* En celular, achicamos la letra y quitamos margen lateral */
   .mariana-submenu {
     margin-left: 0;
     width: 100%;
