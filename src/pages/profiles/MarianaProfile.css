@@ -19,6 +19,7 @@
 
 .seccion-interna {
   width: 100%;
+  scroll-margin-top: 7rem;
 }
 
 .seccion-interna h2 {
